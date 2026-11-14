@@ -1,0 +1,26 @@
+id: BU-01KGP000000000000000000003
+title: Alphabet-level activities
+recorded_at: '2026-11-14'
+provenance:
+- REC-01KGP000000000000000000001
+sensitivity: public
+serves_task:
+- LENS-01KGP000000000000000000001
+trust: provisional
+seeded: true
+owner: example-owner
+events: []
+valid_from: 2023-Q4
+valid_to: null
+last_confirmed: '2026-11-14'
+review_window: 1q
+related: []
+definition: Costs and items not allocated to a segment, which the company says primarily reflect shared
+  AI research and development.
+interpretation: A reconciling item between segment operating income and consolidated operating income;
+  it can include revenue hedging gains and losses and severance or office space charges.
+positive_signal: Stable share of revenue.
+negative_signal: Rising share of revenue without a stated reason.
+agent_reuse: Load when segment operating income does not sum to consolidated operating income, or when
+  reading consolidated margin.
+boundaries: Do not read it as a segment; its drivers are stated only in the company's footnotes.

@@ -1,0 +1,22 @@
+id: BU-01KGP000000000000000000011
+title: Other income is independent of operating income
+recorded_at: '2026-11-14'
+provenance:
+- REC-01KGP000000000000000000001
+sensitivity: public
+serves_task:
+- LENS-01KGP000000000000000000001
+trust: provisional
+seeded: true
+owner: example-owner
+events: []
+valid_from: 2023-Q4
+valid_to: null
+last_confirmed: '2026-11-14'
+review_window: 1q
+related: []
+from: BU-01KGP000000000000000000004
+to: BU-01KGP000000000000000000005
+type: independent
+lag: none
+impact_scope: Net income and EPS only; no effect on operating income or any margin

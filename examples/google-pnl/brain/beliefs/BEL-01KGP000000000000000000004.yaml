@@ -1,0 +1,23 @@
+id: BEL-01KGP000000000000000000004
+title: Does Cloud margin keep rising?
+recorded_at: '2026-11-14'
+provenance:
+- REC-01KGP000000000000000000002
+sensitivity: public
+serves_task:
+- LENS-01KGP000000000000000000001
+trust: observation
+seeded: false
+owner: example-owner
+events:
+- EVT-2026-Q3-EARNINGS
+valid_from: 2026-Q3
+valid_to: null
+last_confirmed: '2026-11-14'
+review_window: 1q
+related:
+- BEL-01KGP000000000000000000001
+question: Will Cloud's operating margin keep rising as revenue growth accelerates, or level off?
+expectation: Margin holds or rises next quarter if revenue growth stays above its prior-year pace.
+what_would_resolve_it: 'The next two quarterly releases: a quarter-on-quarter margin decline, or a flat
+  margin with accelerating revenue, would answer it.'

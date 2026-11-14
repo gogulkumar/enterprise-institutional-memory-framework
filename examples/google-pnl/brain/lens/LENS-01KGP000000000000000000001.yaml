@@ -1,0 +1,44 @@
+id: LENS-01KGP000000000000000000001
+title: Quarterly P&L review commentary
+recorded_at: '2026-11-14'
+provenance:
+- REC-01KGP000000000000000000001
+sensitivity: public
+purpose: Explain what changed in the quarter's reported results, which parts are normal for this business,
+  and what that changes about how the next quarter should be read.
+audience: Finance leadership reading the quarterly results
+decisions_supported:
+- Which segment the quarter's story rests on
+- Whether a movement needs follow-up before it is communicated
+- How to frame consolidated margin against segment margins
+cadence: Quarterly, on the earnings release
+allowed_sources:
+- Alphabet earnings releases and periodic filings filed with the SEC (system of record)
+in_scope:
+- Reported revenue by segment and by revenue type
+- Segment and consolidated operating income
+- Items between operating income and net income
+out_of_scope:
+- Valuation or price targets
+- Guidance beyond what the company states
+- Other companies
+procedure:
+  governing_question: What moved in the quarter versus the prior quarter and the same quarter last year,
+    which movements are inside the normal pattern, and what does the quarter change about the read on
+    the next one?
+  investigation: true
+  boundary: Describe where results moved and what is measured. Do not state a cause the filings do not
+    state, and do not forecast.
+  question_sources:
+  - BU-01KGP000000000000000000006
+  - BU-01KGP000000000000000000007
+  - BU-01KGP000000000000000000008
+  - BU-01KGP000000000000000000009
+  - BEL-01KGP000000000000000000001
+  - BEL-01KGP000000000000000000002
+  - BEL-01KGP000000000000000000003
+  - BEL-01KGP000000000000000000004
+  completion_rule: Every movement outside its normal range is located by segment or line and either explained
+    by a stated item or reported as unexplained; the consolidated read is reconciled to operating income.
+  output_shape: Short commentary led by the largest unexplained or abnormal movement, then segment reads,
+    then items below operating income.

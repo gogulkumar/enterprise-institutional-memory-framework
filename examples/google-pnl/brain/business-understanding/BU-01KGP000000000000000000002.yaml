@@ -1,0 +1,23 @@
+id: BU-01KGP000000000000000000002
+title: Google Cloud segment
+recorded_at: '2026-11-14'
+provenance:
+- REC-01KGP000000000000000000001
+sensitivity: public
+serves_task:
+- LENS-01KGP000000000000000000001
+trust: provisional
+seeded: true
+owner: example-owner
+events: []
+valid_from: 2023-Q4
+valid_to: null
+last_confirmed: '2026-11-14'
+review_window: 1q
+related: []
+definition: The segment that earns Google Cloud revenue.
+interpretation: The growth segment; scale and margin have moved together.
+positive_signal: Revenue growth with rising margin.
+negative_signal: Falling margin while revenue grows.
+agent_reuse: Load when a question concerns Cloud revenue, Cloud margin or the source of consolidated growth.
+boundaries: Does not include shared costs held at the Alphabet level.

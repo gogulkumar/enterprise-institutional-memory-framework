@@ -1,0 +1,33 @@
+id: BU-01KGP000000000000000000006
+title: Services seasonality
+recorded_at: '2026-11-14'
+provenance:
+- REC-01KGP000000000000000000002
+sensitivity: public
+serves_task:
+- LENS-01KGP000000000000000000001
+trust: provisional
+seeded: false
+owner: example-owner
+events:
+- EVT-2024-Q1-EARNINGS
+- EVT-2024-Q2-EARNINGS
+- EVT-2024-Q3-EARNINGS
+- EVT-2024-Q4-EARNINGS
+- EVT-2025-Q1-EARNINGS
+- EVT-2025-Q2-EARNINGS
+- EVT-2025-Q3-EARNINGS
+- EVT-2025-Q4-EARNINGS
+- EVT-2026-Q1-EARNINGS
+- EVT-2026-Q2-EARNINGS
+- EVT-2026-Q3-EARNINGS
+valid_from: 2024-Q1
+valid_to: null
+last_confirmed: '2026-11-14'
+review_window: 1q
+related: []
+subject: Sequential Services revenue growth by quarter
+normal_pattern: Steps up by about a tenth into Q4, falls by about 6 to 8 percent into Q1, and grows in
+  the low to mid single digits into Q2 and Q3.
+materiality_threshold: A sequential move more than 3 points outside that quarter's usual band.
+conditions: Q4 rests on two observations (2024, 2025). Re-baseline if revenue types are reclassified.

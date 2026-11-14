@@ -1,0 +1,26 @@
+id: BU-01KGP000000000000000000001
+title: Google Services segment
+recorded_at: '2026-11-14'
+provenance:
+- REC-01KGP000000000000000000001
+sensitivity: public
+serves_task:
+- LENS-01KGP000000000000000000001
+trust: provisional
+seeded: true
+owner: example-owner
+events: []
+valid_from: 2023-Q4
+valid_to: null
+last_confirmed: '2026-11-14'
+review_window: 1q
+related: []
+definition: The segment that earns Search & other, YouTube ads, Network, and subscriptions, platforms
+  and devices revenue.
+interpretation: The mature, advertising-led profit engine; its revenue follows a stable seasonal pattern
+  and its margin sits in a band.
+positive_signal: Revenue growth with margin inside its band.
+negative_signal: Margin outside its band without a stated one-off item.
+agent_reuse: Load when a question concerns total or advertising revenue, Services margin or seasonality.
+boundaries: Revenue hedging gains and losses are not in the segment; segment operating income excludes
+  Alphabet-level activities.

@@ -221,4 +221,5 @@ SPEC.md               this document
 schemas/              JSON Schema per entry type, generated from §4
 skills/build/  skills/learn/  skills/think/
 templates/brain/      empty brain: config.yaml, index.yaml, changelog.md, proposals/, archive/, one folder per component
+examples/google-pnl/  one worked brain on reported quarterly results, with its source data under data/
 ```

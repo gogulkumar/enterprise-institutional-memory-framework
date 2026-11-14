@@ -5,6 +5,7 @@ A framework that gives any AI agent an institutional brain: a governed memory of
 - **[SPEC.md](./SPEC.md)** is the framework: components, entry schemas, trust ladder, processes. It is the single source of truth.
 - **[skills/](./skills/)** are the three skills an agent runs: `build`, `learn`, `think`.
 - **[templates/brain/](./templates/brain/)** is an empty brain to copy.
+- **[examples/google-pnl/](./examples/google-pnl/)** is a worked brain on Alphabet's reported quarterly P&L, with the data.
 
 ## Why this exists
 

@@ -1,0 +1,37 @@
+id: BEL-01KGP000000000000000000002
+title: Alphabet-level costs lag margin gains
+recorded_at: '2026-11-14'
+provenance:
+- REC-01KGP000000000000000000001
+- REC-01KGP000000000000000000002
+sensitivity: public
+serves_task:
+- LENS-01KGP000000000000000000001
+trust: provisional
+seeded: false
+owner: example-owner
+events:
+- EVT-2025-Q3-EARNINGS
+- EVT-2025-Q4-EARNINGS
+- EVT-2026-Q1-EARNINGS
+- EVT-2026-Q2-EARNINGS
+- EVT-2026-Q3-EARNINGS
+valid_from: 2025-Q3
+valid_to: null
+last_confirmed: '2026-11-14'
+review_window: 1q
+related:
+- BU-01KGP000000000000000000008
+- BU-01KGP000000000000000000010
+statement: Costs held at the Alphabet level have taken a larger share of revenue since 2025-Q3, so expect
+  consolidated margin to improve less than the segment margins do.
+why_it_matters: It changes how a strong segment quarter should be framed against the consolidated result.
+source_concepts:
+- BU-01KGP000000000000000000003
+- BU-01KGP000000000000000000005
+normal_baseline: BU-01KGP000000000000000000008
+watch_condition: If the share returns to its earlier range for two quarters, retire this belief.
+evolution_trail:
+- 'Backfill 2023-Q4 to 2026-Q3: share stepped up from 2025-Q3 and stayed higher; proposed as provisional.'
+tags:
+- causal attribution

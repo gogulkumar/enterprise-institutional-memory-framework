@@ -1,0 +1,25 @@
+id: REC-01KGP000000000000000000001
+title: Alphabet quarterly earnings releases
+recorded_at: '2026-11-14'
+provenance:
+- expert:example-owner
+sensitivity: public
+type: earnings release (SEC Form 8-K, Exhibit 99.1)
+business_area: consolidated and segment results
+period: 2026-Q3
+event_ids:
+- EVT-2023-Q4-EARNINGS
+- EVT-2024-Q1-EARNINGS
+- EVT-2024-Q2-EARNINGS
+- EVT-2024-Q3-EARNINGS
+- EVT-2024-Q4-EARNINGS
+- EVT-2025-Q1-EARNINGS
+- EVT-2025-Q2-EARNINGS
+- EVT-2025-Q3-EARNINGS
+- EVT-2025-Q4-EARNINGS
+- EVT-2026-Q1-EARNINGS
+- EVT-2026-Q2-EARNINGS
+- EVT-2026-Q3-EARNINGS
+version: as filed; each release also carries the prior-year quarter
+location: SEC EDGAR, Alphabet Inc. (CIK 1652044); release list in examples/google-pnl/data/SOURCES.md
+authority_rank: system_of_record

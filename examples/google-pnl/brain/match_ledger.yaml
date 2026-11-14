@@ -1,0 +1,18 @@
+# Match ledger: one row per Learn signal (SPEC 4.8)
+- pass_id: PASS-BACKFILL-1
+  signal: Cloud operating margin rose or held flat across all 12 quarters while revenue grew
+  matched_entry: null
+  action: new_observation
+- pass_id: PASS-BACKFILL-1
+  signal: Alphabet-level activities took a larger share of revenue from 2025-Q3
+  matched_entry: null
+  action: new_observation
+- pass_id: PASS-BACKFILL-1
+  signal: Net income left its ordinary ratio to operating income in five quarters, each tied to equity securities
+    results
+  matched_entry: null
+  action: new_observation
+- pass_id: PASS-BACKFILL-1
+  signal: Cloud margin trajectory contained in the Cloud margin belief; open question whether it continues
+  matched_entry: BEL-01KGP000000000000000000001
+  action: refine

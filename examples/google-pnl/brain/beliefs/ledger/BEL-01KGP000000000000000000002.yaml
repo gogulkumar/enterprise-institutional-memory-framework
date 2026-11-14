@@ -1,0 +1,20 @@
+belief: BEL-01KGP000000000000000000002
+rows:
+- record_id: REC-01KGP000000000000000000001
+  event_id: EVT-2025-Q3-EARNINGS
+  kind: supporting
+- record_id: REC-01KGP000000000000000000001
+  event_id: EVT-2025-Q4-EARNINGS
+  kind: supporting
+- record_id: REC-01KGP000000000000000000001
+  event_id: EVT-2026-Q1-EARNINGS
+  kind: supporting
+- record_id: REC-01KGP000000000000000000001
+  event_id: EVT-2026-Q2-EARNINGS
+  kind: supporting
+- record_id: REC-01KGP000000000000000000001
+  event_id: EVT-2026-Q3-EARNINGS
+  kind: supporting
+- record_id: REC-01KGP000000000000000000001
+  event_id: EVT-2025-Q3-EARNINGS
+  kind: caution
