@@ -1,9 +1,8 @@
 ---
-title: Archive Folder
-description: Retired, replaced and historical entries, and older versions named `<id>.v<n>.yaml`.
-purpose: Keep history without loading it.
-when_to_use: Open only when reasoning about a past period or auditing a change. Not indexed.
-last_modified: 2026-11-14
+name: brain-archive-folder
+description: 'Folder for entries no longer in use: retired entries, expired observations, superseded older versions and entries whose validity has ended, kept for audit and never loaded for answers. Use when retiring or replacing an entry, or when tracing what the brain believed in an earlier period.'
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Archive

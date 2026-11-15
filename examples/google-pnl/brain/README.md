@@ -1,9 +1,8 @@
 ---
-title: Brain (template)
-description: An empty brain laid out as in SPEC section 15.1. Copy this folder, fill in config.yaml, then run the build skill.
-purpose: Give a new brain its layout and say where each kind of entry goes.
-when_to_use: Open when starting a brain or unsure which folder an entry belongs in.
-last_modified: 2026-11-14
+name: brain-root
+description: 'Root folder of an institutional brain: what each sub-folder holds, which files are generated, and the rule that every change goes through a proposal. Use when setting up a new brain from the template, or when unsure which folder something belongs in.'
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Brain

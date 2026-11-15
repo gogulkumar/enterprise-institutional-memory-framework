@@ -1,10 +1,8 @@
 ---
 name: learn
-title: "Learn: Take In Any Text"
-description: Learn from any text the owner gives the agent (a report, draft, email, chat, rough note, transcript or correction) and apply the resulting proposals with the single applier. Run whenever the owner hands over a text or corrects the agent, every period, and to process the proposal queue. Implements SPEC 9 and 12.
-purpose: Playbook for turning any owner text into reviewable proposals and applying them safely, following SPEC sections 9 and 12.
-when_to_use: Run whenever the owner gives the agent a text or a correction, during Build backfill, every period to stay current, or when the proposal queue needs applying.
-last_modified: 2026-11-14
+description: Turns any text the owner gives the agent (a report, draft, email, chat, rough note, transcript or correction) into reviewable changes to the brain, then applies them through the single applier. Use whenever the owner shares a text or corrects the agent, during the build backfill, every period to stay current, or when proposals are waiting to be applied.
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Learn
@@ -85,7 +83,7 @@ Write one file per change in `brain/proposals/<ULID>.yaml` with the five fields 
 4. **Automatic items.** Apply those SPEC 12.1 and 7.1 mark automatic: write the entry file `<id>.yaml` in its store folder (SPEC 15.1), assigning a ULID to `<PREFIX>-new` targets. To change an entry, move the old version to `brain/archive/<id>.v<n>.yaml` with its `valid_to` set, and write the new version (SPEC 7.3). Never edit in place.
    A change made on the owner's own word is already ratified and is applied here (SPEC 12.2). Move each applied proposal to `brain/passes/<pass id>/applied/` (SPEC 12.1).
 5. **Owner items.** Move the rest to `brain/proposals/pending/`. Only the owner ratifies reasoning entries; the backup reviewer may ratify other items once a proposal is past `queue_expiry` (SPEC 12.2). If `pending/` holds `max_pending` items, write no new ratification proposals until some are cleared.
-6. **Log.** For each applied change, append one `CH` line to `brain/logs/changes.md` (format in SPEC 6.4), then set that file's `last_modified` to today (SPEC 16).
+6. **Log.** For each applied change, append one `CH` line to `brain/logs/changes.md` (format in SPEC 6.4), then set that file's `metadata.last_modified` to today (SPEC 16).
 7. **Index.** Run `python schemas/validate.py brain/` to validate and regenerate `brain/index.yaml`.
 8. **Unlock.** Delete `brain/.applier.lock`.
 

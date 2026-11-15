@@ -1,9 +1,8 @@
 ---
-title: 'Worked Example: Alphabet Quarterly P&L'
-description: 'Guide to the Alphabet quarterly P&L example: where the data is, what each store in the brain holds, the three patterns, the pasted-note walkthrough, and how Think would use it.'
-purpose: Show the framework applied to results readers already know.
-when_to_use: Open to see a populated brain or to compare it with your own.
-last_modified: 2026-11-14
+name: google-pnl-example
+description: 'A worked, filled-in brain built on Alphabet''s reported quarterly P&L from 2023-Q4 to 2026-Q3: where the data is, what each part of the brain holds, the patterns it found, and a walkthrough of learning from a pasted note. Use when seeing what a populated brain looks like, comparing it with one''s own, or trying the skills on real numbers.'
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Worked example: Alphabet quarterly P&L

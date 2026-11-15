@@ -1,9 +1,8 @@
 ---
-title: Change Log
-description: Append-only log of every change applied to this brain, one line per change.
-purpose: Audit trail of what changed, when, why and what caused it.
-when_to_use: Open to audit a change. The applier appends to it and updates last_modified; never edit past lines.
-last_modified: 2026-11-14
+name: brain-change-log
+description: Append-only list of every change applied to this brain, one line per change giving the date, the entry changed, before and after, the reason and what caused it. Use when auditing why an entry looks the way it does; only the applier writes to it.
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Change log

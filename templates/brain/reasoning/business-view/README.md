@@ -1,9 +1,8 @@
 ---
-title: Business View Folder
-description: 'Holds BV entries: what is normal for an area, what drives it, what is fragile, what the owner watches first, and patterns found across events.'
-purpose: Keep the owner's picture of how the business works.
-when_to_use: Open before adding or using a business view entry.
-last_modified: 2026-11-14
+name: brain-business-view-folder
+description: 'Folder for how the owner sees each area of the business: what is normal, what usually drives it, what is fragile, what they watch first, and patterns found across many events. Use when recording or looking up what is normal for a metric or area, or what drives it.'
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Business View

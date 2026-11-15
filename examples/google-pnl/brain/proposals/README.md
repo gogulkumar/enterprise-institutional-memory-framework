@@ -1,9 +1,8 @@
 ---
-title: Proposals Folder
-description: Pending changes to the brain, one file per change named by a bare ULID; `pending/` waits for the owner, `rejected/` failed or was declined.
-purpose: Explain that only the applier writes the brain.
-when_to_use: Open when writing, applying or ratifying a proposal.
-last_modified: 2026-11-14
+name: brain-proposals-folder
+description: Folder of pending changes to the brain, one file per change, with sub-folders for changes waiting on the owner's approval and changes that were rejected. Use when proposing, approving, applying or reviewing a change to the brain.
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Proposals

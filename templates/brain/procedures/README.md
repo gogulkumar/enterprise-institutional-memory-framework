@@ -1,9 +1,8 @@
 ---
-title: Procedures Folder
-description: 'Holds PR entries: step-by-step instructions per deliverable component, in one folder per deliverable.'
-purpose: Say how each deliverable is produced, pointing to reasoning entries rather than copying them.
-when_to_use: Open when producing a deliverable or adding a procedure.
-last_modified: 2026-11-14
+name: brain-procedures-folder
+description: Folder for step-by-step instructions to produce each deliverable, one sub-folder per deliverable, where each step points to the owner's reasoning it applies. Use when producing a recurring deliverable or recording how the owner builds one.
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Procedures

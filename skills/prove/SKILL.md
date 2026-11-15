@@ -1,10 +1,8 @@
 ---
 name: prove
-title: "Prove: Test the Brain"
-description: Test whether the brain reasons and produces work like the owner, using held-out cases it never learned from, then trace every difference to the entry that caused it. Run at the end of the Build pilot, after every ten texts, and before widening to a new deliverable. Implements SPEC 13.2 and 14.
-purpose: Playbook for the reasoning test, the reproduction test and the behavioural cases, and for turning each failure into an entry fix, following SPEC sections 13.2 and 14.
-when_to_use: Run to close the Build pilot, on a sample after every ten texts or session, before Phase 2, and whenever the owner asks how well the brain is doing.
-last_modified: 2026-11-14
+description: Tests whether the brain reasons and produces work like its owner, using held-out periods it never learned from, and traces every difference back to the entry that caused it. Use when closing the build pilot, on the schedule the owner sets, or after major changes to the brain.
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Prove

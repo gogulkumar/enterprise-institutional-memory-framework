@@ -1,9 +1,8 @@
 ---
-title: Sources Folder
-description: 'Holds SRC entries: one artifact record per input, approved locations, tool contracts and source authority rules.'
-purpose: Record what was read, where it came from, who wrote it and which source wins.
-when_to_use: Open when registering an input, checking authorship, or deciding which source wins.
-last_modified: 2026-11-14
+name: brain-sources-folder
+description: Folder recording every text the brain has read and where it came from, the locations the agent may read, the data tools it may call and what each can prove, and which source wins when two disagree. Use when taking in a new text, adding a data tool, or settling a conflict between sources.
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Sources

@@ -1,9 +1,8 @@
 ---
-title: Logs Folder
-description: Traces (TR), questions (Q), the change log and reports. Append-only.
-purpose: Keep the evidence behind every entry and every change.
-when_to_use: Open to audit a change, follow a question or read a report.
-last_modified: 2026-11-14
+name: brain-logs-folder
+description: 'Folder for append-only records of the brain''s work: reasoning traces, open questions for the owner, the change log and run reports. Use when recording what happened in a session, raising or answering a question for the owner, or auditing past changes.'
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Logs

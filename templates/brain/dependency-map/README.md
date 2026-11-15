@@ -1,9 +1,8 @@
 ---
-title: Dependency Map Folder
-description: 'Holds DM entries: links between entries and the impact scope of each.'
-purpose: Record what affects what, so the agent can see past the question asked.
-when_to_use: Open after adding or changing an entry, to place it on the map.
-last_modified: 2026-11-14
+name: brain-dependency-map-folder
+description: 'Folder for the brain''s dependency map: links saying which numbers or entries cause, feed, offset or are independent of each other, and what else changes when one of them moves. Use when adding a relationship between two metrics or entries, or when checking what a change will affect.'
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Dependency Map

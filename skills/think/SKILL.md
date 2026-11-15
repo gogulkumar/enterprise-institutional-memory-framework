@@ -1,10 +1,8 @@
 ---
 name: think
-title: "Think: Answer Like the Owner"
-description: Answer a question or produce a deliverable by reasoning with the owner's business view, thinking patterns, judgments and response style. Run whenever the owner or someone they approve asks something, whether or not it matches a deliverable. Implements SPEC 10.
-purpose: Playbook for answering with the brain's reasoning model and proposing what was learned, following SPEC section 10.
-when_to_use: Run on every question or deliverable request, including questions that match no deliverable.
-last_modified: 2026-11-14
+description: Answers a question or produces a deliverable by reasoning the way the owner does, using their business view, thinking patterns, judgments and response style, and attaches a handover note saying how sure each point is. Use whenever the owner or someone they approve asks a question or requests a deliverable, including questions that match no deliverable.
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Think

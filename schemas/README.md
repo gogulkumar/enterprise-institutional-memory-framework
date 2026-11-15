@@ -1,9 +1,8 @@
 ---
-title: 'Schemas: Index and Usage'
-description: The JSON Schemas for every v2 entry kind, the brain validator that enforces SPEC rules and builds the index, and the Markdown front-matter checker.
-purpose: Tell readers which schema checks which entry, what the validator enforces beyond the schemas, and how to run both tools.
-when_to_use: Open when writing or debugging an entry, or when running schemas/validate.py or schemas/check_markdown.py.
-last_modified: 2026-11-14
+name: schemas-and-validators
+description: Guide to the JSON Schemas that define every kind of brain entry, the validator that checks a brain against the rules and rebuilds its lookup index, and the checker for Markdown front matter. Use when writing or debugging a brain entry, explaining a validation error, or before running schemas/validate.py or schemas/check_markdown.py.
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Schemas

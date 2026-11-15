@@ -1,9 +1,8 @@
 ---
-title: Judgments Folder
-description: 'Holds JD entries: the owner''s calls where more than one option exists, across the eight areas in SPEC section 6.2.'
-purpose: Keep each decision rule written so it can only be applied one way.
-when_to_use: Open before adding or using a judgment.
-last_modified: 2026-11-14
+name: brain-judgments-folder
+description: 'Folder for the owner''s decision rules where more than one option exists: what is big enough to mention, how to classify a driver, when a cause can be stated, how to frame, what to leave out, when to escalate, what to check first and how to present. Use when recording or applying one of the owner''s calls.'
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Judgments

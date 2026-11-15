@@ -1,9 +1,8 @@
 ---
-title: Reasoning Folder
-description: 'The centre of the brain: the owner''s business view, thinking patterns, judgments and response style.'
-purpose: Group the four reasoning stores (SPEC section 5).
-when_to_use: Open when adding or using a reasoning entry; each subfolder holds one store.
-last_modified: 2026-11-14
+name: brain-reasoning-folder
+description: 'Folder for the centre of the brain: the owner''s reasoning in four parts, namely how they see the business, how they work through problems, how they decide and how they respond. Use when deciding which of the four parts a piece of the owner''s thinking belongs in.'
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Reasoning

@@ -1,9 +1,8 @@
 ---
-title: Learn Passes Folder
-description: Working files of one Learn run, including the sealed prediction, in `passes/<pass id>/`.
-purpose: Keep sealed predictions apart until the compare step.
-when_to_use: Open when starting or cleaning up a Learn run. The validator ignores this folder.
-last_modified: 2026-11-14
+name: brain-learn-passes-folder
+description: 'Folder of temporary working files from each learning run: the sealed prediction made before reading a text, the blind read, the comparison and the proposals applied in that run. Use when running or auditing a learning run; a run''s folder can be pruned once it is applied.'
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Learn Passes

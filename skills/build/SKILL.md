@@ -1,10 +1,8 @@
 ---
 name: build
-title: "Build: Set Up a Brain"
-description: Set up a new institutional brain for one owner. Run once, before any Learn or Think run, to record what the agent may read, inventory the sources, run a pilot on one deliverable, then widen and connect. Implements SPEC 13.1.
-purpose: Playbook for taking an empty brain to a tested pilot, following SPEC section 13.1.
-when_to_use: Run once per owner when setting up a new brain, and again when the owner asks to widen to a new deliverable (Phase 2) or connect deliverables (Phase 3).
-last_modified: 2026-11-14
+description: 'Sets up a new institutional brain for one owner: records which locations the agent may read, inventories the owner''s sources, runs a pilot on one deliverable until the brain passes both tests, then widens to other deliverables and connects them. Use when starting a brain from the template, or when the owner asks to add a new deliverable.'
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Build

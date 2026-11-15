@@ -1,9 +1,8 @@
 ---
-title: 'Enterprise Institutional Memory Framework: Overview'
-description: 'Plain-English overview of the framework: a brain that learns how its owner sees the business, thinks, decides and responds, from any text they produce, and the four skills that run it.'
-purpose: Entry point for people deciding whether and how to adopt the framework.
-when_to_use: Open first when new to the framework or when you need the quickstart steps. For exact rules, read SPEC.md instead.
-last_modified: 2026-11-14
+name: framework-overview
+description: 'Plain-English overview of the Enterprise Institutional Memory Framework: an AI brain that learns how a business owner sees the business, thinks, decides and responds from any text they write, and the four skills (build, learn, think, prove) that run it. Use when first meeting the framework, deciding whether to adopt it, or looking for the quickstart; for exact rules, open SPEC.md.'
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Enterprise Institutional Memory Framework
@@ -18,7 +17,7 @@ Today that lives in people's heads. This framework turns it into an **institutio
 - **[examples/google-pnl/](./examples/google-pnl/)**: a worked brain on Alphabet's quarterly P&L, with the data.
 - **[MIGRATION.md](./MIGRATION.md)**: what changed from v1.
 
-Every Markdown file starts with a short front-matter block (title, description, purpose, when to use it, last modified; see [SPEC section 16](./SPEC.md)). An agent reads only that block first and opens the rest of a file when the task matches. `python schemas/check_markdown.py --list .` prints just those blocks.
+Every Markdown file starts with front matter in the standard Agent Skills format: a `name` and a `description` that says what the file is and when to use it ([SPEC section 16](./SPEC.md)). An agent reads only that first and opens the rest of a file when the task matches. `python schemas/check_markdown.py --list .` prints just those descriptions.
 
 ---
 

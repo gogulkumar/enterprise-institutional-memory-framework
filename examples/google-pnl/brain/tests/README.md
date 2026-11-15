@@ -1,9 +1,8 @@
 ---
-title: Tests Folder
-description: Held-out scenarios (TS) and test runs (RN) for the reasoning and reproduction tests.
-purpose: Prove the brain on cases it never learned from.
-when_to_use: Open when running the prove skill. Never open scenarios/ while learning.
-last_modified: 2026-11-14
+name: brain-tests-folder
+description: 'Folder for proving the brain works: held-out test cases the brain must never learn from, and the results of each test run. Use when setting up or running the reasoning and reproduction tests, or reviewing past results.'
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Tests

@@ -1,9 +1,8 @@
 ---
-title: Knowledge Base Folder
-description: 'Holds KB entries: concepts, metric definitions, tables, sources of truth, calendar points, business events, known issues, deliverable profiles and templates.'
-purpose: Keep the facts that support the reasoning; business event entries are also the registry of event ids.
-when_to_use: Open before adding a fact, defining a metric or registering an event.
-last_modified: 2026-11-14
+name: brain-knowledge-base-folder
+description: 'Folder for the brain''s factual knowledge: definitions of terms and metrics, table structures, sources of truth, the calendar, business events, known data issues, deliverable profiles and templates. Use when adding or looking up a definition, fact, event or known issue; the owner''s reasoning belongs in the reasoning folder instead.'
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Knowledge Base

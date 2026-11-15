@@ -1,9 +1,8 @@
 ---
-title: 'Enterprise Institutional Memory Framework: Specification'
-description: The framework's rulebook. The brain is centred on the owner's reasoning (business view, thinking patterns, judgments, response style), learns from any text, and is governed by proposals, trust levels and owner approval.
-purpose: Single source of truth for every rule; the skills, schemas and validator carry these rules out.
-when_to_use: Open when you need the exact rule, store, field or process step, then cite the section instead of copying it.
-last_modified: 2026-11-14
+name: framework-specification
+description: 'The complete rulebook of the framework: what a brain stores and where, the fields of every entry, how entries earn trust, how the brain learns from text and answers questions, which changes the owner must approve, how the brain is tested, and the file layout. Use when an exact rule, field name, allowed value or process step is needed, or when checking a skill, schema or validator result against the rules.'
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Enterprise Institutional Memory Framework: Specification
@@ -562,4 +561,19 @@ Four skills carry out this document: **`build`** (section 13.1), **`learn`** (se
 
 ## 16. Markdown front matter
 
-Every Markdown file begins with a front-matter block with `title`, `description` (300 characters at most), `purpose`, `when_to_use` and `last_modified` (YYYY-MM-DD); `SKILL.md` files also carry `name`. The agent reads only that block first and opens the rest of a file when `when_to_use` matches the task. Whoever edits a file updates `last_modified`, including the applier when it appends to the change log. `python schemas/check_markdown.py .` checks every file, and `--list` prints only the front matter.
+Every Markdown file begins with front matter in the Agent Skills format (https://agentskills.io/specification), so an agent can decide from a few lines whether to open the file:
+
+```yaml
+---
+name: <lowercase words joined by hyphens, at most 64 characters; a skill's name matches its folder>
+description: <third person: what the file is or does, then "Use when ..." with the situations that call for it; at most 1024 characters>
+metadata:
+  last_modified: "<YYYY-MM-DD>"
+---
+```
+
+- The description is the only part an agent reads before opening a file, so it must stand on its own: plain words, no unexplained codes, and the concrete situations that call for the file.
+- Any other detail (author, version, dates) goes under `metadata`, as strings. No other top-level keys are used.
+- The agent reads only the front matter first and opens the rest of a file when the description matches the task.
+- Whoever edits a file updates `metadata.last_modified`, including the applier when it appends to the change log.
+- `python schemas/check_markdown.py .` checks every file; `--list` prints only names and descriptions.

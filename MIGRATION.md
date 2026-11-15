@@ -1,9 +1,8 @@
 ---
-title: Migration from v1 to v2
-description: What changed between specification v1 and v2, what happened to each v1 safeguard, and the decisions taken for v2.
-purpose: Record the v1-to-v2 change for reviewers and for anyone holding a v1 brain; delete once no v1 brains remain.
-when_to_use: Open when migrating a v1 brain or asking why v2 differs from v1. Not needed to run a brain.
-last_modified: 2026-11-14
+name: migration-v1-to-v2
+description: 'Record of how version 2 of the framework differs from version 1: every v1 part and safeguard with its v2 replacement, and the design decisions the owner approved for v2. Use when converting a brain built under v1, or when asking why v2 works differently; not needed to run a v2 brain.'
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Migration from v1 to v2
