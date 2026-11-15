@@ -1,3 +1,11 @@
+---
+title: Example Data Sources and Checks
+description: Where each number in the example dataset comes from (SEC earnings releases) and the arithmetic and SEC checks run on it.
+purpose: Let a reader trust and re-check the example data.
+when_to_use: Open when you need to cite or verify a figure in quarterly_pnl.csv.
+last_modified: 2026-11-14
+---
+
 # Data sources and checks
 
 `quarterly_pnl.csv` holds Alphabet's reported results for 12 quarters, 2023-Q4 through 2026-Q3 (the latest reported quarter, filed 2026-10-29). Values are USD millions as reported, except `diluted_eps` (USD) and `diluted_shares_m` (millions of shares). Columns: revenue by type and segment, segment operating income, and the consolidated income statement. For 2026-Q2 and 2026-Q3, `net_income_to_common` is net income after preferred stock dividends; diluted EPS is computed on that figure.

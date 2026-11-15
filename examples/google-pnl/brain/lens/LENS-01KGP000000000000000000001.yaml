@@ -38,6 +38,8 @@ procedure:
   - BEL-01KGP000000000000000000002
   - BEL-01KGP000000000000000000003
   - BEL-01KGP000000000000000000004
+  - RP-01KGP000000000000000000001
+  - RP-01KGP000000000000000000002
   completion_rule: Every movement outside its normal range is located by segment or line and either explained
     by a stated item or reported as unexplained; the consolidated read is reconciled to operating income.
   output_shape: Short commentary led by the largest unexplained or abnormal movement, then segment reads,

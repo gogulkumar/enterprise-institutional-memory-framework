@@ -1,62 +1,72 @@
+---
+title: 'Enterprise Institutional Memory Framework: Overview'
+description: 'Plain-English overview of the framework: what an institutional brain holds, how the three skills keep it current, how trust is earned, and a quickstart.'
+purpose: Entry point for people deciding whether and how to adopt the framework.
+when_to_use: Open first when new to the framework or when you need the quickstart steps. For exact rules, read SPEC.md instead.
+last_modified: 2026-11-14
+---
+
 # Enterprise Institutional Memory Framework
 
-A framework that gives any AI agent an institutional brain: a governed memory of how a business works and how its experts reason about it, that gets better every time the business produces a document.
+An AI model already knows how to reason. What it does not know is **how your company works**: what your metrics actually mean, which report to trust when two numbers disagree, what a normal quarter looks like, and how your best people investigate a surprise.
 
-- **[SPEC.md](./SPEC.md)** is the framework: components, entry schemas, trust ladder, processes. It is the single source of truth.
-- **[skills/](./skills/)** are the three skills an agent runs: `build`, `learn`, `think`.
-- **[templates/brain/](./templates/brain/)** is an empty brain to copy.
-- **[examples/google-pnl/](./examples/google-pnl/)** is a worked brain on Alphabet's reported quarterly P&L, with the data.
+Today, that knowledge lives in people's heads and in old decks nobody rereads. This framework turns it into a **living institutional brain**—a structured memory that your AI agent reads when doing work and updates automatically every time a new document or report arrives.
 
-## Why this exists
+- **[SPEC.md](./SPEC.md)** — The complete rulebook: what goes into the brain, how trust is earned, and how the three processes work.
+- **[skills/](./skills/)** — The three playbooks your agent runs: [`build`](./skills/build/SKILL.md), [`learn`](./skills/learn/SKILL.md), and [`think`](./skills/think/SKILL.md).
+- **[templates/brain/](./templates/brain/)** — An empty brain folder you copy to start a new domain.
+- **[examples/google-pnl/](./examples/google-pnl/)** — A worked example built on Alphabet's quarterly P&L.
 
-The model is the reasoning engine, and everyone has the same one. What makes an agent useful inside one company is the layer around the model: what its metrics mean, which source wins when two disagree, what normal looks like, how the business has behaved before, and how its experts decide what matters. Today that layer lives in people's heads and in decks nobody rereads.
+Every Markdown file starts with a short front-matter block (title, description, purpose, when to use it, last modified; see [SPEC §10](./SPEC.md)). An agent reads only that block first and opens the rest of a file when the task matches. `python schemas/check_markdown.py --list .` prints just those blocks.
 
-Retrieval does not recover it. A search over documents finds what is textually near, not what is authoritative, current, or judgment-relevant. It cannot tell a draft from an actual, an expired fact from a standing rule, or a one-off comment from a pattern that has held for two years.
+---
 
-The framework turns that layer into a structured, auditable memory an agent reads at the right moment and maintains as a side effect of real work. Every team that deploys it gets the same discipline instead of an ad hoc pile of prompts and notes.
+## What is inside a brain?
 
-## How it works
+Every brain you create (copied from [`templates/brain/`](./templates/brain/), or seen populated in [`examples/google-pnl/brain/`](./examples/google-pnl/brain/)) is organized into six folders, each answering one plain question:
 
-Six components hold memory. Each piece of information has exactly one home.
-
-| Component | Holds |
+| Component | The plain question it answers |
 |---|---|
-| **Lens** | What the work is for: deliverables, audiences, decisions, and one procedure per deliverable |
-| **Record** | Pointers to source documents and data, tool contracts, source authority |
-| **Business Understanding** | Concepts, metric definitions, what normal looks like, which metrics drive which |
-| **Beliefs** | Durable interpretations no single document states, plus open questions carried across periods |
-| **Reasoning Patterns** | How experts sequence questions and decide materiality, attribution and when to stop |
-| **Editorial Judgment & Voice** | What to lead with, include and omit for each audience |
+| **Lens** (`lens/`) | **What is the work for?** Which recurring reports or decisions this brain supports, who reads them, and what "done" looks like. |
+| **Record** (`record/`) | **Where is the truth?** Links to source documents and data tools, plus rules for which source wins when two disagree. |
+| **Business Understanding** (`business-understanding/`) | **How does the business work?** Plain definitions of terms and metrics, what "normal" looks like, and which metrics move together. |
+| **Beliefs** (`beliefs/`) | **What have we learned across time?** Durable patterns no single document states on its own, plus open questions we are still watching. |
+| **Reasoning Patterns** (`reasoning-patterns/`) | **How do our experts think?** The order in which experts ask questions, what counts as big enough to care about, and when to stop. |
+| **Editorial Judgment & Voice** (`editorial/`) | **How do we communicate?** What to lead with, what to always include, and what to leave out for each audience. |
 
-Three processes act on it:
+---
 
-- **Build** sets up a brain for a new domain: the Lens, the Record, seed definitions, a backfill over past periods, and an expert interview.
-- **Learn** runs on every new document. The agent predicts what it will say, reads it without memory, and treats each gap as a signal about which entry is wrong. Changes go through a proposal queue.
-- **Think** runs on every task. The agent reads the new evidence first, ranks the questions worth asking, investigates only what matters, stops at what the evidence supports, and writes back conclusions only.
+## How the three skills work together
 
-Trust is earned on one ladder (observation → candidate → provisional → established), counted in independent business events, not documents. The agent's wording follows trust: "suggests", "accounts for", "because". People approve what matters: promotion to established, contradictions, retirements, changes in meaning.
+You do not hand-build or manually maintain this memory. Three processes keep it running as part of normal work:
 
-Memory never stores numbers. Values stay in source systems and are queried when needed.
+1. **Build** *(run once per domain)* — Sets up the brain for a team's deliverables: defines what reports it must support, registers the trusted data sources, loads basic definitions, learns from past periods, and interviews your domain experts to fill in what documents don't say.
+2. **Learn** *(runs on every new document)* — Before reading a new document, the agent predicts what it expects to see based on current memory. Then a fresh sub-agent with no memory reads the document objectively. Every gap between the prediction and the actual document becomes a signal to update memory through a reviewable proposal queue.
+3. **Think** *(runs on every task)* — When asked to produce a report or answer a question, the agent checks whether it has enough knowledge to answer honestly, reads the new data without bias, investigates only the surprises that matter, and writes the final output using confidence words matched to how proven each belief is.
+
+---
+
+## How trust works
+
+Not every idea in the brain is treated as fact. Every learned entry climbs one trust ladder based on **distinct business events** (for example, three separate quarters—not three different decks about the same quarter):
+
+1. **Observation** *(1 event)* — Noted internally, never cited in final reports. Expires if not seen again.
+2. **Candidate** *(2 events)* — Early pattern. Agent writes *"suggests"*.
+3. **Provisional** *(3+ events across 2+ periods, or an expert-approved seed)* — Working rule. Agent writes *"accounts for"*.
+4. **Established** *(independently verified and human-approved)* — Proven rule. Agent writes *"because"*.
+
+If a new event contradicts an entry, it becomes **Contested** for a human owner to resolve. High-stakes changes—like promoting a belief to `established`, changing a metric's definition, or adopting a new expert rule—always wait for human approval.
+
+---
 
 ## Quickstart
 
 1. Copy `templates/brain/` into your agent's workspace as `brain/`.
-2. Fill `brain/config.yaml`: owner, backup reviewer, review windows.
-3. Give your agent the three skills in `skills/` and file, tool and sub-agent access (SPEC §7).
-4. Run `build` on one deliverable with a few past periods of documents.
-5. Wire `learn` to run when a new document arrives and `think` to run when a task arrives.
-6. Validate the brain at any time:
+2. Fill in `brain/config.yaml` with the human owner, backup reviewer, and review windows.
+3. Give your agent the three skills in `skills/` (with file access, tool access, and the ability to run a clean sub-agent).
+4. Run **Build** on one recurring deliverable using a few past periods of documents.
+5. Wire **Learn** to run whenever a new document arrives, and **Think** to run whenever a task arrives.
+6. Validate the brain structure and refresh its lookup index at any time:
    ```bash
    python schemas/validate.py brain/
    ```
-
-## What it is not
-
-- Not a document store or RAG index. Documents stay in the Record.
-- Not a data warehouse. Numbers are queried, never memorized.
-- Not fine-tuning. Every belief can be shown, traced to its evidence, and corrected.
-- Not a transcript of past work. Only conclusions that change future interpretation are kept.
-
-## Where to start
-
-Start with one domain where documents recur and judgment is dense, such as quarterly business reviews or forecast reviews. Build from the decisions the brain must support, not from the documents you happen to have. Measure it on held-out periods: does the agent ask the questions your experts asked, and produce what they produced (SPEC §8)?

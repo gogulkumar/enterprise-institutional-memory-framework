@@ -1,0 +1,28 @@
+id: RP-01KGP000000000000000000002
+title: Stop before guessing causes of unstated margin or EPS swings
+recorded_at: '2026-11-14'
+provenance:
+- expert:example-owner
+- REC-01KGP000000000000000000003
+sensitivity: public
+serves_task:
+- LENS-01KGP000000000000000000001
+trust: provisional
+seeded: true
+owner: example-owner
+events: []
+valid_from: 2023-Q4
+valid_to: null
+last_confirmed: '2026-11-14'
+review_window: 1q
+related:
+- BEL-01KGP000000000000000000003
+- REC-01KGP000000000000000000003
+situation: A segment margin or below-the-line item moves outside its normal band, and the SEC release does not state a specific driver.
+rule_type: stopping
+rule: Locate the movement to the exact line or segment and report it as attributed with cause unverified; never infer an operational cause not stated in the filing.
+conditions: Applies to all public-filing-only reviews where internal cost-center detail is out of scope.
+counter_examples:
+- Equity securities gains or losses explicitly called out in other income (cause is stated in the release).
+- Named legal or severance charges listed in one_offs.csv.
+
