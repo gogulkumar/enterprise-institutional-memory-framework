@@ -175,7 +175,7 @@ A business view entry with `origin: pattern` is a pattern found across events th
 | **Metric definition** (`KB`) | `name`, `meaning`, `source_of_truth`, `compare_to`, `join`, `filters`, `sign`, `breaks_down_as`, `validated` (`yes`, `no`, `on_snapshot`, `no_access`) |
 | **Table structure** (`KB`) | `name`, `one_row_is`, `columns` (each with a metric definition or a calculation), `totals_check` |
 | **Source of truth** (`KB`) | `number` (which metric), `final_source`, `copies`, `how_copies_differ`, `final_when` |
-| **Business event** (`KB`) | `what_happened`, `periods`, `affected` (metric definitions), `outcome` |
+| **Business event** (`KB`) | `event_id` (the `EVT-` id), `what_happened`, `periods`, `affected` (metric definitions), `outcome`. These entries are the registry of events: every event id used anywhere in the brain must belong to exactly one of them |
 | **Known issue** (`KB`) | `problem`, `when`, `how_to_detect`, `what_to_do` |
 | **Calendar point** (`KB`) | `date`, `what` (a close, cutoff, holiday or reorganisation), `effect` (what it changes about what is normal or final) |
 | **Template** (`KB`) | `name`, `deliverable`, `location` (where the template file lives), `elements` (its fixed sections, slides or layout) |
@@ -255,7 +255,7 @@ An entry whose support is entirely `inferred` and that cannot be checked stays a
 - A new period, deliverable or audience counts only if the event behind it is also different.
 - All entries extracted from one trace count as one case in total.
 - A correct prediction counts as a case only when it was sealed before the text was read, the text describes an event not already counted, and the entry used to predict it did not come from that same text. A wrong prediction counts against the entry.
-- Event ids are minted by the applier from the artifact's `event_ids`, checked against existing events by period, subject and description, and sent to the owner as a question if they cannot be settled. An agent may not split one event into several ids.
+- Event ids are minted by the applier from the artifact's `event_ids` and registered as business event entries. Before minting, the applier checks existing events by period, affected metrics and description; two events with the same period and the same affected metrics are flagged as a possible duplicate. Ids that cannot be settled this way are and sent to the owner as a question if they cannot be settled. An agent may not split one event into several ids.
 - Work by other people can support an entry up to `observation`. It never promotes it.
 - A link confirmed by a calculation is trusted immediately, for the model version it was validated on.
 
@@ -550,6 +550,7 @@ brain/
 | `review_windows` | Per entry type (section 7.3) | as listed there |
 | `queue_expiry`, `max_pending` | Ratification queue limits (section 12.2) | 2 weeks, 25 |
 | `sensitivity_levels` | Ordered list | public, internal, confidential, restricted |
+| `period_length` | The brain's reporting period; a review window of `period` means this | 1q |
 
 ### 15.3 The index
 
