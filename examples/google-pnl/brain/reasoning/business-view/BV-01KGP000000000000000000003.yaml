@@ -1,0 +1,41 @@
+id: BV-01KGP000000000000000000003
+kind: business_view
+version: 1
+title: Alphabet-level share of revenue
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope: {}
+valid_from: 2023-Q4
+valid_to: null
+last_supported: '2026-10-29'
+provenance:
+- SRC-01KGP000000000000000000001
+- SRC-01KGP000000000000000000002
+trust: established
+sureness: checked
+owner: example-owner
+events:
+- EVT-2023-Q4-EARNINGS
+- EVT-2024-Q1-EARNINGS
+- EVT-2024-Q2-EARNINGS
+- EVT-2024-Q3-EARNINGS
+- EVT-2024-Q4-EARNINGS
+- EVT-2025-Q1-EARNINGS
+- EVT-2025-Q2-EARNINGS
+- EVT-2025-Q3-EARNINGS
+- EVT-2025-Q4-EARNINGS
+- EVT-2026-Q1-EARNINGS
+- EVT-2026-Q2-EARNINGS
+- EVT-2026-Q3-EARNINGS
+last_confirmed_by_owner: never
+open_questions: []
+related: []
+subject: Alphabet-level activities as a share of total revenue
+what_normal_looks_like: 2.7 to 3.6 percent through 2025-Q2; 4.4 to 6.0 percent from 2025-Q3. A move of more than
+  1 point from the prior quarter matters.
+what_usually_drives_it: The company says these costs primarily reflect shared AI research and development.
+what_is_fragile: The 2025-Q3 step up is treated as a new range; re-baseline if the company redefines what the line
+  includes.
+what_i_watch_first: Alphabet-level activities as a share of revenue
+checked_against_data: 'yes'
+origin: data

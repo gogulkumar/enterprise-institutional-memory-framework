@@ -1,0 +1,32 @@
+id: RS-01KGP000000000000000000002
+kind: response_style
+version: 1
+title: Weekly wording for cost lines
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope:
+  deliverables:
+  - weekly
+valid_from: 2026-Q4
+valid_to: null
+last_supported: '2026-11-14'
+provenance:
+- SRC-01KGP000000000000000000006
+- owner:example-owner
+trust: established
+sureness: stated
+owner: example-owner
+events: []
+last_confirmed_by_owner: never
+open_questions:
+- Q-01KGP000000000000000000002
+related: []
+audience: Readers of the weekly
+situation: A cost line comes in under forecast
+lead_with: unknown
+always_include: []
+never_say:
+- saving, before timing is ruled out
+length_and_format: unknown
+how_i_express_uncertainty: unknown
+what_i_push_back_on: []

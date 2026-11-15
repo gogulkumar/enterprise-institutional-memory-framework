@@ -1,0 +1,39 @@
+id: DM-01KGP000000000000000000002
+kind: link
+version: 1
+title: Other income does not affect operating margin
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+valid_from: 2023-Q4
+valid_to: null
+last_supported: '2026-10-29'
+provenance:
+- SRC-01KGP000000000000000000001
+trust: established
+sureness: checked
+owner: example-owner
+events:
+- EVT-2023-Q4-EARNINGS
+- EVT-2024-Q1-EARNINGS
+- EVT-2024-Q2-EARNINGS
+- EVT-2024-Q3-EARNINGS
+- EVT-2024-Q4-EARNINGS
+- EVT-2025-Q1-EARNINGS
+- EVT-2025-Q2-EARNINGS
+- EVT-2025-Q3-EARNINGS
+- EVT-2025-Q4-EARNINGS
+- EVT-2026-Q1-EARNINGS
+- EVT-2026-Q2-EARNINGS
+- EVT-2026-Q3-EARNINGS
+last_confirmed_by_owner: never
+open_questions: []
+related: []
+from: KB-01KGP000000000000000000004
+to: KB-01KGP000000000000000000005
+type: independent
+path: Other income sits below operating income, so it moves net income and EPS but never operating income or any
+  margin.
+direction: none
+lag: none
+evidence: 'By construction of the income statement: operating income plus other income equals income before taxes
+  in all 12 quarters.'

@@ -1,0 +1,19 @@
+id: KB-01KGP000000000000000000008
+kind: source_of_truth
+version: 1
+title: Reported results
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope: {}
+valid_from: 2023-Q4
+valid_to: null
+last_supported: '2026-10-29'
+provenance:
+- SRC-01KGP000000000000000000001
+number: reported revenue, operating income and net income by quarter
+final_source: Alphabet's SEC filings (Form 8-K Exhibit 99.1 and periodic reports)
+copies:
+- examples/google-pnl/data/quarterly_pnl.csv
+how_copies_differ: The dataset is a working copy transcribed from the releases and checked against the SEC's structured
+  data
+final_when: On filing

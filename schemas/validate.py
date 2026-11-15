@@ -243,9 +243,9 @@ def main():
         rank = TRUST_RANK.get(trust)
         if rank is None:
             continue
-        if prefix in REASONING and rank > 0 and owner and not owner_sourced and not confirmed:
+        if prefix in REASONING and rank > 0 and owner and not owner_sourced and not confirmed and sureness != "checked":
             bad(e["_file"], f"trust `{trust}` rests only on other people's work, which can support an entry "
-                            "up to `observation` (SPEC 7.1)")
+                            "up to `observation` unless it is checked against the data (SPEC 7.1)")
         if trust == "candidate" and len(evts) < config["candidate_events"] and not owner_word:
             bad(e["_file"], f"`candidate` needs {config['candidate_events']} independent events or the owner's word; "
                             f"it has {len(evts)}")

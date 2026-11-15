@@ -1,0 +1,23 @@
+id: SRC-01KGP000000000000000000006
+kind: artifact
+version: 1
+title: Owner's note on cost lines under forecast
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+type: note
+business_area: costs
+period: 2026-Q4
+author: example-owner
+event_ids: []
+location: pasted into the agent by the owner
+approved_location: true
+authority_rank: owner_statement
+deliverable: weekly
+can_teach:
+- thinking_patterns
+- judgments
+- response_style
+cannot_teach: Anything outside cost lines in the weekly
+serves:
+- A
+- B

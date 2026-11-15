@@ -36,6 +36,6 @@ The segment and revenue-type lines are not in the SEC's structured data; they co
 
 ## Use in the example brain
 
-This folder is the **Record**: source data the brain points to and queries. No value from it is copied into a memory entry (SPEC Principle 2).
+This folder is an approved location registered in the brain's `sources/`: source data the brain points to and queries. No figure from it is copied into a brain entry (SPEC principle 3).
 
 `one_offs.csv` lists the charges and below-the-line items that the releases call out, with amounts as printed.

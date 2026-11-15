@@ -26,7 +26,8 @@
             "owner_working_trace",
             "owner_finished_work",
             "other_people",
-            "inference"
+            "inference",
+            "system_of_record"
           ]
         },
         "fallback_order": {
@@ -37,7 +38,8 @@
               "owner_working_trace",
               "owner_finished_work",
               "other_people",
-              "inference"
+              "inference",
+              "system_of_record"
             ]
           }
         },

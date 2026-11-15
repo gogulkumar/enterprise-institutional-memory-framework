@@ -28,7 +28,9 @@
             "chat",
             "transcript",
             "correction",
-            "other"
+            "other",
+            "filing",
+            "dataset"
           ]
         },
         "business_area": {
@@ -67,7 +69,8 @@
             "owner_working_trace",
             "owner_finished_work",
             "other_people",
-            "inference"
+            "inference",
+            "system_of_record"
           ]
         },
         "deliverable": {

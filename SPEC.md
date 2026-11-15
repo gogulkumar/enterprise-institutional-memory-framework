@@ -160,12 +160,12 @@ Relevance (section 7.3) is computed, never hand-edited. The case count is derive
 
 | Entry | Fields beyond the headers |
 |---|---|
-| **Business view** (`BV`) | `subject`, `what_normal_looks_like`, `what_usually_drives_it`, `what_is_fragile`, `what_i_watch_first`, `checked_against_data`, `origin` (`stated` or `pattern`); pattern-origin entries also carry `source_concepts` (at least two knowledge base ids) and `watch_condition` |
+| **Business view** (`BV`) | `subject`, `what_normal_looks_like`, `what_usually_drives_it`, `what_is_fragile`, `what_i_watch_first`, `checked_against_data`, `origin` (`stated`, `data` or `pattern`); pattern-origin entries also carry `source_concepts` (at least two knowledge base ids) and `watch_condition` |
 | **Thinking pattern** (`TP`) | `situation`, `first_questions` (ordered), `suspicion_triggers`, `hypotheses_in_order`, `why_this_order`, `checks` (each: hypothesis, what to look at, confirms if, rules out if), `stop_when`, `traps_i_avoid`, `judgments_applied`, `conditions` |
 | **Judgment** (`JD`) | `area` (materiality, driver_classification, cause_attribution, framing, inclusion_exclusion, escalation, investigation_priority, presentation), `rule` (written so it can only be applied one way), `applies_to`, `conditions` (thresholds as shares, with effective dates), `exceptions`, `alternatives_considered`, `reason`, `counter_examples`, `used_by` |
 | **Response style** (`RS`) | `audience`, `situation`, `lead_with`, `always_include`, `never_say`, `length_and_format`, `how_i_express_uncertainty`, `what_i_push_back_on` |
 
-A business view entry with `origin: pattern` is a pattern found across events that no single text states. It must pass the **master test**: it says something no single source says, it draws on at least two knowledge base entries, and it implies a reading rule or action. It also carries a `watch_condition` (what evidence would weaken it). Entries with `origin: stated` come from the owner or from what the owner's work treats as normal. Beliefs about how the business performs and beliefs about how it describes itself are separate entries, evidenced against data and against statements respectively; if they disagree, Think shows both.
+A business view entry with `origin: pattern` is a pattern found across events that no single text states. It must pass the **master test**: it says something no single source says, it draws on at least two knowledge base entries, and it implies a reading rule or action. It also carries a `watch_condition` (what evidence would weaken it). Entries with `origin: stated` come from the owner or from what the owner's work treats as normal. Entries with `origin: data` are normal ranges computed from the data; they are `checked`. Beliefs about how the business performs and beliefs about how it describes itself are separate entries, evidenced against data and against statements respectively; if they disagree, Think shows both.
 
 ### 6.3 The supporting stores
 
@@ -181,19 +181,19 @@ A business view entry with `origin: pattern` is a pattern found across events th
 | **Template** (`KB`) | `name`, `deliverable`, `location` (where the template file lives), `elements` (its fixed sections, slides or layout) |
 | **Deliverable profile** (`KB`) | `name`, `purpose`, `components`, `cadence_and_due`, `data_cutoff`, `audience`, `comparison_basis`, `inputs`, `structure`, `fed_by`, `feeds`, `review`, `done_when`, `procedures` |
 | **Procedure** (`PR`) | `purpose`, `inputs` (metric definitions, never figures), `steps` (each an action someone else could follow without guessing; at a decision it says "apply judgment X" or "follow thinking pattern Y" and never restates them), `output_pattern` (sentences or slide structure with blanks), `format_rules`, `example_with_blanks`, `self_checks` (what code verifies before handover) |
-| **Dependency link** (`DM`) | `from`, `to`, `type`, `path`, `direction` (`same`, `opposite`, `none`), `lag` (`same_period`, `next_period`, `unknown`), `evidence` (section 8) |
+| **Dependency link** (`DM`) | `from`, `to`, `type`, `path`, `direction` (`same`, `opposite`, `none`), `lag` (`same_period`, `next_period`, `unknown`, or `none` for an `independent` link), `evidence` (section 8) |
 | **Impact scope** (`DM`) | `entry`, `numbers_affected`, `deliverables_affected`, `reasoning_entries_affected`, `checked_not_affected` |
 
 ### 6.4 Sources and logs
 
 | Entry | Fields beyond the base block |
 |---|---|
-| **Artifact** (`SRC`) | `type` (commentary, slides, model, email, query_history, draft, note, chat, transcript, correction, other), `business_area`, `period`, `author`, `event_ids`, `doc_version` (the document's own version; `version` is the entry's), `location`, `approved_location`, `authority_rank`, `deliverable` (if any), `can_teach` (store names), `cannot_teach`, `serves` (a list of `A`, `B`, `C`, or `none`) |
+| **Artifact** (`SRC`) | `type` (commentary, slides, model, email, query_history, draft, note, chat, transcript, correction, filing, dataset, other), `business_area`, `period`, `author`, `event_ids`, `doc_version` (the document's own version; `version` is the entry's), `location`, `approved_location`, `authority_rank`, `deliverable` (if any), `can_teach` (store names), `cannot_teach`, `serves` (a list of `A`, `B`, `C`, or `none`) |
 | **Approved location** (`SRC`) | `location`, `what_it_holds`, `approved_by`, `approved_on` |
 | **Tool contract** (`SRC`) | `tool`, `capability`, `inputs`, `outputs`, `can_establish`, `cannot_establish`, `access_boundary` |
-| **Source authority rule** (`SRC`) | `question_type`, `preferred_source`, `fallback_order`, `reason`. Ranks, highest first: `owner_statement`, `owner_working_trace` (drafts, edits, query histories), `owner_finished_work`, `other_people`, `inference` |
+| **Source authority rule** (`SRC`) | `question_type`, `preferred_source`, `fallback_order`, `reason`. For the owner's reasoning, ranks highest first: `owner_statement`, `owner_working_trace` (drafts, edits, query histories), `owner_finished_work`, `other_people`, `inference`. For reported figures, `system_of_record` (an authorized system or official filing) comes first |
 | **Trace** (`TR`) | `source`, `trace_id`, `date`, `task_or_question`, `steps` (looked at, because, noticed, thought, did next, predicted, match), `conclusion` (no figures), `response`, `extracted_into` |
-| **Question** (`Q`) | `raised_from`, `question`, `why_it_matters` (changes_reasoning, changes_a_number, style, or watch), `research_done`, `proposed_answer`, `status` (open, self_answered, answered), `answer` (the owner's words), `answer_scope`, `applied_to` |
+| **Question** (`Q`) | `raised_from`, `question`, `why_it_matters` (changes_reasoning, changes_a_number, style, or watch), `research_done`, `proposed_answer`, `expectation` and `what_would_resolve_it` (for `watch` questions), `status` (open, self_answered, answered), `answer` (the owner's words), `answer_scope`, `applied_to` |
 | **Change** (`CH`) | `date`, `entry`, `before`, `after`, `reason`, `caused_by` (session, file and location, answer or test). Not a file: each change is one line in `logs/changes.md`, `CH-<ULID> \| date \| entry \| before \| after \| reason \| caused_by` |
 | **Scenario** (`TS`) | `situation`, `question`, `owner_trace` (hidden until scoring). Held out and never learned from |
 | **Test run** (`RN`) | `test`, `scenario`, `result` (per step), `differences`, `traced_to`, `fixed`, `open` |
@@ -256,7 +256,7 @@ An entry whose support is entirely `inferred` and that cannot be checked stays a
 - All entries extracted from one trace count as one case in total.
 - A correct prediction counts as a case only when it was sealed before the text was read, the text describes an event not already counted, and the entry used to predict it did not come from that same text. A wrong prediction counts against the entry.
 - Event ids are minted by the applier from the artifact's `event_ids` and registered as business event entries. Before minting, the applier checks existing events by period, affected metrics and description; two events with the same period and the same affected metrics are flagged as a possible duplicate. Ids that cannot be settled this way are sent to the owner as a question. An agent may not split one event into several ids.
-- Work by other people can support an entry up to `observation`. It never promotes it.
+- Work by other people can support an entry up to `observation`. It never promotes it, unless the entry is `checked` against the data, because then the data, not the other person, supports it.
 - A link confirmed by a calculation is trusted immediately, for the model version it was validated on.
 
 **Gates for pattern-origin entries.**

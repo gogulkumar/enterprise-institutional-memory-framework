@@ -1,0 +1,14 @@
+id: KB-01KGP000000000000000000002
+kind: concept
+version: 1
+title: Google Cloud segment
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope: {}
+valid_from: 2023-Q4
+valid_to: null
+last_supported: '2026-10-29'
+provenance:
+- SRC-01KGP000000000000000000001
+name: Google Cloud
+definition: The segment that earns Google Cloud revenue. Shared costs held at the Alphabet level sit outside it.

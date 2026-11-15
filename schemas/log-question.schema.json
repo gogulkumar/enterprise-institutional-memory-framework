@@ -72,6 +72,14 @@
             "type": "string",
             "pattern": "^(BV|TP|JD|RS|KB|DM|PR|SRC|TR|Q|CH|TS|RN)-[0-9A-HJKMNP-TV-Z]{26}$"
           }
+        },
+        "expectation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "what_would_resolve_it": {
+          "type": "string",
+          "minLength": 1
         }
       },
       "required": [

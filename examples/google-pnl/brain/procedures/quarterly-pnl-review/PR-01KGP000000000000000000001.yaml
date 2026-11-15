@@ -1,0 +1,40 @@
+id: PR-01KGP000000000000000000001
+kind: procedure
+version: 1
+title: Quarterly P&L review commentary
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope:
+  deliverables:
+  - Quarterly P&L review commentary
+valid_from: 2023-Q4
+valid_to: null
+last_supported: '2026-10-29'
+provenance:
+- SRC-01KGP000000000000000000001
+- SRC-01KGP000000000000000000002
+trust: observation
+sureness: inferred
+owner: example-owner
+events: []
+last_confirmed_by_owner: never
+open_questions: []
+related: []
+purpose: Produce the quarterly P&L review commentary for finance leadership.
+inputs:
+- KB-01KGP000000000000000000005
+steps:
+- Load the deliverable profile KB-01KGP000000000000000000009 and re-validate the operating margin definition KB-01KGP000000000000000000005.
+- Compare each segment and below-the-line line with the business view's normal ranges and note what falls outside.
+- Where consolidated margin moves outside its normal pattern, follow thinking pattern TP-01KGP000000000000000000001.
+- Where the filing states no cause, apply judgment JD-01KGP000000000000000000001.
+- Write the commentary in response style RS-01KGP000000000000000000001.
+- Run the self-checks before handover.
+output_pattern: '[Segment or line] moved [direction] by [size as a share], outside its normal [range]; the release
+  attributes this to [stated item] / the cause is not stated.'
+format_rules: Sizes as shares or points; any figure is read from the dataset at writing time, never from memory.
+example_with_blanks: Cloud operating margin rose by [points] to [level], inside its normal step; consolidated margin
+  moved [direction] because Alphabet-level costs took [share] of revenue.
+self_checks:
+- Segment operating income plus Alphabet-level activities reconciles to consolidated operating income
+- Every movement outside its normal range is explained by a stated item or reported as unexplained

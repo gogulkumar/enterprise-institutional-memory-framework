@@ -1,65 +1,58 @@
 ---
 title: 'Worked Example: Alphabet Quarterly P&L'
-description: 'Guide to the Alphabet quarterly P&L example: where the data is, what each brain folder holds, the three beliefs, and how Think would use it.'
+description: 'Guide to the Alphabet quarterly P&L example: where the data is, what each store in the brain holds, the three patterns, the pasted-note walkthrough, and how Think would use it.'
 purpose: Show the framework applied to results readers already know.
 when_to_use: Open to see a populated brain or to compare it with your own.
 last_modified: 2026-11-14
 ---
 
-# Worked Example: Alphabet Quarterly P&L Brain
+# Worked example: Alphabet quarterly P&L
 
-This is a complete, end-to-end example of an institutional brain built on **12 quarters of Alphabet's reported results (2023-Q4 to 2026-Q3)**. It shows how every piece of the framework connects in practice—from raw source data to a finished deliverable and a pending human approval.
-
----
+A brain built on **12 quarters of Alphabet's reported results (2023-Q4 to 2026-Q3)**, plus one pasted note from the owner. It shows every store in SPEC section 5 holding real entries, how trust is earned, and what is still waiting for the owner.
 
 ## 1. Where the numbers live (`data/`)
-The brain itself stores **zero raw dollar figures**. All numbers stay in [`data/`](./data/):
-- [`data/quarterly_pnl.csv`](./data/quarterly_pnl.csv) — Reported revenue, segment operating income, consolidated income statement, and EPS across 12 quarters.
-- [`data/one_offs.csv`](./data/one_offs.csv) — Specific charges and below-the-line items called out in the SEC releases.
-- [`data/SOURCES.md`](./data/SOURCES.md) — Exact SEC Form 8-K filings and arithmetic checks verifying the data.
 
----
+The brain stores no figures. They stay in [`data/`](./data/):
+- [`quarterly_pnl.csv`](./data/quarterly_pnl.csv): reported revenue, segment operating income, the consolidated income statement and EPS for 12 quarters.
+- [`one_offs.csv`](./data/one_offs.csv): charges and below-the-line items the releases call out.
+- [`SOURCES.md`](./data/SOURCES.md): the SEC filings behind each number and the checks run on them.
 
-## 2. What is inside the brain (`brain/`)
-Every one of the six framework components is populated and wired together:
+## 2. What is in the brain (`brain/`)
 
-| Folder | What is in it here | Plain-English role |
-|---|---|---|
-| [`lens/`](./brain/lens/) | `LENS-01KGP...001` + [`context-needs.md`](./brain/lens/context-needs.md) | Defines the deliverable (*Quarterly P&L review commentary*), who reads it, what is out of scope, and tracks which knowledge is `have`, `partial`, or `missing`. |
-| [`record/`](./brain/record/) | `REC-01KGP...001` to `004` | Registers the SEC filings, CSV data, a lookup tool contract (explicitly stating it *cannot* explain *why* a line moved), and the rule that SEC filings outrank working CSVs. |
-| [`business-understanding/`](./brain/business-understanding/) | `BU-01KGP...001` to `011` | Defines segments (Services, Cloud, Alphabet-level, other income), validated margin formulas, normal seasonal bands (e.g., Q4 Services step-up), and metric links. |
-| [`beliefs/`](./brain/beliefs/) | `BEL-01KGP...001` to `004` + [`ledger/`](./brain/beliefs/ledger/) | Three multi-quarter patterns (`provisional`) and one open Story Thread (`BEL-...004`), each backed by quarter-by-quarter evidence rows. |
-| [`reasoning-patterns/`](./brain/reasoning-patterns/) | `RP-01KGP...001`, `002` | An inquiry chain (*when consolidated margin surprises, check Alphabet-level costs first*) and a stopping rule (*report "attributed, cause unverified" if the filing doesn't state a reason*). |
-| [`editorial/`](./brain/editorial/) | `ED-01KGP...001` | Tells the agent to lead with the biggest abnormal movement for finance leadership, always reconcile segments to consolidated operating income, and skip routine seasonal noise. |
+| Store | What is here |
+|---|---|
+| `sources/` | The SEC releases (authored by the company), the dataset, a lookup tool contract, the rule that the filings win, the approved data folder, and the owner's pasted note |
+| `knowledge/` | Four concepts (Services, Cloud, Alphabet-level activities, other income), the operating margin definition, two known issues, the source of truth, the deliverable profile, and one business event per quarter (the registry of events) |
+| `reasoning/business-view/` | Four normal ranges checked against the data (Services seasonality, Cloud margin, Alphabet-level share, net income to operating income) and three patterns found across quarters |
+| `reasoning/thinking-patterns/`, `judgments/`, `response-style/` | The owner's pasted-note rules, and three placeholders (see below) |
+| `dependency-map/` | Alphabet-level costs offset segment operating income; other income is independent of operating margin |
+| `procedures/` | How the quarterly commentary is produced |
+| `logs/` | Two open questions and the change log |
+| `proposals/pending/` | A promotion waiting for the owner |
 
-> **Placeholders:** the reasoning-pattern and editorial entries (`RP-`, `ED-`) are illustrative, written for this example under a placeholder owner (`example-owner`). Public filings cannot show how your analysts actually think or write, so these were not captured from a real expert. Replace them by running `build` Step 5 and `learn` Step 5 on your own team's commentary.
+### The three patterns, in plain English
+1. **Cloud margin rises with scale.** Cloud's operating margin rose or held flat every quarter as revenue grew, so read a Cloud revenue beat as margin-positive unless the margin actually falls.
+2. **Alphabet-level costs drag consolidated margin.** Unallocated costs have taken a larger share of revenue since 2025-Q3, so consolidated margin improves less than segment margins suggest.
+3. **Other income distorts net income and EPS.** In quarters where equity securities swing, net income and EPS say little about operating performance.
 
-### The three learned Beliefs in plain English
-1. **Cloud margin scales with revenue** (`BEL-01KGP...001`, `provisional`): Cloud's operating margin rose or held flat in every quarter as revenue grew—so treat a Cloud revenue beat as margin-positive unless margin actually drops.
-2. **Alphabet-level costs drag consolidated margin** (`BEL-01KGP...002`, `provisional`): Unallocated corporate costs have taken a larger share of revenue since 2025-Q3, meaning consolidated margin improves less than segment margins suggest.
-3. **Other income distorts net income & EPS** (`BEL-01KGP...003`, `provisional`): In quarters where equity securities swing, net income and EPS tell you very little about core operating performance.
+All three are checked against the data and sit at `candidate`. Patterns found across events need the owner's ratification before `established` (SPEC section 7.1). The four normal ranges are `established`: each holds across four or more quarters in two or more periods, with a data check.
 
-### Governance in action
-- [`brain/match_ledger.yaml`](./brain/match_ledger.yaml) and [`brain/changelog.md`](./brain/changelog.md) show the audit trail from backfilling the 12 quarters.
-- [`brain/proposals/pending/01KGP000000000000000000001.yaml`](./brain/proposals/pending/01KGP000000000000000000001.yaml) shows a proposal to promote `BEL-01KGP...001` from `provisional` (*"accounts for"*) to `established` (*"because"*). Both SPEC §5.2 gates were run first (a blind pass by a fresh agent with no brain, and a contradiction search over the data); their results sit in `payload.gates`, and the owner decides whether to ratify.
+The proposal in `proposals/pending/` asks the owner to promote the Cloud pattern. Both gates have been run, and their results are in the proposal: a blind pass by a fresh agent with no brain, and a contradiction search over the data.
 
----
+### The pasted note (SPEC section 9.4)
+The owner pasted: *"When a cost line comes in under forecast, I check whether the budget owner already told me about a timing slip before I call it a saving. Don't call it a saving in the weekly until I've checked."* It became a source record, a thinking pattern, two judgments (driver classification and framing), a response style with a `never_say`, and one open question. These entries are in the owner's own words, so they are `stated` and `established` within the scope given (the weekly).
 
-## 3. How `Think` uses this brain on a new quarter
-If you ask an agent to run **`Think`** on a new quarter's release against this brain:
-1. It checks [`lens/context-needs.md`](./brain/lens/context-needs.md) and [`index.yaml`](./brain/index.yaml) to confirm it has enough coverage.
-2. A clean sub-agent reads the new release with **zero memory** so it isn't biased.
-3. The main agent compares that blind read against `BU-` Normality bands and `BEL-` expectations, investigates surprises using `RP-01KGP...001` (checking Alphabet-level costs before blaming segments), and stops at `RP-01KGP...002` if no cause is stated.
-4. It formats the brief using `ED-01KGP...001`—using *"accounts for"* (not *"because"*) since the beliefs are still `provisional`—and writes any new conclusions back to `brain/proposals/`.
+> **Placeholders:** the quarterly-commentary thinking pattern, the cause-attribution judgment, the leadership response style and the procedure were written for this example and never confirmed by a real owner. They are `inferred` and sit at `observation`, which means the agent never uses them on their own. Public filings cannot show how your analysts think or write; replace them by running `learn` on your own team's commentary and confirming the results.
 
----
+## 3. How `think` would use this brain
 
-## 4. Validate and try it yourself
+Asked about a new quarter, the agent checks readiness, loads the business view for the area, frames the release against the normal ranges, and follows the owner's thinking pattern for the situation. Where it would need a placeholder or a candidate to decide an answer, it says so and asks the owner (SPEC section 10). It words each point by trust and sureness and attaches a handover note.
 
-Check that all entries, references, ledgers, and proposals pass the schemas and refresh `index.yaml`:
+## 4. Validate it
+
 ```bash
 pip install jsonschema pyyaml
 python schemas/validate.py examples/google-pnl/brain
 ```
 
-Then ask your agent to run `skills/think/SKILL.md` on a new quarter's earnings release using `examples/google-pnl/brain` and compare what it asks, what it skips, and how it writes against what a finance analyst would produce.
+The validator checks every entry against its schema and the trust rules, then regenerates `index.yaml`.

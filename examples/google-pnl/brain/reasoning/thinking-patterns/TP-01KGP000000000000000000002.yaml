@@ -1,0 +1,44 @@
+id: TP-01KGP000000000000000000002
+kind: thinking_pattern
+version: 1
+title: Cost line under forecast
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope:
+  deliverables:
+  - weekly
+valid_from: 2026-Q4
+valid_to: null
+last_supported: '2026-11-14'
+provenance:
+- SRC-01KGP000000000000000000006
+- owner:example-owner
+trust: established
+sureness: stated
+owner: example-owner
+events: []
+last_confirmed_by_owner: never
+open_questions:
+- Q-01KGP000000000000000000002
+related: []
+situation: A cost line comes in under forecast
+first_questions:
+- Has the budget owner already reported a timing slip on this line?
+suspicion_triggers:
+- A cost line comes in under forecast
+hypotheses_in_order:
+- A timing slip the budget owner reported
+- A genuine saving
+why_this_order: The owner checks for a reported timing slip before calling anything a saving.
+checks:
+- hypothesis: A timing slip the budget owner reported
+  look_at: What the budget owner has said about the line
+  confirms_if: a timing slip was reported
+  rules_out_if: no timing slip was reported
+stop_when: The variance is classified as timing or saving.
+traps_i_avoid:
+- Calling an under-forecast cost a saving before timing is checked
+judgments_applied:
+- JD-01KGP000000000000000000002
+- JD-01KGP000000000000000000003
+conditions: Stated for the weekly; other deliverables are an open question.

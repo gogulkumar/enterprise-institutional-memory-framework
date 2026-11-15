@@ -1,0 +1,40 @@
+id: DM-01KGP000000000000000000001
+kind: link
+version: 1
+title: Alphabet-level activities offset segment operating income
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+valid_from: 2023-Q4
+valid_to: null
+last_supported: '2026-10-29'
+provenance:
+- SRC-01KGP000000000000000000001
+- SRC-01KGP000000000000000000002
+trust: established
+sureness: checked
+owner: example-owner
+events:
+- EVT-2023-Q4-EARNINGS
+- EVT-2024-Q1-EARNINGS
+- EVT-2024-Q2-EARNINGS
+- EVT-2024-Q3-EARNINGS
+- EVT-2024-Q4-EARNINGS
+- EVT-2025-Q1-EARNINGS
+- EVT-2025-Q2-EARNINGS
+- EVT-2025-Q3-EARNINGS
+- EVT-2025-Q4-EARNINGS
+- EVT-2026-Q1-EARNINGS
+- EVT-2026-Q2-EARNINGS
+- EVT-2026-Q3-EARNINGS
+last_confirmed_by_owner: never
+open_questions: []
+related: []
+from: KB-01KGP000000000000000000003
+to: KB-01KGP000000000000000000005
+type: offsets
+path: Alphabet-level costs partly cancel segment operating income when it rolls up to consolidated operating income,
+  so consolidated margin trails segment margins.
+direction: opposite
+lag: same_period
+evidence: 'Calculation: segment operating income plus Alphabet-level activities equals reported consolidated operating
+  income in all 12 quarters (data/SOURCES.md).'

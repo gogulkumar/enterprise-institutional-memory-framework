@@ -1,0 +1,19 @@
+id: KB-01KGP000000000000000000020
+kind: business_event
+version: 1
+title: Earnings release 2026-Q2
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope: {}
+valid_from: 2026-Q2
+valid_to: 2026-Q2
+last_supported: '2026-10-29'
+provenance:
+- SRC-01KGP000000000000000000001
+event_id: EVT-2026-Q2-EARNINGS
+what_happened: Alphabet reported its results for 2026-Q2.
+periods:
+- 2026-Q2
+affected:
+- KB-01KGP000000000000000000005
+outcome: reported

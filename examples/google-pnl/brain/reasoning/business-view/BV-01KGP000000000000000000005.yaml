@@ -1,0 +1,47 @@
+id: BV-01KGP000000000000000000005
+kind: business_view
+version: 1
+title: Cloud margin rises with scale
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope: {}
+valid_from: 2023-Q4
+valid_to: null
+last_supported: '2026-10-29'
+provenance:
+- SRC-01KGP000000000000000000001
+- SRC-01KGP000000000000000000002
+trust: candidate
+sureness: checked
+owner: example-owner
+events:
+- EVT-2023-Q4-EARNINGS
+- EVT-2024-Q1-EARNINGS
+- EVT-2024-Q2-EARNINGS
+- EVT-2024-Q3-EARNINGS
+- EVT-2024-Q4-EARNINGS
+- EVT-2025-Q1-EARNINGS
+- EVT-2025-Q2-EARNINGS
+- EVT-2025-Q3-EARNINGS
+- EVT-2025-Q4-EARNINGS
+- EVT-2026-Q1-EARNINGS
+- EVT-2026-Q2-EARNINGS
+- EVT-2026-Q3-EARNINGS
+last_confirmed_by_owner: never
+open_questions: []
+related:
+- BV-01KGP000000000000000000002
+subject: Google Cloud operating margin against Cloud revenue
+what_normal_looks_like: Cloud's operating margin has risen or held flat in every quarter as its revenue scaled,
+  so read a Cloud revenue beat as margin-accretive unless the margin is shown to fall.
+what_usually_drives_it: Cloud revenue scale; the filings do not attribute the margin change.
+what_is_fragile: Breaks if Cloud margin falls quarter on quarter, or if revenue growth slows below its prior-year
+  pace.
+what_i_watch_first: Cloud margin direction, because Cloud is a growing share of consolidated operating income.
+checked_against_data: 'yes'
+origin: pattern
+watch_condition: If Cloud margin falls quarter on quarter, or revenue growth slows below its prior-year pace, demote
+  this entry.
+source_concepts:
+- KB-01KGP000000000000000000002
+- KB-01KGP000000000000000000005

@@ -1,4 +1,4 @@
-# Match ledger: one row per Learn signal (SPEC 4.8)
+# Match ledger: one row per Learn signal (SPEC section 9, step 6)
 - pass_id: LP-01KGP000000000000000000001
   signal: Cloud operating margin rose or held flat across all 12 quarters while revenue grew
   matched_entry: null
@@ -8,11 +8,10 @@
   matched_entry: null
   action: new_observation
 - pass_id: LP-01KGP000000000000000000001
-  signal: Net income left its ordinary ratio to operating income in five quarters, each tied to equity securities
-    results
+  signal: Net income left its ordinary ratio to operating income in five quarters, each tied to equity securities results
   matched_entry: null
   action: new_observation
 - pass_id: LP-01KGP000000000000000000001
-  signal: Cloud margin trajectory contained in the Cloud margin belief; open question whether it continues
-  matched_entry: BEL-01KGP000000000000000000001
+  signal: Whether the Cloud margin trajectory continues is still open
+  matched_entry: BV-01KGP000000000000000000005
   action: refine

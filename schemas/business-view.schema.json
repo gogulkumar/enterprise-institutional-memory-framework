@@ -99,7 +99,8 @@
         "origin": {
           "enum": [
             "stated",
-            "pattern"
+            "pattern",
+            "data"
           ]
         },
         "watch_condition": {

@@ -1,0 +1,36 @@
+id: RS-01KGP000000000000000000001
+kind: response_style
+version: 1
+title: Quarterly commentary for finance leadership
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope:
+  deliverables:
+  - Quarterly P&L review commentary
+valid_from: 2023-Q4
+valid_to: null
+last_supported: '2026-10-29'
+provenance:
+- SRC-01KGP000000000000000000001
+- SRC-01KGP000000000000000000002
+trust: observation
+sureness: inferred
+owner: example-owner
+events: []
+last_confirmed_by_owner: never
+open_questions: []
+related: []
+audience: Finance leadership reading the quarterly results
+situation: Quarterly P&L review commentary
+lead_with: The largest abnormal or unexplained movement in the quarter, not a top-to-bottom recap of total revenue.
+always_include:
+- Reconciliation of segment operating income to consolidated operating income, including Alphabet-level costs
+- Operating performance kept apart from swings in other income when net income and EPS are discussed
+- Any open watch questions or watch conditions triggered this quarter
+never_say:
+- Equity securities gains or losses described as operating trends
+length_and_format: Biggest surprise first, then short segment reads (Services, Cloud), then the reconciliation to
+  consolidated operating income, then below-the-line items and open questions. Leave out sequential swings inside
+  the Services seasonal band.
+how_i_express_uncertainty: unknown
+what_i_push_back_on: []
