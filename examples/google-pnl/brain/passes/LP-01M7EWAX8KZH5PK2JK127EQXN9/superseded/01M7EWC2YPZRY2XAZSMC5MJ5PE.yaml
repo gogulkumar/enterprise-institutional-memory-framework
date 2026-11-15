@@ -1,0 +1,7 @@
+action: replace
+target: SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+payload:
+  recorded_at: '2026-11-14'
+  pass_id: LP-01M7EW74CPZZ15SSYXY23NBZ16
+evidence: []
+needs_ratification: false

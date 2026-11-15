@@ -1,0 +1,16 @@
+served:
+- C
+learning:
+  knowledge: 14
+  sources: 4
+prediction: 'skipped: empty brain'
+reconstruct: 'skipped: external authorship'
+owner_practices: unavailable
+tests: not run; no held-out sources
+open_questions:
+- backup reviewer
+- owner-authored work and interview
+- internal data and model
+dependency_links: 3
+build_status: 'Partial: public evidence processed; owner interview, deliverable confirmation,
+  data access and proving unavailable.'

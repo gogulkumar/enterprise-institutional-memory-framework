@@ -1,0 +1,11 @@
+case_credit: no owner reasoning case
+items:
+- entry: KB-01M7EW6WDQPFZTRDCHP842EEFW
+  result: 'hit: p12-13'
+- entry: KB-01M7EW6WDRKKK8KEKS9K7SWQB1
+  result: 'hit: p12'
+- entry: KB-01M7EWAN40T4AG4VC6MTDDFPPZ
+  result: 'partial: tax timing matters but favorable legislation differs from Q2 payment
+    concentration'
+seal_verified: true
+trust_change: none; differing tax mechanism is scoped, not contradictory

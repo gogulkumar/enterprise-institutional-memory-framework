@@ -1,0 +1,32 @@
+action: create
+target: KB-01M7EWDXTEPP9NFG3A7QJ9WWY0
+payload:
+  id: KB-01M7EWDXTEPP9NFG3A7QJ9WWY0
+  kind: concept
+  version: 1
+  title: Legal-charge comparability
+  sensitivity: public
+  recorded_at: '2026-11-14'
+  scope:
+    deliverables: []
+    audiences: []
+    situations:
+    - Alphabet financial performance
+    periods: []
+  valid_from: 2025-Q3
+  valid_to: null
+  last_supported: '2026-11-14'
+  review_window: period
+  provenance:
+  - SRC-01M7EW62YYNJCS8D63NMZGYGWZ
+  name: Legal-charge comparability
+  definition: The European Commission fine was recorded in G&A and fully allocated
+    to Services. It affects consolidated and Services operating margins, while management
+    also presents an excluding-fine comparison. These are different accounting bases;
+    an adjusted margin cannot replace GAAP margin without identifying the exclusion.
+    Q3 CFO p10.
+  pass_id: LP-01M7EWAX8KZH5PK2JK127EQXN9
+evidence:
+- source_id: SRC-01M7EW62YYNJCS8D63NMZGYGWZ
+  event_id: EVT-2025-Q3-earnings
+needs_ratification: false

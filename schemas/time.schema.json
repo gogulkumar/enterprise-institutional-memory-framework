@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "time.schema.json",
-  "title": "Time block (SPEC 6.1, 7.3)",
+  "title": "Time block",
   "type": "object",
   "required": [
     "valid_from",

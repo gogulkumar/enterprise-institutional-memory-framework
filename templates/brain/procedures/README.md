@@ -7,6 +7,6 @@ metadata:
 
 # Procedures
 
-Belongs here: kind `procedure` (SPEC section 6.3).
+Belongs here: kind `procedure`.
 
 Not here: copies of judgments or thinking patterns, or figures.

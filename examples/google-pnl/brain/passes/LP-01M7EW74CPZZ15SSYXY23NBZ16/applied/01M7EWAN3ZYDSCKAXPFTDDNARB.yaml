@@ -1,0 +1,34 @@
+action: create
+target: KB-01M7EWAN3Z6SJK28Q6EEX658QY
+payload:
+  id: KB-01M7EWAN3Z6SJK28Q6EEX658QY
+  kind: business_event
+  version: 1
+  title: Q2 earnings event
+  sensitivity: public
+  recorded_at: '2026-11-14'
+  scope:
+    deliverables: []
+    audiences: []
+    situations:
+    - Alphabet financial performance
+    periods: []
+  valid_from: 2025-Q2
+  valid_to: null
+  last_supported: '2026-11-14'
+  review_window: period
+  provenance:
+  - SRC-01M7EW62YY201X08K9F6V72ZB0
+  event_id: EVT-2025-Q2-earnings
+  what_happened: Quarterly results discussed. CFO financial remarks p10-13.
+  periods:
+  - 2025-Q2
+  affected:
+  - KB-01M7EW6WDNXWZ5CG55F1E8R30D
+  - KB-01M7EW6WDMC9B8E308V714BVPB
+  outcome: Updated public outlook; external evidence only
+  pass_id: LP-01M7EW74CPZZ15SSYXY23NBZ16
+evidence:
+- source_id: SRC-01M7EW62YY201X08K9F6V72ZB0
+  event_id: EVT-2025-Q2-earnings
+needs_ratification: false

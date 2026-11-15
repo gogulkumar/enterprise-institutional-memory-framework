@@ -1,19 +1,29 @@
-# Brain configuration (SPEC section 15.2). Fill in owner and backup_reviewer before running build.
+# Brain configuration. Fill in owner and backup_reviewer before running build.
 
-owner: ""                   # the person whose reasoning this brain learns and who ratifies changes
-backup_reviewer: ""         # holds the queue when the owner is away; never ratifies reasoning entries
+owner: "" # the person whose reasoning this brain learns and who ratifies changes
+backup_reviewer: "" # holds the queue when the owner is away; never ratifies reasoning entries
 
-# Case thresholds (SPEC section 7.1)
+# Optional per-deliverable owners when multiple teams share one brain:
+# deliverable_owners:
+# "Quarterly P&L":
+# owner: "finance-lead"
+# backup_reviewer: "controller"
+# "Data Pipeline Health":
+# owner: "data-eng-lead"
+# backup_reviewer: "platform-lead"
+deliverable_owners: {}
+
+# Case thresholds
 candidate_events: 2
 established_events: 4
 established_periods: 2
 
-observation_expiry: 2       # periods an observation survives without new support
-observations_per_text: 20   # cap on new observations from one text
+observation_expiry: 2 # periods an observation survives without new support
+observations_per_text: 20 # cap on new observations from one text
 
-period_length: 1q           # the brain's reporting period; a window of `period` means this
+period_length: 1q # the brain's reporting period; a window of `period` means this
 
-# Review windows by entry kind (SPEC section 7.3); `period` = period_length, `none` = no window
+# Review windows by entry kind; `period` = period_length, `none` = no window
 review_windows:
   metric_definition: period
   known_issue: period
@@ -26,13 +36,13 @@ review_windows:
   link: 4q
   impact_scope: 4q
   business_event: none
-  default: 4q               # any kind not listed above
+  default: 4q # any kind not listed above
 
-# Ratification queue (SPEC section 12.2)
+# Ratification queue
 queue_expiry: 2w
 max_pending: 25
 
-sensitivity_levels:         # ordered, least to most restricted
+sensitivity_levels: # ordered, least to most restricted
   - public
   - internal
   - confidential

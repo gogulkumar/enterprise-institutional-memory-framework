@@ -1,0 +1,27 @@
+id: KB-01M7EW6WDRKKK8KEKS9K7SWQB1
+kind: concept
+version: 4
+title: Cloud monetization constraints
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q1
+valid_to: null
+last_supported: '2026-11-14'
+review_window: period
+provenance:
+- SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+- SRC-01M7EW62YY201X08K9F6V72ZB0
+- SRC-01M7EW62YYNJCS8D63NMZGYGWZ
+name: Cloud monetization constraints
+definition: Cloud demand and recognized revenue are separated by available serving
+  capacity. Management describes supply constraints despite demand, with additions
+  arriving unevenly across quarters; spending commitments do not guarantee immediately
+  usable capacity. Fleet utilization supports profitability but does not by itself
+  reveal demand or incremental margin. The mechanism remains management-attributed,
+  not a separately verified capacity model. Q1 CFO p10-11, Q&A p14-16; Q2 p13,23-24.

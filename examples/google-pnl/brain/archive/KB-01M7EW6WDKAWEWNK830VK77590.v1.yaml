@@ -1,0 +1,25 @@
+id: KB-01M7EW6WDKAWEWNK830VK77590
+kind: metric_definition
+version: 1
+title: Google Services revenue
+sensitivity: public
+recorded_at: '2026-11-15'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q1
+valid_to: '2026-11-14'
+last_supported: '2026-11-15'
+review_window: period
+provenance:
+- SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+name: Google Services revenue
+meaning: Search & other + YouTube advertising + Network + subscriptions platforms
+  and devices; USD.
+source_of_truth: SRC-01M7EW62YX9KRY7ZBWAST2G1FG; p9/Ashkenazi
+validated: no_access
+compare_to: Same period and accounting basis; transcript rounded values are not a
+  full reconciliation

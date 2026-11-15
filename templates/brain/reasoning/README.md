@@ -7,4 +7,4 @@ metadata:
 
 # Reasoning
 
-Subfolders: `business-view/` (BV), `thinking-patterns/` (TP), `judgments/` (JD), `response-style/` (RS). The tie-break between them is in SPEC section 5.
+Subfolders: `business-view/` (BV), `thinking-patterns/` (TP), `judgments/` (JD), `response-style/` (RS). The tie-break between them is in section 5.

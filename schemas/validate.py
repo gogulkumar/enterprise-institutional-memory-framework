@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate a brain against SPEC v2 and regenerate its index.yaml.
+"""Validate a brain and regenerate its index.yaml.
 
 Usage:
   python schemas/validate.py <brain dir> [--check] [--today YYYY-MM-DD]
@@ -25,7 +25,7 @@ ID_RE = re.compile(rf"^({'|'.join(PREFIXES)})-{ULID}$")
 EVT_RE = re.compile(r"^EVT-(\d{4}(?:-Q[1-4]|-\d{2}(?:-\d{2})?)?)-[A-Za-z0-9][A-Za-z0-9_-]*$")
 PROPOSAL_FILE_RE = re.compile(rf"^{ULID}\.yaml$")
 
-# SPEC 6.5 kinds, and the SPEC 15.1 folder each prefix lives in.
+# Allowed entry kinds, and the folder each prefix lives in.
 KINDS = {
     "BV": {"business_view": "business-view"},
     "TP": {"thinking_pattern": "thinking-pattern"},
@@ -50,14 +50,14 @@ FOLDERS = {
 REASONING = {"BV", "TP", "JD", "RS"}
 GOVERNED = REASONING | {"PR", "DM"}
 TIMED = GOVERNED | {"KB"}
-INDEXED = GOVERNED | {"KB", "SRC"}  # logs and held-out tests are never loaded for reasoning
+INDEXED = GOVERNED | {"KB", "SRC"} # logs and held-out tests are never loaded for reasoning
 TRUST_RANK = {"observation": 0, "candidate": 1, "established": 2}
 DEFAULT_CONFIG = {
     "owner": "", "candidate_events": 2, "established_events": 4, "established_periods": 2, "observation_expiry": 2,
     "sensitivity_levels": ["public", "internal", "confidential", "restricted"], "period_length": "1q",
     "review_windows": {},
 }
-DEFAULT_WINDOWS = {  # SPEC 7.3
+DEFAULT_WINDOWS = { #
     "metric_definition": "period", "known_issue": "period", "source_of_truth": "period", "calendar_point": "period",
     "judgment": "4q", "thinking_pattern": "4q", "response_style": "4q", "business_view": "4q",
     "link": "4q", "impact_scope": "4q", "business_event": "none", "default": "4q",
@@ -103,7 +103,7 @@ def to_date(value):
 
 
 def relevance(entry, today, config):
-    """SPEC 7.3: historical once valid_to is set; otherwise by age against the review window."""
+    """: historical once valid_to is set; otherwise by age against the review window."""
     if entry.get("valid_to"):
         return "historical"
     kind = entry["kind"]
@@ -176,11 +176,11 @@ def main():
                 bad(rel, f"file name must be {eid}.yaml")
             kind = data.get("kind")
             if kind is None:
-                bad(rel, "missing `kind` (SPEC 6.5)")
+                bad(rel, "missing `kind`")
                 continue
             schema = KINDS[prefix].get(kind)
             if schema is None:
-                bad(rel, f"kind {kind!r} is not allowed for prefix {prefix} (SPEC 6.5)")
+                bad(rel, f"kind {kind!r} is not allowed for prefix {prefix}")
                 continue
             for err in sorted(validators[schema].iter_errors(data), key=lambda e: list(e.path)):
                 bad(rel, f"{'/'.join(map(str, err.path)) or '(entry)'}: {err.message}")
@@ -189,7 +189,7 @@ def main():
             data["_file"] = str(rel)
             entries[eid] = data
 
-    # 1b. The archive (SPEC 6.5, 15.1): `<id>.yaml` or `<id>.v<n>.yaml`, schema-checked, kept out of the index.
+    # 1b. The archive: `<id>.yaml` or `<id>.v<n>.yaml`, schema-checked, kept out of the index.
     archived = set()
     arch_re = re.compile(rf"^((?:{'|'.join(PREFIXES)})-{ULID})(?:\.v\d+)?\.yaml$")
     for path in sorted((brain / "archive").rglob("*.yaml")) if (brain / "archive").exists() else []:
@@ -201,18 +201,18 @@ def main():
             continue
         schema = KINDS.get(m.group(1).split("-")[0], {}).get(data.get("kind"))
         if schema is None:
-            bad(rel, f"kind {data.get('kind')!r} is not allowed for this prefix (SPEC 6.5)")
+            bad(rel, f"kind {data.get('kind')!r} is not allowed for this prefix")
             continue
         for err in validators[schema].iter_errors(data):
             bad(rel, f"{'/'.join(map(str, err.path)) or '(entry)'}: {err.message}")
         archived.add(m.group(1))
 
-    # 1c. Nothing outside the SPEC 15.1 layout.
+    # 1c. Nothing outside the standard brain layout.
     allowed_top = {"config.yaml", "index.yaml", "match_ledger.yaml", ".applier.lock", "README.md", "sources", "reasoning",
                    "knowledge", "dependency-map", "procedures", "tests", "logs", "proposals", "passes", "archive"}
     for p in sorted(brain.iterdir()) if brain.exists() else []:
         if p.name not in allowed_top and not p.name.startswith("."):
-            bad(p.name, "not part of the brain layout (SPEC 15.1)")
+            bad(p.name, "not part of the brain layout")
     loaded = {e["_file"] for e in entries.values()}
     for path in sorted(brain.rglob("*.yaml")):
         rel = path.relative_to(brain)
@@ -221,9 +221,9 @@ def main():
             continue
         if str(rel) not in loaded and not any(str(rel).startswith(f + "/") and str(rel) in loaded for f in FOLDERS.values()):
             if not str(rel).startswith("logs/reports/"):
-                bad(rel, "unexpected file: entries live in their store's folder, named by id (SPEC 15.1)")
+                bad(rel, "unexpected file: entries live in their store's folder, named by id")
 
-    # 2. Event registry (SPEC 6.3, 7.1).
+    # 2. Event registry.
     registry = {}
     for e in entries.values():
         if e.get("kind") == "business_event" and e.get("event_id"):
@@ -247,7 +247,7 @@ def main():
             if EVT_RE.match(s) and s not in registry:
                 bad(e["_file"], f"event {s} is not registered by any business event")
 
-    # 4. Sensitivity never lower than its sources (SPEC 12.3).
+    # 4. Sensitivity never lower than its sources.
     def level(x):
         return levels.index(x) if x in levels else None
 
@@ -260,7 +260,7 @@ def main():
             if s and level(s.get("sensitivity")) is not None and level(s["sensitivity"]) > level(e["sensitivity"]):
                 bad(e["_file"], f"sensitivity {e['sensitivity']} is lower than its source {src} ({s['sensitivity']})")
 
-    # 5. Trust rules (SPEC 7.1, 7.2).
+    # 5. Trust rules.
     for e in entries.values():
         if e["_file"].split("/")[0] not in ("reasoning", "procedures", "dependency-map"):
             continue
@@ -286,19 +286,19 @@ def main():
         if trust == "observation":
             limit = config["observation_expiry"] * window_days("period", config)
             if (today - last).days > limit:
-                bad(e["_file"], f"observation unsupported for over {config['observation_expiry']} periods; retire it (SPEC 7.1)")
+                bad(e["_file"], f"observation unsupported for over {config['observation_expiry']} periods; retire it")
         if trust == "replaced" and not e.get("valid_to"):
-            bad(e["_file"], "a `replaced` entry needs `valid_to`, the date the newer version takes over (SPEC 7.1)")
+            bad(e["_file"], "a `replaced` entry needs `valid_to`, the date the newer version takes over")
         if trust == "retired":
-            bad(e["_file"], "a `retired` entry belongs in archive/ (SPEC 7.1)")
+            bad(e["_file"], "a `retired` entry belongs in archive/")
         if trust == "contested" and window and (today - last).days > window:
-            warn(e["_file"], "contested for longer than one review window; put it at the top of the next report (SPEC 7.1)")
+            warn(e["_file"], "contested for longer than one review window; put it at the top of the next report")
         rank = TRUST_RANK.get(trust)
         if rank is None:
             continue
         if rank > 0 and not owner_sourced and not confirmed and sureness != "checked":
             bad(e["_file"], f"trust `{trust}` rests only on other people's work, which can support an entry "
-                            "up to `observation` unless it is checked against the data (SPEC 7.1)")
+                            "up to `observation` unless it is checked against the data")
         if trust == "candidate" and len(evts) < config["candidate_events"] and not owner_word:
             bad(e["_file"], f"`candidate` needs {config['candidate_events']} independent events or the owner's word; "
                             f"it has {len(evts)}")
@@ -309,7 +309,7 @@ def main():
                         and sureness == "checked")
             if sureness == "inferred" and not confirmed:
                 bad(e["_file"], "an entry supported only by inference cannot be `established` until the owner "
-                                "confirms it (SPEC 7.1)")
+                                "confirms it")
             elif not (owner_word or by_cases or calc_link):
                 bad(e["_file"], f"`established` needs the owner's word, or {config['established_events']} events across "
                                 f"{config['established_periods']} periods with a data check; it has {len(evts)} events "
@@ -328,7 +328,7 @@ def main():
             bad(rel, f"{'/'.join(map(str, err.path)) or '(proposal)'}: {err.message}")
         if errs or not isinstance(data, dict):
             continue
-        # The payload must fit the target's schema (SPEC 12.1): a full entry for create, merged fields otherwise.
+        # The payload must fit the target's schema: a full entry for create, merged fields otherwise.
         target, payload = str(data.get("target", "")), dict(data.get("payload") or {})
         meta = {k: payload.pop(k) for k in ("pass_id", "ledger_kind", "gates", "note") if k in payload}
         prefix = target.split("-")[0]
@@ -341,7 +341,7 @@ def main():
             continue
         schema = KINDS.get(prefix, {}).get(candidate.get("kind"))
         if schema is None:
-            bad(rel, f"payload kind {candidate.get('kind')!r} is not allowed for {prefix} (SPEC 6.5)")
+            bad(rel, f"payload kind {candidate.get('kind')!r} is not allowed for {prefix}")
             continue
         for err in validators[schema].iter_errors(plain(candidate)):
             bad(rel, f"payload {'/'.join(map(str, err.path)) or '(entry)'}: {err.message}")
@@ -365,7 +365,7 @@ def main():
             if not s or s.startswith("#"):
                 continue
             if not s.startswith("CH"):
-                if seen_change:  # prose is allowed only in the header, before the first change line
+                if seen_change: # prose is allowed only in the header, before the first change line
                     bad("logs/changes.md", f"line {n}: not a change line")
                 continue
             seen_change = True
@@ -378,10 +378,10 @@ def main():
     if problems:
         print(f"FAIL {brain}: {len(problems)} problem(s)")
         for p in problems:
-            print("  " + p)
+            print(" " + p)
         return 1
 
-    # 7. Index (SPEC 15.3).
+    # 7. Index.
     rows, situations, deliverables, metrics = [], {}, {}, {}
     for eid, e in sorted(entries.items()):
         prefix = eid.split("-")[0]
@@ -439,7 +439,7 @@ def main():
     index = {"generated": today.isoformat(), "situations": situations, "deliverables": deliverables,
              "metrics": metrics, "entries": rows}
     header = (
-        "# Generated by schemas/validate.py. Do not edit by hand (SPEC 15.3).\n"
+        "# Generated by schemas/validate.py. Do not edit by hand.\n"
         "# Drop entries above the requester's clearance first, then load in this order: the situation's thinking\n"
         "# pattern and response style; the business view and judgments; for a deliverable its profile and procedures;\n"
         "# metric definitions and known issues; dependency links and impact scope.\n"
@@ -451,7 +451,7 @@ def main():
     print(f"OK {brain}: {len(entries)} entries, {len(registry)} events"
           + ("" if args.check else ", index.yaml regenerated"))
     for w in warnings:
-        print("  warning: " + w)
+        print(" warning: " + w)
     return 0
 
 

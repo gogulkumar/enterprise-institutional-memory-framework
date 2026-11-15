@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "proposal.schema.json",
-  "title": "Proposal, one file per change in brain/proposals/ (SPEC 12.1)",
+  "title": "Proposal, one file per change in brain/proposals/",
   "type": "object",
   "additionalProperties": false,
   "required": [

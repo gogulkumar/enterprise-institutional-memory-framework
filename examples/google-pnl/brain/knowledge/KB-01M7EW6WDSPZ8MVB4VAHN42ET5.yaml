@@ -1,0 +1,24 @@
+id: KB-01M7EW6WDSPZ8MVB4VAHN42ET5
+kind: concept
+version: 2
+title: Subscriptions and Workspace drivers
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q1
+valid_to: null
+last_supported: '2026-11-14'
+review_window: period
+provenance:
+- SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+name: Subscriptions and Workspace drivers
+definition: 'Management distinguishes subscription customer growth from monetization
+  per customer. YouTube and Google One subscriber additions support Services subscriptions,
+  while Workspace revenue per seat supports Cloud. These are different segment drivers:
+  a paid subscriber is not a Workspace seat, and neither usage nor account counts
+  alone reproduce revenue. Q1 CFO p9-10.'

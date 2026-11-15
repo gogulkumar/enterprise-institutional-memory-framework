@@ -1,0 +1,9 @@
+period: 2025-Q2
+prospective_fresh_run_only: true
+items:
+- entry: KB-01M7EW6WDQJ1MG1BTCWBKTD0Z5
+  expectation: TAC mix mechanism
+- entry: KB-01M7EW6WDQPFZTRDCHP842EEFW
+  expectation: Infrastructure expense timing
+- entry: KB-01M7EW6WDRKKK8KEKS9K7SWQB1
+  expectation: Cloud monetization constraints

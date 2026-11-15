@@ -7,6 +7,6 @@ metadata:
 
 # Judgments
 
-Belongs here: kind `judgment` (SPEC section 6.2).
+Belongs here: kind `judgment`.
 
 Not here: how an answer is worded (response style) or vague rules that could be applied two ways.

@@ -7,4 +7,4 @@ metadata:
 
 # Learn Passes
 
-See SPEC section 9, steps 2 and 5. Folders may be pruned once a run is applied.
+See section 9, steps 2 and 5. Folders may be pruned once a run is applied.

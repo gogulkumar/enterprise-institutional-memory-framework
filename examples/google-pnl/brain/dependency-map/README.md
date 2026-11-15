@@ -7,6 +7,6 @@ metadata:
 
 # Dependency Map
 
-Belongs here: kinds `link` and `impact_scope` (SPEC sections 6.3 and 8).
+Belongs here: kinds `link` and `impact_scope`.
 
 Not here: figures, or links inferred only from two numbers moving together.

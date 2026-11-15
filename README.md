@@ -1,6 +1,6 @@
 ---
 name: framework-overview
-description: 'Plain-English overview of the Enterprise Institutional Memory Framework: an AI brain that learns how a business owner sees the business, thinks, decides and responds from any text they write, and the four skills (build, learn, think, prove) that run it. Use when first meeting the framework, deciding whether to adopt it, or looking for the quickstart; for exact rules, open SPEC.md.'
+description: 'Plain-English overview of the Enterprise Institutional Memory Framework: an AI brain that learns how a business owner sees the business, thinks, decides and responds from any text they write, and the four skills (build, learn, think, prove) that run it. Use when first meeting the framework, deciding whether to adopt it, or looking for the quickstart.'
 metadata:
   last_modified: "2026-11-14"
 ---
@@ -11,13 +11,12 @@ An AI model already knows how to reason. What it does not know is **how your peo
 
 Today that lives in people's heads. This framework turns it into an **institutional brain**: a governed memory your agent learns from any text its owner produces (reports, drafts, emails, chats, rough notes, corrections) and reasons with when anyone asks a question.
 
-- **[SPEC.md](./SPEC.md)**: the complete rulebook.
 - **[skills/](./skills/)**: the four playbooks your agent runs: [`build`](./skills/build/SKILL.md), [`learn`](./skills/learn/SKILL.md), [`think`](./skills/think/SKILL.md) and [`prove`](./skills/prove/SKILL.md).
 - **[templates/brain/](./templates/brain/)**: an empty brain to copy.
 - **[examples/google-pnl/](./examples/google-pnl/)**: a worked brain on Alphabet's quarterly P&L, with the data.
 - **[MIGRATION.md](./MIGRATION.md)**: what changed from v1.
 
-Every Markdown file starts with front matter in the standard Agent Skills format: a `name` and a `description` that says what the file is and when to use it ([SPEC section 16](./SPEC.md)). An agent reads only that first and opens the rest of a file when the task matches. `python schemas/check_markdown.py --list .` prints just those descriptions.
+Every Markdown file starts with front matter in the standard Agent Skills format: a `name` and a `description` that says what the file is and when to use it. An agent reads only that first and opens the rest of a file when the task matches. `python schemas/check_markdown.py --list.` prints just those descriptions.
 
 ---
 
@@ -54,7 +53,7 @@ Numbers are never stored. They stay in your data systems and are queried when ne
 
 ## How trust works
 
-An entry earns trust from **distinct business events**, not from how many documents mention it, and from the owner's own word. The owner's statement or confirmation counts most. A pattern the agent only inferred stays a candidate until the owner confirms it. Every answer says how sure it is, and the owner approves the changes that matter. The exact rules are in [SPEC section 7](./SPEC.md).
+An entry earns trust from **distinct business events**, not from how many documents mention it, and from the owner's own word. The owner's statement or confirmation counts most. A pattern the agent only inferred stays a candidate until the owner confirms it. Every answer says how sure it is, and the owner approves the changes that matter. The exact rules are in.
 
 ---
 

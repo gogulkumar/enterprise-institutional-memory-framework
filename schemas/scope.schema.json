@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "scope.schema.json",
-  "title": "Scope block (SPEC 6.1); empty lists mean everywhere",
+  "title": "Scope block; empty lists mean everywhere",
   "type": "object",
   "required": [
     "scope"

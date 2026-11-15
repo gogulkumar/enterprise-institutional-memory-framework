@@ -1,0 +1,12 @@
+action: confirm
+target: KB-01M7EW6WDKAWEWNK830VK77590
+payload:
+  pass_id: LP-01M7EW74CPZZ15SSYXY23NBZ16
+  filters: Google Services segment only; fiscal quarter revenue recognized in USD;
+    Search & other, YouTube ads, Network and subscriptions/platforms/devices.
+  sign: Positive revenue flow; growth may be positive or negative; operating margin
+    is a separate ratio.
+  join: Aggregate mutually exclusive components within Services and quarter; prior-year
+    pairing uses same component definitions.
+evidence: []
+needs_ratification: false

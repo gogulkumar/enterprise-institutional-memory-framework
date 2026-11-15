@@ -7,6 +7,6 @@ metadata:
 
 # Sources
 
-Belongs here: kinds `artifact`, `approved_location`, `tool_contract`, `authority_rule` (SPEC sections 6.4 and 6.5).
+Belongs here: kinds `artifact`, `approved_location`, `tool_contract`, `authority_rule`.
 
 Not here: the content of an input, copied figures, or anything learned from it.

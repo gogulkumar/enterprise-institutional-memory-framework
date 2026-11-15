@@ -1,0 +1,35 @@
+id: KB-01M7EW6WDHM7NQP6SSHHVPS8QP
+kind: metric_definition
+version: 2
+title: Revenue growth
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q1
+valid_to: '2026-11-14'
+last_supported: '2026-11-14'
+review_window: period
+provenance:
+- SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+- SRC-01M7EW62YY201X08K9F6V72ZB0
+name: Revenue growth
+meaning: 'Numerator: current quarter revenue less comparable prior-year quarter revenue.
+  Denominator: comparable prior-year revenue. Multiply by 100 for percent. Constant
+  currency excludes currency movements; not interchangeable with reported USD growth.'
+source_of_truth: SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+validated: no_access
+compare_to: Same quarter prior year for growth; prior-quarter comparison only when
+  explicitly disclosed. GAAP and non-GAAP remain separate.
+filters: 'Alphabet consolidated unless segment explicitly named; fiscal quarter, USD.
+  Source lookup: p8/Ashkenazi; Q2 CFO p10-13. No YTD substitution.'
+join: Match entity, fiscal quarter, segment and accounting basis before comparing;
+  no cross-period joins.
+sign: Revenue/profit positive; expenses and cash outflows identified separately; margin
+  changes in percentage points.
+breaks_down_as: Use only disclosed constituent lines on the same accounting basis;
+  unreconciled transcript rounding is not a check.

@@ -1,0 +1,12 @@
+action: confirm
+target: KB-01M7EW6WDKP8Z254DASR2M9AT3
+payload:
+  pass_id: LP-01M7EW74CPZZ15SSYXY23NBZ16
+  filters: Alphabet consolidated partner/distribution payments; fiscal quarter; USD;
+    separate cost amount from TAC/revenue ratio.
+  sign: Expense reported as positive cost magnitude; subtract in profit computation;
+    falling cost rate need not mean falling dollars.
+  join: Pair TAC with same-quarter revenue for rate; compare same fiscal quarter prior
+    year for cost growth.
+evidence: []
+needs_ratification: false

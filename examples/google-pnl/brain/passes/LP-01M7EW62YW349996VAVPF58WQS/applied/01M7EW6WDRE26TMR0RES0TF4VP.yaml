@@ -1,0 +1,29 @@
+action: create
+target: KB-01M7EW6WDRKKK8KEKS9K7SWQB1
+payload:
+  id: KB-01M7EW6WDRKKK8KEKS9K7SWQB1
+  kind: concept
+  version: 1
+  title: Cloud monetization constraints
+  sensitivity: public
+  recorded_at: '2026-11-15'
+  scope:
+    deliverables: []
+    audiences: []
+    situations:
+    - Alphabet financial performance
+    periods: []
+  valid_from: 2025-Q1
+  valid_to: null
+  last_supported: '2026-11-15'
+  review_window: period
+  provenance:
+  - SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+  name: Cloud monetization constraints
+  definition: Management describes demand above capacity; supply timing limits revenue
+    recognition opportunity, while fleet utilization supports profitability. [p10-11,14-16/Ashkenazi]
+  pass_id: LP-01M7EW62YW349996VAVPF58WQS
+evidence:
+- source_id: SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+  event_id: EVT-2025-Q1-earnings
+needs_ratification: false

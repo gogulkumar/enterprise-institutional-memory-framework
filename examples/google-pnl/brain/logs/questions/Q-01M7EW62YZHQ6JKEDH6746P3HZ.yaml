@@ -1,0 +1,14 @@
+id: Q-01M7EW62YZHQ6JKEDH6746P3HZ
+kind: question
+version: 1
+title: Backup reviewer
+sensitivity: public
+recorded_at: '2026-11-14'
+raised_from: LP-01M7EW62YW349996VAVPF58WQS
+question: Who is the backup reviewer?
+why_it_matters: changes_reasoning
+research_done:
+- Fresh brain checked
+- Authorized scope contains external transcripts only
+proposed_answer: Missing; no inference applied
+status: open

@@ -1,0 +1,24 @@
+id: KB-01M7EW6WDP1ST3ZVSYZ3RTZF17
+kind: concept
+version: 2
+title: Segment profitability bridge
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q1
+valid_to: null
+last_supported: '2026-11-14'
+review_window: period
+provenance:
+- SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+name: Segment profitability bridge
+definition: 'Google Services and Google Cloud are separate profit-generating segments,
+  while Other Bets reports an operating loss. Segment operating income is not interchangeable
+  with consolidated operating income: corporate costs outside segment performance
+  must also be accounted for. This relationship identifies the scope needed to reconcile
+  profit, without asserting a numerical bridge from rounded remarks. Q1 CFO p9-10.'

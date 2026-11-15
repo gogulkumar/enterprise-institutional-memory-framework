@@ -1,0 +1,12 @@
+action: confirm
+target: KB-01M7EW6WDRKKK8KEKS9K7SWQB1
+payload:
+  provenance:
+  - SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+  - SRC-01M7EW62YY201X08K9F6V72ZB0
+  last_supported: '2026-11-14'
+  pass_id: LP-01M7EW74CPZZ15SSYXY23NBZ16
+evidence:
+- source_id: SRC-01M7EW62YY201X08K9F6V72ZB0
+  event_id: EVT-2025-Q2-earnings
+needs_ratification: false

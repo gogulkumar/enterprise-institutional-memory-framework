@@ -1,0 +1,32 @@
+{
+  "retrieved_on": "2026-11-14",
+  "files": [
+    {
+      "period": "2025-Q1",
+      "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2025/q1/2025-q1-earnings-transcript.pdf",
+      "raw_file": "examples/google-pnl/data/raw/2025-Q1-transcript.pdf",
+      "sha256": "6603242aa7d15d77efd7c164c8f180d3d1be8c1fb49b326b25f81cf835beeafe",
+      "bytes": 373066,
+      "pages": 21,
+      "extracted_file": "examples/google-pnl/data/extracted/2025-Q1-transcript.txt"
+    },
+    {
+      "period": "2025-Q2",
+      "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2025/q2/2025-q2-earnings-transcript.pdf",
+      "raw_file": "examples/google-pnl/data/raw/2025-Q2-transcript.pdf",
+      "sha256": "e1fe278fddb6cb1026ba42eea997d55e2963b578a660f0f4459a6bb402cf4384",
+      "bytes": 324760,
+      "pages": 26,
+      "extracted_file": "examples/google-pnl/data/extracted/2025-Q2-transcript.txt"
+    },
+    {
+      "period": "2025-Q3",
+      "url": "https://s206.q4cdn.com/479360582/files/doc_events/2025/Oct/29/2025_Q3_Earnings_Transcript.pdf",
+      "raw_file": "examples/google-pnl/data/raw/2025-Q3-transcript.pdf",
+      "sha256": "2f7b5b7f2eacf19e31f86689780f095e8116be0cb8683cb65a6303243e432b37",
+      "bytes": 309876,
+      "pages": 23,
+      "extracted_file": "examples/google-pnl/data/extracted/2025-Q3-transcript.txt"
+    }
+  ]
+}

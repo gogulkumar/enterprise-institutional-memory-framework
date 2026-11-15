@@ -1,0 +1,33 @@
+action: create
+target: DM-01M7EW95T4TR59JEHX4G480FW0
+payload:
+  id: DM-01M7EW95T4TR59JEHX4G480FW0
+  kind: link
+  version: 1
+  title: Infrastructure expense timing dependency
+  sensitivity: public
+  recorded_at: '2026-11-14'
+  valid_from: 2025-Q1
+  valid_to: null
+  last_supported: '2026-11-14'
+  review_window: 4q
+  provenance:
+  - SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+  trust: observation
+  sureness: inferred
+  owner: Gogul Kumar Mathi
+  events:
+  - EVT-2025-Q1-earnings
+  last_confirmed_by_owner: never
+  from: KB-01M7EW6WDQPFZTRDCHP842EEFW
+  to: KB-01M7EW6WDGTSHQ3JQXFS752QWT
+  type: causes
+  path: Management-attributed mechanism; not independently isolated causal effect
+  direction: opposite
+  lag: unknown
+  evidence: SRC-01M7EW62YX9KRY7ZBWAST2G1FG; p10-11,19-20/Ashkenazi
+  pass_id: LP-01M7EW62YW349996VAVPF58WQS
+evidence:
+- source_id: SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+  event_id: EVT-2025-Q1-earnings
+needs_ratification: false

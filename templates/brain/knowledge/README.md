@@ -7,6 +7,6 @@ metadata:
 
 # Knowledge Base
 
-Belongs here: the nine `KB` kinds in SPEC section 6.5. Subfolders per kind are allowed.
+Belongs here: the nine `KB` kinds in section 6.5. Subfolders per kind are allowed.
 
 Not here: figures from the data or reasoning.

@@ -1,0 +1,25 @@
+id: KB-01M7EW6WDKP8Z254DASR2M9AT3
+kind: metric_definition
+version: 1
+title: Traffic acquisition costs
+sensitivity: public
+recorded_at: '2026-11-15'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q1
+valid_to: '2026-11-14'
+last_supported: '2026-11-15'
+review_window: period
+provenance:
+- SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+name: Traffic acquisition costs
+meaning: Distribution and Network partner payments; USD; absolute cost growth distinct
+  from cost as a share of revenue.
+source_of_truth: SRC-01M7EW62YX9KRY7ZBWAST2G1FG; p8,19-20/Ashkenazi
+validated: no_access
+compare_to: Same period and accounting basis; transcript rounded values are not a
+  full reconciliation

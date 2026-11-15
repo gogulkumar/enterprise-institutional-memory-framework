@@ -1,0 +1,23 @@
+id: DM-01M7EWEE6ZRNSMSJ85J3X7PG2Z
+kind: impact_scope
+version: 1
+title: Tax expense versus cash timing impact
+sensitivity: public
+recorded_at: '2026-11-14'
+valid_from: 2025-Q3
+valid_to: null
+last_supported: '2026-11-14'
+review_window: 4q
+provenance:
+- SRC-01M7EW62YYNJCS8D63NMZGYGWZ
+trust: observation
+sureness: inferred
+owner: Gogul Kumar Mathi
+events:
+- EVT-2025-Q3-earnings
+last_confirmed_by_owner: never
+entry: KB-01M7EWDXTEX58JKRKCQWK2DKZS
+numbers_affected: []
+deliverables_affected: []
+reasoning_entries_affected: []
+checked_not_affected: []

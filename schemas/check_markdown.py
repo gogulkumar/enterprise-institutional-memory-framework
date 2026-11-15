@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Check that every Markdown file starts with front matter in the Agent Skills format (SPEC section 16).
+"""Check that every Markdown file starts with front matter in the Agent Skills format.
 
 Usage:
-  python schemas/check_markdown.py <file or folder> [...]          check every .md file
-  python schemas/check_markdown.py --list <file or folder> [...]   print only name and description (what an agent reads first)
+  python schemas/check_markdown.py <file or folder> [...] check every.md file
+  python schemas/check_markdown.py --list <file or folder> [...] print only name and description (what an agent reads first)
 """
 import datetime
 import os
@@ -71,7 +71,7 @@ def problems(path, data):
         if len(desc) > MAX_DESCRIPTION:
             out.append(f"`description` is {len(desc)} characters; the limit is {MAX_DESCRIPTION}")
         if "use when" not in desc.lower():
-            out.append("`description` must say what the file is and when to use it (\"... Use when ...\")")
+            out.append("`description` must say what the file is and when to use it (\"... Use when...\")")
     meta = data.get("metadata")
     if not isinstance(meta, dict):
         out.append("missing `metadata` map")
@@ -100,17 +100,17 @@ def main(argv):
         data, err = read_front_matter(path)
         if list_mode:
             if err:
-                print(f"{path}\n  !! {err}\n")
+                print(f"{path}\n !! {err}\n")
                 failed += 1
             else:
-                print(f"{path}\n  name: {data.get('name')}\n  description: {data.get('description')}\n")
+                print(f"{path}\n name: {data.get('name')}\n description: {data.get('description')}\n")
             continue
         issues = [err] if err else problems(path, data)
         if issues:
             failed += 1
             print(f"FAIL {path}")
             for issue in issues:
-                print(f"  {issue}")
+                print(f" {issue}")
     if not list_mode:
         print(f"{'FAIL' if failed else 'OK'}: {failed} file(s) with problems")
     return 1 if failed else 0

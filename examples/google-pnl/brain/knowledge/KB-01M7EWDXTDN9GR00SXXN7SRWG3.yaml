@@ -1,0 +1,26 @@
+id: KB-01M7EWDXTDN9GR00SXXN7SRWG3
+kind: business_event
+version: 1
+title: Q3 earnings event
+sensitivity: public
+recorded_at: '2026-11-14'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q3
+valid_to: null
+last_supported: '2026-11-14'
+review_window: period
+provenance:
+- SRC-01M7EW62YYNJCS8D63NMZGYGWZ
+event_id: EVT-2025-Q3-earnings
+what_happened: Quarterly results discussed. CFO p9-13.
+periods:
+- 2025-Q3
+affected:
+- KB-01M7EW6WDGTSHQ3JQXFS752QWT
+- KB-01M7EW6WDJ2FMVC0PT71Z9S254
+outcome: Public accounting and capacity developments; no owner-work evidence

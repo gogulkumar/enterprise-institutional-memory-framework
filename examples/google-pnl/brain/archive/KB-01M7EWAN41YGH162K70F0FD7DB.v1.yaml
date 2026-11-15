@@ -1,0 +1,22 @@
+id: KB-01M7EWAN41YGH162K70F0FD7DB
+kind: concept
+version: 1
+title: Cloud backlog
+sensitivity: public
+recorded_at: '2026-11-14'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q2
+valid_to: '2026-11-14'
+last_supported: '2026-11-14'
+review_window: period
+provenance:
+- SRC-01M7EW62YY201X08K9F6V72ZB0
+name: Cloud backlog
+definition: Contracted future revenue is distinct from revenue recognized in the quarter.
+  Backlog can indicate future contracted demand but does not specify how quickly capacity
+  becomes available or revenue is recognized. CFO p12; capacity timing p23-24.

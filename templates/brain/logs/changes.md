@@ -7,6 +7,6 @@ metadata:
 
 # Change log
 
-One line per change (SPEC section 6.4):
+One line per change:
 `CH-<ULID> | date | entry | before | after | reason | caused_by`
 

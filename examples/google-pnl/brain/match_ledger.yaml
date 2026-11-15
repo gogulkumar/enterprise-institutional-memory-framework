@@ -1,17 +1,104 @@
-# Match ledger: one row per Learn signal (SPEC section 9, step 6)
-- pass_id: LP-01KGP000000000000000000001
-  signal: Cloud operating margin rose or held flat across all 12 quarters while revenue grew
-  matched_entry: null
+- pass_id: LP-01M7EW62YW349996VAVPF58WQS
+  signal: Operating margin
+  matched_entry: KB-01M7EW6WDGTSHQ3JQXFS752QWT
   action: new_observation
-- pass_id: LP-01KGP000000000000000000001
-  signal: Alphabet-level activities took a larger share of revenue from 2025-Q3
-  matched_entry: null
+- pass_id: LP-01M7EW62YW349996VAVPF58WQS
+  signal: Revenue growth
+  matched_entry: KB-01M7EW6WDHM7NQP6SSHHVPS8QP
   action: new_observation
-- pass_id: LP-01KGP000000000000000000001
-  signal: Net income left its ordinary ratio to operating income in five quarters, each tied to equity securities results
-  matched_entry: null
+- pass_id: LP-01M7EW62YW349996VAVPF58WQS
+  signal: Free cash flow
+  matched_entry: KB-01M7EW6WDJ2FMVC0PT71Z9S254
   action: new_observation
-- pass_id: LP-01KGP000000000000000000001
-  signal: Whether the Cloud margin trajectory continues is still open
-  matched_entry: BV-01KGP000000000000000000005
-  action: refine
+- pass_id: LP-01M7EW62YW349996VAVPF58WQS
+  signal: Traffic acquisition costs
+  matched_entry: KB-01M7EW6WDKP8Z254DASR2M9AT3
+  action: new_observation
+- pass_id: LP-01M7EW62YW349996VAVPF58WQS
+  signal: Google Services revenue
+  matched_entry: KB-01M7EW6WDKAWEWNK830VK77590
+  action: new_observation
+- pass_id: LP-01M7EW62YW349996VAVPF58WQS
+  signal: Google Cloud revenue
+  matched_entry: KB-01M7EW6WDMC9B8E308V714BVPB
+  action: new_observation
+- pass_id: LP-01M7EW62YW349996VAVPF58WQS
+  signal: Capital expenditure
+  matched_entry: KB-01M7EW6WDNXWZ5CG55F1E8R30D
+  action: new_observation
+- pass_id: LP-01M7EW62YW349996VAVPF58WQS
+  signal: Other income and expense
+  matched_entry: KB-01M7EW6WDNCEMZEFPM68QJWMSX
+  action: new_observation
+- pass_id: LP-01M7EW62YW349996VAVPF58WQS
+  signal: Segment profitability bridge
+  matched_entry: KB-01M7EW6WDP1ST3ZVSYZ3RTZF17
+  action: new_observation
+- pass_id: LP-01M7EW62YW349996VAVPF58WQS
+  signal: TAC mix mechanism
+  matched_entry: KB-01M7EW6WDQJ1MG1BTCWBKTD0Z5
+  action: new_observation
+- pass_id: LP-01M7EW62YW349996VAVPF58WQS
+  signal: Infrastructure expense timing
+  matched_entry: KB-01M7EW6WDQPFZTRDCHP842EEFW
+  action: new_observation
+- pass_id: LP-01M7EW62YW349996VAVPF58WQS
+  signal: Cloud monetization constraints
+  matched_entry: KB-01M7EW6WDRKKK8KEKS9K7SWQB1
+  action: new_observation
+- pass_id: LP-01M7EW62YW349996VAVPF58WQS
+  signal: Subscriptions and Workspace drivers
+  matched_entry: KB-01M7EW6WDSPZ8MVB4VAHN42ET5
+  action: new_observation
+- pass_id: LP-01M7EW62YW349996VAVPF58WQS
+  signal: Q1 earnings event
+  matched_entry: KB-01M7EW6WDSCFQZWC9AP7P4KCQD
+  action: new_observation
+- pass_id: LP-01M7EW62YW349996VAVPF58WQS
+  signal: TAC mix mechanism dependency
+  matched_entry: DM-01M7EW95T3PJ5JD3XBCX2WFXW1
+  action: new_observation
+- pass_id: LP-01M7EW62YW349996VAVPF58WQS
+  signal: Infrastructure expense timing dependency
+  matched_entry: DM-01M7EW95T4TR59JEHX4G480FW0
+  action: new_observation
+- pass_id: LP-01M7EW62YW349996VAVPF58WQS
+  signal: Cloud monetization constraints dependency
+  matched_entry: DM-01M7EW95T57G2X25F6S0ANKDBY
+  action: new_observation
+- pass_id: LP-01M7EW74CPZZ15SSYXY23NBZ16
+  signal: Infrastructure expense timing
+  matched_entry: KB-01M7EW6WDQPFZTRDCHP842EEFW
+  action: confirm
+- pass_id: LP-01M7EW74CPZZ15SSYXY23NBZ16
+  signal: Cloud monetization constraints
+  matched_entry: KB-01M7EW6WDRKKK8KEKS9K7SWQB1
+  action: confirm
+- pass_id: LP-01M7EWAX8KZH5PK2JK127EQXN9
+  signal: Legal-charge comparability
+  matched_entry: KB-01M7EWDXTEPP9NFG3A7QJ9WWY0
+  action: new_observation
+- pass_id: LP-01M7EWAX8KZH5PK2JK127EQXN9
+  signal: Cloud backlog
+  matched_entry: KB-01M7EWAN41YGH162K70F0FD7DB
+  action: new_observation
+- pass_id: LP-01M7EWAX8KZH5PK2JK127EQXN9
+  signal: Q3 earnings event
+  matched_entry: KB-01M7EWDXTDN9GR00SXXN7SRWG3
+  action: new_observation
+- pass_id: LP-01M7EWAX8KZH5PK2JK127EQXN9
+  signal: Tax expense versus cash timing
+  matched_entry: KB-01M7EWDXTEX58JKRKCQWK2DKZS
+  action: new_observation
+- pass_id: LP-01M7EWAX8KZH5PK2JK127EQXN9
+  signal: AI labor cost exposure
+  matched_entry: KB-01M7EWAN42X3E0XR5WRFZZ3WTG
+  action: new_observation
+- pass_id: LP-01M7EWAX8KZH5PK2JK127EQXN9
+  signal: Q2 earnings event
+  matched_entry: KB-01M7EWAN3Z6SJK28Q6EEX658QY
+  action: new_observation
+- pass_id: LP-01M7EWAX8KZH5PK2JK127EQXN9
+  signal: Cash tax timing
+  matched_entry: KB-01M7EWAN40T4AG4VC6MTDDFPPZ
+  action: new_observation

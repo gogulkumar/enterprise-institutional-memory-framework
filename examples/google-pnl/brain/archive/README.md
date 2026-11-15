@@ -7,4 +7,4 @@ metadata:
 
 # Archive
 
-See SPEC sections 6.5 and 7.3. Entries are moved here, never deleted.
+See sections 6.5 and 7.3. Entries are moved here, never deleted.

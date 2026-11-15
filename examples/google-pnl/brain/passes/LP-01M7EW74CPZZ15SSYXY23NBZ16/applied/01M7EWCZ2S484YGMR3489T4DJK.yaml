@@ -1,0 +1,12 @@
+action: confirm
+target: KB-01M7EW6WDNXWZ5CG55F1E8R30D
+payload:
+  pass_id: LP-01M7EW74CPZZ15SSYXY23NBZ16
+  filters: Alphabet consolidated purchases of property/equipment; USD cash spending;
+    quarter actual distinct from annual management guidance.
+  sign: Positive cash-outflow magnitude deducted from operating cash flow; not a positive
+    contribution to cash generation.
+  join: Match actual asset-purchase cash flows to reporting interval; annual guidance
+    comparison retains forecast-vs-actual distinction.
+evidence: []
+needs_ratification: false

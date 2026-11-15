@@ -7,4 +7,4 @@ metadata:
 
 # Logs
 
-Contents: `traces/`, `questions/`, `changes.md` and `reports/` (SPEC sections 6.4 and 14). Question entries with `why_it_matters: watch` are story threads.
+Contents: `traces/`, `questions/`, `changes.md` and `reports/`. Question entries with `why_it_matters: watch` are story threads.

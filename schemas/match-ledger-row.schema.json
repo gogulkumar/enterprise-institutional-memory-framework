@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "match-ledger-row.schema.json",
-  "title": "Match ledger row: how one Learn signal was routed (SPEC 9, step 6)",
+  "title": "Match ledger row: how one Learn signal was routed",
   "type": "object",
   "additionalProperties": false,
   "required": [

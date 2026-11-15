@@ -7,6 +7,6 @@ metadata:
 
 # Thinking Patterns
 
-Belongs here: kind `thinking_pattern` (SPEC section 6.2).
+Belongs here: kind `thinking_pattern`.
 
 Not here: decisions between options (judgments) or facts (knowledge base).

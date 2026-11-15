@@ -1,0 +1,23 @@
+id: SRC-01M7EW62YY201X08K9F6V72ZB0
+kind: artifact
+version: 1
+title: 2025-Q2 Alphabet earnings transcript
+sensitivity: public
+recorded_at: '2026-11-15'
+type: transcript
+business_area: Alphabet financial performance
+period: 2025-Q2
+author: Alphabet management and external analysts
+event_ids: []
+doc_version: https://s206.q4cdn.com/479360582/files/doc_financials/2025/q2/2025-q2-earnings-transcript.pdf;
+  retrieved 2026-11-14; learning, not held out
+location: examples/google-pnl/data/raw/2025-Q2-transcript.pdf
+approved_location: true
+authority_rank: other_people
+can_teach:
+- knowledge_base
+- business_view
+- dependency_map
+cannot_teach: Owner reasoning, judgments, response style or internal procedures
+serves:
+- C

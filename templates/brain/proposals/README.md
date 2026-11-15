@@ -7,4 +7,4 @@ metadata:
 
 # Proposals
 
-Format and actions: SPEC section 12.1. What needs the owner: SPEC section 12.2.
+Format and actions: section 12.1. What needs the owner: section 12.2.

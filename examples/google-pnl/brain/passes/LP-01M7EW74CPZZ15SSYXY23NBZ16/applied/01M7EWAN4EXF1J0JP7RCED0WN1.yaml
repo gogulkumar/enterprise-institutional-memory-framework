@@ -1,0 +1,26 @@
+action: confirm
+target: KB-01M7EW6WDGTSHQ3JQXFS752QWT
+payload:
+  source_of_truth: SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+  meaning: 'Numerator: operating income. Denominator: revenue of the same segment
+    and quarter. Ratio multiplied by 100; change in ratios is percentage points, not
+    percent growth.'
+  filters: 'Alphabet consolidated unless segment explicitly named; fiscal quarter,
+    USD. Source lookup: p8-10/Ashkenazi; Q2 CFO p10-13. No YTD substitution.'
+  join: Match entity, fiscal quarter, segment and accounting basis before comparing;
+    no cross-period joins.
+  sign: Revenue/profit positive; expenses and cash outflows identified separately;
+    margin changes in percentage points.
+  breaks_down_as: Use only disclosed constituent lines on the same accounting basis;
+    unreconciled transcript rounding is not a check.
+  compare_to: Same quarter prior year for growth; prior-quarter comparison only when
+    explicitly disclosed. GAAP and non-GAAP remain separate.
+  provenance:
+  - SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+  - SRC-01M7EW62YY201X08K9F6V72ZB0
+  last_supported: '2026-11-14'
+  pass_id: LP-01M7EW74CPZZ15SSYXY23NBZ16
+evidence:
+- source_id: SRC-01M7EW62YY201X08K9F6V72ZB0
+  event_id: EVT-2025-Q2-earnings
+needs_ratification: false

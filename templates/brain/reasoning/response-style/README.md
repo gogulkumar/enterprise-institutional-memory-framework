@@ -7,6 +7,6 @@ metadata:
 
 # Response Style
 
-Belongs here: kind `response_style` (SPEC section 6.2).
+Belongs here: kind `response_style`.
 
 Not here: analysis logic, decisions (judgments) or definitions.

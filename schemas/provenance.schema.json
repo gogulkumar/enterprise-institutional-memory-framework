@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "provenance.schema.json",
-  "title": "Provenance only (knowledge base entries, SPEC 6.1)",
+  "title": "Provenance only (knowledge base entries, )",
   "type": "object",
   "required": [
     "provenance"

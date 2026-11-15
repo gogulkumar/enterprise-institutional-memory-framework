@@ -1,0 +1,12 @@
+confirmed_mechanisms: 3
+new_knowledge: 3
+prediction: two hits; tax timing partial with different cause
+readiness: owner reasoning insufficient; internal data unavailable
+reconstruction: 'skip: external authorship'
+served:
+- C
+tests: not run; no unseen held-out evidence
+admin: Duplicate source-date replace proposals superseded by confirm; timestamps corrected
+  with no semantic change.
+impact: Each KB entry has explicit impact scope; no internal deliverables or owner
+  reasoning dependencies asserted.

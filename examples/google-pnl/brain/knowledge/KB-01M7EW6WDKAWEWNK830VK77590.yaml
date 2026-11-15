@@ -1,0 +1,35 @@
+id: KB-01M7EW6WDKAWEWNK830VK77590
+kind: metric_definition
+version: 3
+title: Google Services revenue
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q1
+valid_to: null
+last_supported: '2026-11-14'
+review_window: period
+provenance:
+- SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+- SRC-01M7EW62YY201X08K9F6V72ZB0
+name: Google Services revenue
+meaning: USD revenue flow for the quarter; not bookings or cash receipts. Components
+  must share period and currency before addition. Advertising excludes subscription/platform/device
+  revenue; avoid adding YouTube total revenue to its advertising component.
+source_of_truth: SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+validated: no_access
+compare_to: Same quarter prior year for growth; prior-quarter comparison only when
+  explicitly disclosed. GAAP and non-GAAP remain separate.
+filters: Google Services segment only; fiscal quarter revenue recognized in USD; Search
+  & other, YouTube ads, Network and subscriptions/platforms/devices.
+join: Aggregate mutually exclusive components within Services and quarter; prior-year
+  pairing uses same component definitions.
+sign: Positive revenue flow; growth may be positive or negative; operating margin
+  is a separate ratio.
+breaks_down_as: Use only disclosed constituent lines on the same accounting basis;
+  unreconciled transcript rounding is not a check.

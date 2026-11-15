@@ -59,6 +59,6 @@ Approved by the owner on 2026-11-14 with the v2 draft.
 5. **Four skills:** build, learn, think and prove.
 6. **Identifiers:** ULID ids with the prefixes `BV TP JD RS KB DM PR SRC` and log prefixes `TR Q CH TS RN`; every v1 prefix is renamed.
 7. **Backup reviewer:** holds the queue but never ratifies a reasoning entry.
-8. **Every entry states its `kind`** (section 6.5 of SPEC.md), so the validator never has to guess an entry's type.
+8. **Every entry states its `kind`** (section 6.5 of the framework), so the validator never has to guess an entry's type.
 
-Sources: the Agent Learning Framework (https://claude.ai/artifact/WJDQJz1zFU18PLnPubEMjM) and SPEC.md v1 (commit abad65c).
+Sources: the Agent Learning Framework (https://claude.ai/artifact/WJDQJz1zFU18PLnPubEMjM) and v1 (commit abad65c).

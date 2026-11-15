@@ -1,0 +1,13 @@
+action: confirm
+target: KB-01M7EW6WDSPZ8MVB4VAHN42ET5
+payload:
+  recorded_at: '2026-11-14'
+  last_supported: '2026-11-14'
+  definition: 'Management distinguishes subscription customer growth from monetization
+    per customer. YouTube and Google One subscriber additions support Services subscriptions,
+    while Workspace revenue per seat supports Cloud. These are different segment drivers:
+    a paid subscriber is not a Workspace seat, and neither usage nor account counts
+    alone reproduce revenue. Q1 CFO p9-10.'
+  pass_id: LP-01M7EW74CPZZ15SSYXY23NBZ16
+evidence: []
+needs_ratification: false

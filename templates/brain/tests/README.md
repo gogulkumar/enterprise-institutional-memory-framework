@@ -7,4 +7,4 @@ metadata:
 
 # Tests
 
-Subfolders: `scenarios/` (held out, never learned from) and `runs/` (SPEC sections 6.4 and 13.2).
+Subfolders: `scenarios/` (held out, never learned from) and `runs/`.

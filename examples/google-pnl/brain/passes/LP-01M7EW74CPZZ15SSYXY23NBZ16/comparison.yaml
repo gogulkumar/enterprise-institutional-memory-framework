@@ -1,0 +1,9 @@
+case_credit: external evidence only; no owner reasoning case
+items:
+- entry: KB-01M7EW6WDQJ1MG1BTCWBKTD0Z5
+  result: 'miss: not discussed, not falsified'
+- entry: KB-01M7EW6WDQPFZTRDCHP842EEFW
+  result: 'hit: p13,16'
+- entry: KB-01M7EW6WDRKKK8KEKS9K7SWQB1
+  result: 'hit: p13,23-24'
+seal_verified: true

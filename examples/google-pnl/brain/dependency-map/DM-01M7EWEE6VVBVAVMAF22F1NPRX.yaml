@@ -1,0 +1,25 @@
+id: DM-01M7EWEE6VVBVAVMAF22F1NPRX
+kind: impact_scope
+version: 1
+title: Traffic acquisition costs impact
+sensitivity: public
+recorded_at: '2026-11-14'
+valid_from: 2025-Q1
+valid_to: null
+last_supported: '2026-11-14'
+review_window: 4q
+provenance:
+- SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+- SRC-01M7EW62YY201X08K9F6V72ZB0
+trust: observation
+sureness: inferred
+owner: Gogul Kumar Mathi
+events:
+- EVT-2025-Q1-earnings
+last_confirmed_by_owner: never
+entry: KB-01M7EW6WDKP8Z254DASR2M9AT3
+numbers_affected:
+- KB-01M7EW6WDKP8Z254DASR2M9AT3
+deliverables_affected: []
+reasoning_entries_affected: []
+checked_not_affected: []
