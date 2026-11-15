@@ -27,7 +27,7 @@ Think answers by reasoning with the brain's reasoning model, not from old files.
 1. **Understand the ask.** Who is asking, what they need, by when, for which audience. Load the matching `RS` entry. If the ask is a deliverable, load its `KB` `deliverable_profile` and its `PR` procedures. If it matches no deliverable, carry on: answer from the reasoning model (SPEC 10 step 1).
 
 2. **Check readiness** (SPEC 10 step 2).
-   - *Sufficient:* a `TP` fits the situation, the `BV` for the area is current, and the metrics needed have validated definitions and data access.
+   - *Sufficient:* a `TP` at `candidate` or above fits the situation, the `BV` for the area is current, and the metrics needed have validated definitions and data access.
    - *Partial:* one of those is missing; answer with a caveat that names it.
    - *Insufficient:* say what is missing, offer to find out, open a `Q` entry, and stop. Do not answer as if from the owner's reasoning (SPEC 3 principle 10).
 

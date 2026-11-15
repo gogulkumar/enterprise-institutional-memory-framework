@@ -40,6 +40,13 @@
         "what_to_do": {
           "type": "string",
           "minLength": 1
+        },
+        "affects": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(KB)-[0-9A-HJKMNP-TV-Z]{26}$"
+          }
         }
       },
       "required": [

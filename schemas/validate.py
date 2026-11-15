@@ -53,7 +53,7 @@ TIMED = GOVERNED | {"KB"}
 INDEXED = GOVERNED | {"KB", "SRC"}  # logs and held-out tests are never loaded for reasoning
 TRUST_RANK = {"observation": 0, "candidate": 1, "established": 2}
 DEFAULT_CONFIG = {
-    "owner": "", "candidate_events": 2, "established_events": 4, "established_periods": 2,
+    "owner": "", "candidate_events": 2, "established_events": 4, "established_periods": 2, "observation_expiry": 2,
     "sensitivity_levels": ["public", "internal", "confidential", "restricted"], "period_length": "1q",
     "review_windows": {},
 }
@@ -140,10 +140,13 @@ def main():
     brain = pathlib.Path(args.brain)
     today = dt.date.fromisoformat(args.today) if args.today else dt.date.today()
     validators = load_validators()
-    problems = []
+    problems, warnings = [], []
 
     def bad(where, msg):
         problems.append(f"{where}: {msg}")
+
+    def warn(where, msg):
+        warnings.append(f"{where}: {msg}")
 
     config = dict(DEFAULT_CONFIG)
     if (brain / "config.yaml").exists():
@@ -186,6 +189,40 @@ def main():
             data["_file"] = str(rel)
             entries[eid] = data
 
+    # 1b. The archive (SPEC 6.5, 15.1): `<id>.yaml` or `<id>.v<n>.yaml`, schema-checked, kept out of the index.
+    archived = set()
+    arch_re = re.compile(rf"^((?:{'|'.join(PREFIXES)})-{ULID})(?:\.v\d+)?\.yaml$")
+    for path in sorted((brain / "archive").rglob("*.yaml")) if (brain / "archive").exists() else []:
+        rel = path.relative_to(brain)
+        m = arch_re.match(path.name)
+        data = load_yaml(path)
+        if not m or not isinstance(data, dict) or data.get("id") != m.group(1):
+            bad(rel, "an archived entry is named `<id>.yaml` or `<id>.v<n>.yaml` and keeps its id")
+            continue
+        schema = KINDS.get(m.group(1).split("-")[0], {}).get(data.get("kind"))
+        if schema is None:
+            bad(rel, f"kind {data.get('kind')!r} is not allowed for this prefix (SPEC 6.5)")
+            continue
+        for err in validators[schema].iter_errors(data):
+            bad(rel, f"{'/'.join(map(str, err.path)) or '(entry)'}: {err.message}")
+        archived.add(m.group(1))
+
+    # 1c. Nothing outside the SPEC 15.1 layout.
+    allowed_top = {"config.yaml", "index.yaml", "match_ledger.yaml", ".applier.lock", "README.md", "sources", "reasoning",
+                   "knowledge", "dependency-map", "procedures", "tests", "logs", "proposals", "passes", "archive"}
+    for p in sorted(brain.iterdir()) if brain.exists() else []:
+        if p.name not in allowed_top and not p.name.startswith("."):
+            bad(p.name, "not part of the brain layout (SPEC 15.1)")
+    loaded = {e["_file"] for e in entries.values()}
+    for path in sorted(brain.rglob("*.yaml")):
+        rel = path.relative_to(brain)
+        top = rel.parts[0]
+        if top in ("archive", "proposals", "passes") or str(rel) in ("config.yaml", "index.yaml", "match_ledger.yaml"):
+            continue
+        if str(rel) not in loaded and not any(str(rel).startswith(f + "/") and str(rel) in loaded for f in FOLDERS.values()):
+            if not str(rel).startswith("logs/reports/"):
+                bad(rel, "unexpected file: entries live in their store's folder, named by id (SPEC 15.1)")
+
     # 2. Event registry (SPEC 6.3, 7.1).
     registry = {}
     for e in entries.values():
@@ -205,7 +242,7 @@ def main():
     for eid, e in entries.items():
         skip = ("id", "event_id") if e.get("kind") == "business_event" else ("id",)
         for s in walk_strings({k: v for k, v in e.items() if k != "_file"}, skip):
-            if ID_RE.match(s) and s not in entries:
+            if ID_RE.match(s) and s not in entries and s not in archived:
                 bad(e["_file"], f"refers to {s}, which does not exist")
             if EVT_RE.match(s) and s not in registry:
                 bad(e["_file"], f"event {s} is not registered by any business event")
@@ -235,15 +272,31 @@ def main():
         periods = {EVT_RE.match(x).group(1) for x in evts if EVT_RE.match(x)}
         confirmed = str(e.get("last_confirmed_by_owner", "never")) != "never"
         prov = e.get("provenance") or []
-        owner_sourced = any(str(p).startswith("owner:") for p in prov) or any(
-            entries.get(p, {}).get("author") == owner for p in prov if owner)
-        if sureness == "stated" and owner and not owner_sourced:
+        owner_marks = [str(p)[len("owner:"):] for p in prov if str(p).startswith("owner:")]
+        if owner and any(m != owner for m in owner_marks):
+            bad(e["_file"], f"provenance names an owner other than the configured owner {owner!r}")
+        owner_sourced = (bool(owner_marks) and (not owner or all(m == owner for m in owner_marks))) or (
+            bool(owner) and any(entries.get(p, {}).get("author") == owner for p in prov))
+        if sureness == "stated" and not owner_sourced:
             bad(e["_file"], "sureness is `stated` but no provenance is the owner or a text the owner authored")
-        owner_word = (sureness == "stated" and (owner_sourced or not owner)) or confirmed
+        owner_word = (sureness == "stated" and owner_sourced) or confirmed
+        window = window_days(e.get("review_window") or {**DEFAULT_WINDOWS, **(config.get("review_windows") or {})}.get(
+            e["kind"], DEFAULT_WINDOWS["default"]), config)
+        last = max([d for d in (to_date(e.get("last_supported")), to_date(e.get("recorded_at"))) if d], default=today)
+        if trust == "observation":
+            limit = config["observation_expiry"] * window_days("period", config)
+            if (today - last).days > limit:
+                bad(e["_file"], f"observation unsupported for over {config['observation_expiry']} periods; retire it (SPEC 7.1)")
+        if trust == "replaced" and not e.get("valid_to"):
+            bad(e["_file"], "a `replaced` entry needs `valid_to`, the date the newer version takes over (SPEC 7.1)")
+        if trust == "retired":
+            bad(e["_file"], "a `retired` entry belongs in archive/ (SPEC 7.1)")
+        if trust == "contested" and window and (today - last).days > window:
+            warn(e["_file"], "contested for longer than one review window; put it at the top of the next report (SPEC 7.1)")
         rank = TRUST_RANK.get(trust)
         if rank is None:
             continue
-        if prefix in REASONING and rank > 0 and owner and not owner_sourced and not confirmed and sureness != "checked":
+        if rank > 0 and not owner_sourced and not confirmed and sureness != "checked":
             bad(e["_file"], f"trust `{trust}` rests only on other people's work, which can support an entry "
                             "up to `observation` unless it is checked against the data (SPEC 7.1)")
         if trust == "candidate" and len(evts) < config["candidate_events"] and not owner_word:
@@ -251,7 +304,8 @@ def main():
                             f"it has {len(evts)}")
         if trust == "established":
             calc_link = e.get("kind") == "link" and e.get("type") == "calculated_from" and sureness == "checked"
-            by_cases = (len(evts) >= config["established_events"] and len(periods) >= config["established_periods"]
+            spread = max(len(periods), len(set((e.get("scope") or {}).get("situations") or [])))
+            by_cases = (len(evts) >= config["established_events"] and spread >= config["established_periods"]
                         and sureness == "checked")
             if sureness == "inferred" and not confirmed:
                 bad(e["_file"], "an entry supported only by inference cannot be `established` until the owner "
@@ -269,8 +323,28 @@ def main():
         if not PROPOSAL_FILE_RE.match(path.name):
             bad(rel, "a proposal file is named by a bare ULID")
         data = load_yaml(path)
-        for err in validators["proposal"].iter_errors(data):
+        errs = list(validators["proposal"].iter_errors(data))
+        for err in errs:
             bad(rel, f"{'/'.join(map(str, err.path)) or '(proposal)'}: {err.message}")
+        if errs or not isinstance(data, dict):
+            continue
+        # The payload must fit the target's schema (SPEC 12.1): a full entry for create, merged fields otherwise.
+        target, payload = str(data.get("target", "")), dict(data.get("payload") or {})
+        meta = {k: payload.pop(k) for k in ("pass_id", "ledger_kind", "gates", "note") if k in payload}
+        prefix = target.split("-")[0]
+        if data.get("action") == "create":
+            candidate = dict(payload, id=payload.get("id") or f"{prefix}-{'0' * 26}")
+        elif target in entries:
+            candidate = {k: v for k, v in {**entries[target], **payload}.items() if k != "_file"}
+        else:
+            bad(rel, f"target {target} does not exist")
+            continue
+        schema = KINDS.get(prefix, {}).get(candidate.get("kind"))
+        if schema is None:
+            bad(rel, f"payload kind {candidate.get('kind')!r} is not allowed for {prefix} (SPEC 6.5)")
+            continue
+        for err in validators[schema].iter_errors(plain(candidate)):
+            bad(rel, f"payload {'/'.join(map(str, err.path)) or '(entry)'}: {err.message}")
     if (brain / "match_ledger.yaml").exists():
         rows = load_yaml(brain / "match_ledger.yaml") or []
         if not isinstance(rows, list):
@@ -285,15 +359,21 @@ def main():
     if changes.exists():
         text = changes.read_text(encoding="utf-8")
         body = text.split("\n---\n", 1)[1] if text.startswith("---\n") and "\n---\n" in text else text
+        seen_change = False
         for n, line in enumerate(body.splitlines(), 1):
             s = line.strip()
-            if not s or s.startswith("#") or not s.startswith("CH-"):
-                if s.startswith("CH"):
-                    bad("logs/changes.md", f"line {n}: not a valid change line")
+            if not s or s.startswith("#"):
                 continue
+            if not s.startswith("CH"):
+                if seen_change:  # prose is allowed only in the header, before the first change line
+                    bad("logs/changes.md", f"line {n}: not a change line")
+                continue
+            seen_change = True
             fields = [f.strip() for f in s.split("|")]
             if len(fields) != 7 or not re.match(rf"^CH-{ULID}$", fields[0]) or not to_date(fields[1]):
                 bad("logs/changes.md", f"line {n}: must be `CH-<ULID> | date | entry | before | after | reason | caused_by`")
+            elif fields[2] not in entries and fields[2] not in archived:
+                bad("logs/changes.md", f"line {n}: entry {fields[2]} does not exist")
 
     if problems:
         print(f"FAIL {brain}: {len(problems)} problem(s)")
@@ -331,11 +411,17 @@ def main():
                     for j in e.get("judgments_applied") or []:
                         if j not in situations[s]["judgments"]:
                             situations[s]["judgments"].append(j)
+                    for r in e.get("related") or []:
+                        if r.startswith("BV-") and r not in situations[s]["business_views"]:
+                            situations[s]["business_views"].append(r)
     for e in entries.values():
         if e.get("kind") == "deliverable_profile":
+            inputs = list(e.get("inputs", []))
+            for pid in e.get("procedures", []):
+                inputs += [i for i in entries.get(pid, {}).get("inputs", []) or [] if i not in inputs]
             deliverables[e["name"]] = {
                 "profile": e["id"], "procedures": e.get("procedures", []),
-                "metric_definitions": [i for i in e.get("inputs", []) if entries.get(i, {}).get("kind") == "metric_definition"],
+                "metric_definitions": [i for i in inputs if entries.get(i, {}).get("kind") == "metric_definition"],
                 "scoped_entries": sorted(x["id"] for x in entries.values()
                                          if e["name"] in ((x.get("scope") or {}).get("deliverables") or [])),
             }
@@ -347,6 +433,8 @@ def main():
                 "links": sorted(x["id"] for x in entries.values() if x.get("kind") == "link" and mid in (x.get("from"), x.get("to"))),
                 "used_in": sorted(x["id"] for x in entries.values()
                                   if x.get("kind") in ("procedure", "deliverable_profile") and mid in (x.get("inputs") or [])),
+                "known_issues": sorted(x["id"] for x in entries.values()
+                                       if x.get("kind") == "known_issue" and mid in (x.get("affects") or [])),
             }
     index = {"generated": today.isoformat(), "situations": situations, "deliverables": deliverables,
              "metrics": metrics, "entries": rows}
@@ -362,6 +450,8 @@ def main():
             yaml.safe_dump(index, f, sort_keys=False, allow_unicode=True, width=120)
     print(f"OK {brain}: {len(entries)} entries, {len(registry)} events"
           + ("" if args.check else ", index.yaml regenerated"))
+    for w in warnings:
+        print("  warning: " + w)
     return 0
 
 

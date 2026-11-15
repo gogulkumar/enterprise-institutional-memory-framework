@@ -14,3 +14,5 @@ problem: Segment margins exclude Alphabet-level activities, so they do not add u
 when: Whenever segment and consolidated margins are compared
 how_to_detect: Reconcile segment operating income plus Alphabet-level activities to consolidated operating income
 what_to_do: Read consolidated margin against segment margins only after adding back Alphabet-level activities
+affects:
+- KB-01KGP000000000000000000005

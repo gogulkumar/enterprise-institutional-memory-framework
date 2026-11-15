@@ -18,7 +18,7 @@ Learn turns text into proposals, and the applier turns proposals into memory. Wo
 
 ## Step 1: Intake (SPEC 9 step 1)
 
-1. Give the run a pass id `LP-<ULID>` and create `brain/passes/<pass id>/` (SPEC 6.5).
+1. Give the run a pass id `LP-<ULID>`, generated with code (SPEC 6.5), and create `brain/passes/<pass id>/`.
 2. **Location and author.** Is the text in an approved location (a `SRC` entry of kind `approved_location`)? A text the owner pastes in counts as approved and owner-authored (SPEC 4). If the author cannot be verified, treat it as other people's work (SPEC 3 principle 5).
 3. **Artifact record.** Propose a `SRC` entry of kind `artifact` (SPEC 6.4) with `type`, `author`, `period`, `can_teach`, `cannot_teach`, `serves`.
 4. **Scope check.** If `serves` is `none`, keep the artifact proposal and stop here (SPEC 3 principle 4).
@@ -38,7 +38,7 @@ Two routing rules apply at this step:
 
 ## Step 4: Reconstruct the reasoning (SPEC 9 step 4)
 
-Only for work the owner produced. Skip for notes, chats and other people's work.
+Only for work the owner produced that has an output to rebuild. Skip it for other people's work, and for owner texts with no output to rebuild, such as a pasted note (SPEC 9 step 4, 9.4).
 
 1. Pull that period's data through validated metric definitions. List every movement and candidate driver the owner could have shown.
 2. Compare with what the owner mentioned, in what order, how drivers were labelled, and what was left out. Everything available but unused is evidence for materiality and inclusion judgments.
@@ -83,6 +83,7 @@ Write one file per change in `brain/proposals/<ULID>.yaml` with the five fields 
 2. **Order.** Process `brain/proposals/*.yaml` oldest first (by ULID).
 3. **Validate.** Check each proposal and its payload with `python schemas/validate.py brain/ --check`. Move any that fails to `brain/proposals/rejected/` with the reason.
 4. **Automatic items.** Apply those SPEC 12.1 and 7.1 mark automatic: write the entry file `<id>.yaml` in its store folder (SPEC 15.1), assigning a ULID to `<PREFIX>-new` targets. To change an entry, move the old version to `brain/archive/<id>.v<n>.yaml` with its `valid_to` set, and write the new version (SPEC 7.3). Never edit in place.
+   A change made on the owner's own word is already ratified and is applied here (SPEC 12.2). Move each applied proposal to `brain/passes/<pass id>/applied/` (SPEC 12.1).
 5. **Owner items.** Move the rest to `brain/proposals/pending/`. Only the owner ratifies reasoning entries; the backup reviewer may ratify other items once a proposal is past `queue_expiry` (SPEC 12.2). If `pending/` holds `max_pending` items, write no new ratification proposals until some are cleared.
 6. **Log.** For each applied change, append one `CH` line to `brain/logs/changes.md` (format in SPEC 6.4), then set that file's `last_modified` to today (SPEC 16).
 7. **Index.** Run `python schemas/validate.py brain/` to validate and regenerate `brain/index.yaml`.
@@ -90,7 +91,7 @@ Write one file per change in `brain/proposals/<ULID>.yaml` with the five fields 
 
 ## Step 9: Report (SPEC 9 step 9)
 
-Write a run report of kind `file` or `session` in `brain/logs/reports/` with the contents in SPEC 14. Order items awaiting the owner by impact (SPEC 12.2). Put contested entries and anything past `queue_expiry` at the top.
+After the applier has run (so anything it cites exists), write a run report of kind `file` or `session` as `brain/logs/reports/<date>-<kind>-<pass id>.md`, with front matter and the contents in SPEC 14; leave out sections with nothing to say. Order items awaiting the owner by impact (SPEC 12.2). Put contested entries and anything past `queue_expiry` at the top.
 
 ## A pasted note
 

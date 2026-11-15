@@ -154,7 +154,7 @@ related: [<entry id>]
 | Sources (artifacts, tool contracts, authority rules) | yes, with `location` in place of `provenance` | no | no | no |
 | Logs | yes | no | no | no |
 
-Relevance (section 7.3) is computed, never hand-edited. The case count is derived from `events`, not stored.
+Relevance (section 7.3) is computed, never hand-edited. The case count is derived from `events`, not stored. `open_questions` and `related` may be left out when empty.
 
 ### 6.2 The four reasoning stores
 
@@ -176,7 +176,7 @@ A business view entry with `origin: pattern` is a pattern found across events th
 | **Table structure** (`KB`) | `name`, `one_row_is`, `columns` (each with a metric definition or a calculation), `totals_check` |
 | **Source of truth** (`KB`) | `number` (which metric), `final_source`, `copies`, `how_copies_differ`, `final_when` |
 | **Business event** (`KB`) | `event_id` (the `EVT-` id), `what_happened`, `periods`, `affected` (metric definitions), `outcome`. These entries are the registry of events: every event id used anywhere in the brain must belong to exactly one of them |
-| **Known issue** (`KB`) | `problem`, `when`, `how_to_detect`, `what_to_do` |
+| **Known issue** (`KB`) | `problem`, `when`, `how_to_detect`, `what_to_do`, `affects` (the metric definitions it touches) |
 | **Calendar point** (`KB`) | `date`, `what` (a close, cutoff, holiday or reorganisation), `effect` (what it changes about what is normal or final) |
 | **Template** (`KB`) | `name`, `deliverable`, `location` (where the template file lives), `elements` (its fixed sections, slides or layout) |
 | **Deliverable profile** (`KB`) | `name`, `purpose`, `components`, `cadence_and_due`, `data_cutoff`, `audience`, `comparison_basis`, `inputs`, `structure`, `fed_by`, `feeds`, `review`, `done_when`, `procedures` |
@@ -192,7 +192,7 @@ A business view entry with `origin: pattern` is a pattern found across events th
 | **Approved location** (`SRC`) | `location`, `what_it_holds`, `approved_by`, `approved_on` |
 | **Tool contract** (`SRC`) | `tool`, `capability`, `inputs`, `outputs`, `can_establish`, `cannot_establish`, `access_boundary` |
 | **Source authority rule** (`SRC`) | `question_type`, `preferred_source`, `fallback_order`, `reason`. For the owner's reasoning, ranks highest first: `owner_statement`, `owner_working_trace` (drafts, edits, query histories), `owner_finished_work`, `other_people`, `inference`. For reported figures, `system_of_record` (an authorized system or official filing) comes first |
-| **Trace** (`TR`) | `source`, `trace_id`, `date`, `task_or_question`, `steps` (looked at, because, noticed, thought, did next, predicted, match), `conclusion` (no figures), `response`, `extracted_into` |
+| **Trace** (`TR`) | `source`, `trace_id` (optional), `date`, `task_or_question`, `steps` (looked at, because, noticed, thought, did next, predicted, match), `conclusion` (no figures), `response` (optional), `extracted_into` |
 | **Question** (`Q`) | `raised_from`, `question`, `why_it_matters` (changes_reasoning, changes_a_number, style, or watch), `research_done`, `proposed_answer`, `expectation` and `what_would_resolve_it` (for `watch` questions), `status` (open, self_answered, answered), `answer` (the owner's words), `answer_scope`, `applied_to` |
 | **Change** (`CH`) | `date`, `entry`, `before`, `after`, `reason`, `caused_by` (session, file and location, answer or test). Not a file: each change is one line in `logs/changes.md`, `CH-<ULID> \| date \| entry \| before \| after \| reason \| caused_by` |
 | **Scenario** (`TS`) | `situation`, `question`, `owner_trace` (hidden until scoring). Held out and never learned from |
@@ -216,7 +216,7 @@ Every entry states its `kind`. The prefix and the kind together name exactly one
 | `SRC` | `artifact`, `approved_location`, `tool_contract`, `authority_rule` |
 | `TR`, `Q`, `CH`, `TS`, `RN` | `trace`, `question`, `change`, `scenario`, `test_run` |
 
-- **Ids:** `<prefix>-<ULID>`, where the ULID is 26 characters of Crockford base32. A proposal file is named by a bare ULID.
+- **Ids:** `<prefix>-<ULID>`, where the ULID is 26 characters of Crockford base32 (digits and capital letters without I, L, O or U). Generate ids with code, never by hand. A proposal file is named by a bare ULID.
 - **Files:** one entry per file, named `<id>.yaml`, except change records, which are lines in `logs/changes.md`. An older version moves to `archive/` as `<id>.v<n>.yaml`.
 - **Dates:** `YYYY-MM-DD`; `recorded_at` is an ISO date and time.
 - **Periods:** `YYYY`, `YYYY-Qn`, `YYYY-MM` or `YYYY-MM-DD`.
@@ -345,11 +345,11 @@ Part of how the owner sees the business is knowing what else a number touches: w
 
 Learn runs whenever the owner gives the agent a text or says something about their work: a finished report, a draft, an email, a chat, a rough note, a transcript, an interview, a correction. The agent works one unit at a time (a sentence, a slide, a table, a sheet, a message) and updates the stores after each.
 
-1. **Intake.** Check the input is in an approved location (a text pasted by the owner counts) and who wrote it; if authorship cannot be verified, treat it as other people's work. Write an Artifact record: its type, author, period, what it can and cannot teach, and which aim it serves. If it serves no aim, keep the record and stop. Settle its event ids (section 7.1).
+1. **Intake.** Check the input is in an approved location (a text pasted by the owner counts) and who wrote it; if authorship cannot be verified, treat it as other people's work. Write an Artifact record: its type, author, period, what it can and cannot teach, and which aim it serves. A text with no period of its own (a note, a chat) takes the date it was received. If it serves no aim, keep the record and stop. Settle its event ids (section 7.1).
 2. **Predict.** If the brain holds entries relevant to this text's area, write a sealed prediction of what it will show: the drivers, framing and judgments. Hash it, store it in `passes/`, and do not open it until step 5. If the brain has nothing relevant, skip this step.
-3. **Read blind.** A clean sub-agent with no memory reads the text and splits it into units. Route each unit with the table in section 9.1.
+3. **Read blind.** A clean sub-agent with no memory reads the text and splits it into units. Route each unit with the table in section 9.1. If the host cannot start a clean sub-agent, the run report says the read was not blind, and no prediction from that run counts as a case.
 4. **Reconstruct the reasoning.** For work the owner produced, work backwards from the output to the thinking: pull that period's data through validated metric definitions, list every movement and candidate driver, and compare with what the owner mentioned, how they labelled and ordered it, and what they left out. Everything available but not used is evidence for materiality and inclusion judgments. Write a trace and mark every step `inferred` until the owner or the data confirms it. Working traces (drafts, edits, query histories) outrank a reconstruction. For texts that are not owner work, skip this step.
-5. **Compare.** If there is a sealed prediction, open it. A match supports the entry used. A miss is the most valuable result: it shows exactly where the model of the owner's reasoning is wrong. Record every miss and fix the entry behind it.
+5. **Compare.** If there is a sealed prediction, open it. A match supports the entry used. A miss is the most valuable result: it shows exactly where the model of the owner's reasoning is wrong. Record every miss and fix the entry behind it. A partial match counts neither for nor against the entry; record which part matched.
 6. **Extract.** Turn the trace and the routed units into entries. Check each against the same entry from other texts. Place each on the dependency map. Log every routing decision in `match_ledger.yaml`. Never build a pattern from one trace, never generalise across audiences, deliverables or situations without evidence, and cap new observations per text (config). If two entries would give different answers in the same situation and their conditions do not separate them, mark both `contested` and ask. A pattern found across events becomes a business view entry with `origin: pattern` and must pass the gates in section 7.1 before it can be established.
 7. **Ask.** Open a question for anything that cannot be explained (section 11).
 8. **Propose and apply.** Write one proposal per change. The applier validates and applies them (section 12).
@@ -405,15 +405,15 @@ The owner pastes: *"When a cost line comes in under forecast, I check whether th
 Whenever the owner, or anyone the owner approves, asks a question or asks for a deliverable, the agent reasons with the reasoning model, not from old files. The steps below are what the agent does; the order in which it reads entries is in section 15.3.
 
 1. **Understand the ask.** Who is asking, what they need, by when, and for which audience. Load the matching response style. If the ask is a deliverable, load its profile and procedures. If it matches no deliverable, carry on; the brain answers it from the reasoning model.
-2. **Check readiness.** *Sufficient:* a thinking pattern fits the situation, the business view for the area is current, and the metrics needed have validated definitions and data access. *Partial:* one of those is missing but the answer can be given with a caveat. *Insufficient:* no thinking pattern fits, or needed definitions are unvalidated with no snapshot, or the data cannot be reached. If insufficient, say what is missing, offer to find out (this opens a question), and do not answer as if from the owner's reasoning.
+2. **Check readiness.** *Sufficient:* a thinking pattern at `candidate` or above fits the situation, the business view for the area is current, and the metrics needed have validated definitions and data access. *Partial:* one of those is missing but the answer can be given with a caveat. *Insufficient:* no thinking pattern fits, or needed definitions are unvalidated with no snapshot, or the data cannot be reached. If insufficient, say what is missing, offer to find out (this opens a question), and do not answer as if from the owner's reasoning. A fitting pattern that is only an `observation` makes readiness partial at best.
 3. **Load the business view** for the area: what is normal, what usually drives it, what is fragile. Check the calendar, recent business events and known issues that could explain or distort the picture.
 4. **Frame from the evidence.** For a deliverable, or when the owner's escalation judgments mark the ask as high-stakes, a clean sub-agent first reads the new evidence with no memory and reports what stands out. Otherwise the agent compares the evidence with what the business view says is normal and notes what stands out. What stands out becomes input to the first questions.
-5. **Pick the thinking pattern** for the situation. If none fits, say so, use the closest with a caveat, and flag it.
+5. **Pick the thinking pattern** for the situation. If none fits, say so, use the closest with a caveat, and flag it. An entry scoped to a deliverable, or a pattern whose conditions only partly hold, may serve another ask only as this kind of closest fit: say which part does not fit.
 6. **Run it.** Ask the owner's first questions, watch for their suspicion triggers, test their hypotheses in their order with data pulled through validated metric definitions and checked by code, and stop when their stopping conditions are met. Where the owner's investigation-priority judgments do not set the order, rank questions by relevance, then materiality, then uncertainty, then information value, then feasibility.
 7. **Apply the judgments** at every decision point: materiality, classification, attribution, framing, inclusion, escalation, presentation. Where no established judgment decides cause attribution, state the cause only as attributed and unverified, never as proven.
 8. **Check the dependency map:** what else this affects, and who else needs to know.
 9. **Respond** in the owner's style. Word each point by its trust and sureness: established entries plainly, candidates with a caveat, inferred entries flagged. Use only entries valid for the period the question is about.
-10. **Hand over.** Attach the handover note (section 14). Write back what was learned as proposals. A correction from the owner goes through Learn.
+10. **Hand over.** Attach the handover note (section 14). Write back what was learned as proposals, if anything was: an event already counted adds nothing. A correction from the owner goes through Learn.
 
 For a deliverable, also re-validate every metric definition it uses, follow its procedures step by step, and run every self-check before handover.
 
@@ -425,7 +425,7 @@ For a deliverable, also re-validate every metric definition it uses, follow its 
 - the impact scope needs a change the agent was not asked to make
 - no thinking pattern fits and the stakes are high
 
-Otherwise the agent does not interrupt; everything else goes in the handover note.
+When it stops, the agent shows its draft answer, clearly marked as a draft, with the question. Otherwise the agent does not interrupt; everything else goes in the handover note.
 
 ---
 
@@ -449,7 +449,7 @@ A wrong guess about how the owner thinks costs far more than a question. But the
 
 ### 12.1 Proposals and the applier
 
-Neither Build nor Think edits memory directly. *Memory* means every store in section 5 except the logs. Every change to memory is one proposal file. Traces, questions, reports, test runs, working files in `passes/` and proposals themselves are written directly by the skill that produces them; the change log is written only by the applier. The applier takes a lock (`brain/.applier.lock`), processes proposals oldest first, validates each against the schemas, applies the automatic ones, parks the ones that need the owner, appends to the change log and regenerates the index. A proposal has `action`, `target`, `payload`, `evidence` (source and event ids) and `needs_ratification`.
+Neither Build nor Think edits memory directly. *Memory* means every store in section 5 except the logs. Every change to memory is one proposal file. Traces, questions, reports, test runs, working files in `passes/` and proposals themselves are written directly by the skill that produces them; the change log is written only by the applier. Logs that cite a new entry are written after the applier has created it. An owner confirmation is a `confirm` that sets `last_confirmed_by_owner`; if the entry then meets section 7.1, a `promote` follows in the same run. Applied proposals move to `passes/<pass id>/applied/`; rejected ones to `proposals/rejected/` with the reason. The applier takes a lock (`brain/.applier.lock`), processes proposals oldest first, validates each against the schemas, applies the automatic ones, parks the ones that need the owner, appends to the change log and regenerates the index. A proposal has `action`, `target`, `payload`, `evidence` (source and event ids) and `needs_ratification`.
 
 | Action | Effect | Needs the owner |
 |---|---|---|
@@ -464,7 +464,7 @@ Neither Build nor Think edits memory directly. *Memory* means every store in sec
 
 ### 12.2 What needs the owner
 
-The owner approves: replacing or retiring an entry; demoting; resolving `contested`; redefining a metric; promoting a pattern-origin entry; and confirming an `inferred` entry that would otherwise stay a candidate. **Ratification items are batched into the run report, ordered by how much each affects** (entries and deliverables touched, from the impact scope), so the owner reviews the highest-impact ones first. Pending items are capped by `max_pending` in config; past the cap the agent stops proposing new ratification items until some are cleared.
+The owner approves: replacing or retiring an entry; demoting; resolving `contested`; redefining a metric; promoting a pattern-origin entry; and confirming an `inferred` entry that would otherwise stay a candidate. **Ratification items are batched into the run report, ordered by how much each affects** (entries and deliverables touched, from the impact scope), so the owner reviews the highest-impact ones first. Pending items are capped by `max_pending` in config; past the cap the agent stops proposing new ratification items until some are cleared. A change made on the owner's own word (a statement or correction from the owner) is already ratified and does not wait in the queue.
 
 A proposal left waiting past `queue_expiry` is shown at the top of the next report and, if it does not touch reasoning entries, may go to the backup reviewer. The backup reviewer can hold the queue but never ratifies a reasoning entry, because only the owner knows how the owner thinks.
 
@@ -495,7 +495,7 @@ Stop and check in with the owner if predictions have not moved closer to the own
 
 ### 13.2 Proving it: two tests
 
-Both are required. The owner agrees the pass levels before the first run, and they are not changed to make a test pass. Once an entry is fixed because of a held-out case, that case is used up and retests use unseen cases.
+Both are required. The owner agrees the pass levels before the first run, and they are not changed to make a test pass. Once an entry is fixed because of a held-out case, that case is used up: it leaves the held-out set and may be learned from, and retests use unseen cases.
 
 - **Reasoning test.** Given a question or scenario it has not learned from, does the agent reason as the owner does? Held-out cases are periods whose texts were never learned from, later than every period that was, given as data and question only. The agent writes its own trace and is scored step by step: framing, first questions, hypotheses and their order, checks, stopping point, conclusion, judgments and response (the response judged by the owner without knowing which version is the agent's). The owner's actual file shows framing, conclusion, judgments and response; first questions, hypotheses, checks and stopping points can be scored only where the owner recorded their own trace.
 - **Reproduction test.** Given a period's data and the original request, does the agent produce the owner's deliverable: the same figures, drivers chosen and left out, order, labels and linked effects? Run each case more than once to check the runs agree.
@@ -507,7 +507,7 @@ Every difference is traced to the entry that caused it (a reasoning entry, a pro
 
 ## 14. Reports
 
-Reports are short and in plain words. They never dump entries.
+Reports are short and in plain words. They never dump entries, and leave out sections with nothing to say. Each is saved as `logs/reports/<date>-<kind>-<pass or session id>.md` with front matter (section 16).
 
 | Report | When | Contents |
 |---|---|---|

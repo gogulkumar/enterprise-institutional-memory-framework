@@ -22,7 +22,9 @@ situations:
   Consolidated operating margin moves outside its normal pattern, or against segment margin trends:
     thinking_patterns:
     - TP-01KGP000000000000000000001
-    business_views: []
+    business_views:
+    - BV-01KGP000000000000000000003
+    - BV-01KGP000000000000000000006
     judgments:
     - JD-01KGP000000000000000000001
     response_styles: []
@@ -47,6 +49,9 @@ metrics:
     used_in:
     - KB-01KGP000000000000000000009
     - PR-01KGP000000000000000000001
+    known_issues:
+    - KB-01KGP000000000000000000006
+    - KB-01KGP000000000000000000007
 entries:
 - id: BV-01KGP000000000000000000001
   kind: business_view

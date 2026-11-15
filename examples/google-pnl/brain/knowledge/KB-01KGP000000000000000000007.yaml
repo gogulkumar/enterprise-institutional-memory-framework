@@ -15,3 +15,5 @@ problem: 'Charges stated in a release move one quarter''s line: a European Commi
 when: Any quarter listed in data/one_offs.csv
 how_to_detect: Check data/one_offs.csv and the release for stated charges
 what_to_do: Name the charge and read the underlying trend without it
+affects:
+- KB-01KGP000000000000000000005
