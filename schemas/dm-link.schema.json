@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dm-link.schema.json",
+  "title": "link (DM)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "base.schema.json"
+    },
+    {
+      "$ref": "time.schema.json"
+    },
+    {
+      "$ref": "governed.schema.json"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(DM)-[0-9A-HJKMNP-TV-Z]{26}$"
+        },
+        "kind": {
+          "const": "link"
+        },
+        "from": {
+          "type": "string",
+          "pattern": "^(BV|TP|JD|RS|KB|DM|PR|SRC|TR|Q|CH|TS|RN)-[0-9A-HJKMNP-TV-Z]{26}$"
+        },
+        "to": {
+          "type": "string",
+          "pattern": "^(BV|TP|JD|RS|KB|DM|PR|SRC|TR|Q|CH|TS|RN)-[0-9A-HJKMNP-TV-Z]{26}$"
+        },
+        "type": {
+          "enum": [
+            "calculated_from",
+            "causes",
+            "shares_a_cause",
+            "offsets",
+            "feeds",
+            "same_story",
+            "independent"
+          ]
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "direction": {
+          "enum": [
+            "same",
+            "opposite",
+            "none"
+          ]
+        },
+        "lag": {
+          "enum": [
+            "same_period",
+            "next_period",
+            "unknown",
+            "none"
+          ]
+        },
+        "evidence": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "from",
+        "to",
+        "type",
+        "path",
+        "direction",
+        "lag",
+        "evidence"
+      ]
+    }
+  ],
+  "unevaluatedProperties": false
+}

@@ -1,0 +1,12 @@
+action: confirm
+target: KB-01M7EW6WDMC9B8E308V714BVPB
+payload:
+  pass_id: LP-01M7EW74CPZZ15SSYXY23NBZ16
+  filters: Google Cloud segment only; fiscal-quarter revenue recognized in USD; GCP
+    and Workspace; excludes backlog and Other Bets.
+  sign: Positive USD revenue flow; growth rate signed; Cloud operating income and
+    operating margin are separate measures.
+  join: Pair same fiscal quarter prior year at Cloud level; GCP subcomponent comparisons
+    do not substitute for Cloud totals.
+evidence: []
+needs_ratification: false

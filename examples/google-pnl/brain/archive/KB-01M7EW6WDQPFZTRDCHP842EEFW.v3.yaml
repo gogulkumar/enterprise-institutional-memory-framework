@@ -1,0 +1,26 @@
+id: KB-01M7EW6WDQPFZTRDCHP842EEFW
+kind: concept
+version: 3
+title: Infrastructure expense timing
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q1
+valid_to: '2026-11-14'
+last_supported: '2026-11-14'
+review_window: period
+provenance:
+- SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+- SRC-01M7EW62YY201X08K9F6V72ZB0
+name: Infrastructure expense timing
+definition: Infrastructure purchases and expenses occur on different schedules. Server
+  delivery and datacenter construction affect capital spending; assets entering service
+  start depreciation, which flows through operating costs. Growing capex therefore
+  need not change profit in the same quarter. Management expects rising depreciation
+  pressure as capacity is deployed; magnitude cannot be inferred from spending alone.
+  Q1 CFO p10-11 and Q&A p19-20; Q2 CFO p13.

@@ -1,0 +1,29 @@
+action: create
+target: KB-01M7EW6WDQPFZTRDCHP842EEFW
+payload:
+  id: KB-01M7EW6WDQPFZTRDCHP842EEFW
+  kind: concept
+  version: 1
+  title: Infrastructure expense timing
+  sensitivity: public
+  recorded_at: '2026-11-15'
+  scope:
+    deliverables: []
+    audiences: []
+    situations:
+    - Alphabet financial performance
+    periods: []
+  valid_from: 2025-Q1
+  valid_to: null
+  last_supported: '2026-11-15'
+  review_window: period
+  provenance:
+  - SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+  name: Infrastructure expense timing
+  definition: Depreciation begins when assets enter service; server deliveries and
+    construction timing separate capex from expense. [p10-11,19-20/Ashkenazi]
+  pass_id: LP-01M7EW62YW349996VAVPF58WQS
+evidence:
+- source_id: SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+  event_id: EVT-2025-Q1-earnings
+needs_ratification: false

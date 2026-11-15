@@ -1,0 +1,12 @@
+action: confirm
+target: KB-01M7EW6WDRKKK8KEKS9K7SWQB1
+payload:
+  definition: Cloud demand and recognized revenue are separated by available serving
+    capacity. Management describes supply constraints despite demand, with additions
+    arriving unevenly across quarters; spending commitments do not guarantee immediately
+    usable capacity. Fleet utilization supports profitability but does not by itself
+    reveal demand or incremental margin. The mechanism remains management-attributed,
+    not a separately verified capacity model. Q1 CFO p10-11, Q&A p14-16; Q2 p13,23-24.
+  pass_id: LP-01M7EW74CPZZ15SSYXY23NBZ16
+evidence: []
+needs_ratification: false

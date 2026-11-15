@@ -1,0 +1,29 @@
+action: create
+target: KB-01M7EW6WDQJ1MG1BTCWBKTD0Z5
+payload:
+  id: KB-01M7EW6WDQJ1MG1BTCWBKTD0Z5
+  kind: concept
+  version: 1
+  title: TAC mix mechanism
+  sensitivity: public
+  recorded_at: '2026-11-15'
+  scope:
+    deliverables: []
+    audiences: []
+    situations:
+    - Alphabet financial performance
+    periods: []
+  valid_from: 2025-Q1
+  valid_to: null
+  last_supported: '2026-11-15'
+  review_window: period
+  provenance:
+  - SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+  name: TAC mix mechanism
+  definition: Management attributes lower TAC growth to Search outgrowing higher-TAC
+    Network. [p8,19-20/Ashkenazi]
+  pass_id: LP-01M7EW62YW349996VAVPF58WQS
+evidence:
+- source_id: SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+  event_id: EVT-2025-Q1-earnings
+needs_ratification: false

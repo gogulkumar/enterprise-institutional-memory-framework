@@ -1,0 +1,31 @@
+action: create
+target: DM-01M7EWEE6YS0XJ5E8HSAPFK90V
+payload:
+  id: DM-01M7EWEE6YS0XJ5E8HSAPFK90V
+  kind: impact_scope
+  version: 1
+  title: Q3 earnings event impact
+  sensitivity: public
+  recorded_at: '2026-11-14'
+  valid_from: 2025-Q3
+  valid_to: null
+  last_supported: '2026-11-14'
+  review_window: 4q
+  provenance:
+  - SRC-01M7EW62YYNJCS8D63NMZGYGWZ
+  trust: observation
+  sureness: inferred
+  owner: Gogul Kumar Mathi
+  events:
+  - EVT-2025-Q3-earnings
+  last_confirmed_by_owner: never
+  entry: KB-01M7EWDXTDN9GR00SXXN7SRWG3
+  numbers_affected: []
+  deliverables_affected: []
+  reasoning_entries_affected: []
+  checked_not_affected: []
+  pass_id: LP-01M7EWAX8KZH5PK2JK127EQXN9
+evidence:
+- source_id: SRC-01M7EW62YYNJCS8D63NMZGYGWZ
+  event_id: EVT-2025-Q3-earnings
+needs_ratification: false

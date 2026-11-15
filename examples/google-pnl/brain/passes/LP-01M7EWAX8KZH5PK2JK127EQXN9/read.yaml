@@ -1,0 +1,44 @@
+source: 2025-Q3-transcript.txt
+routing:
+  p1: Safe-harbor/basis
+  p2: CEO/AI-infrastructure
+  p3: Research/products/Search
+  p4: Search/Cloud
+  p5: Cloud/YouTube/Waymo
+  p6: Waymo/CBO/Services
+  p7: Ads/YouTube
+  p8: YouTube/productivity
+  p9: Partnerships/CFO/consolidated-costs
+  p10: CFO/legal/earnings/cash/Services
+  p11: CFO/Cloud/backlog/Other-Bets
+  p12: CFO/capex/outlook/capacity
+  p13: CFO/depreciation/outlook; QA/Nowak
+  p14: QA/agentic-commerce/Waymo
+  p15: QA/Anmuth/Search/efficiency
+  p16: QA/productivity/Sheridan
+  p17: QA/silicon/YouTube-economics
+  p18: QA/Shmulik/engagement/monetization
+  p19: QA/Nathanson/ads/ROIC
+  p20: QA/ROIC/Sandler/commercial-queries
+  p21: QA/Gawrelski/Search
+  p22: QA/Post/models/Cloud-economics
+  p23: Closing
+basis: CFO comparisons YoY unless stated; revenue $102.3bn +16%, constant-currency
+  +15%.
+mechanisms:
+  legal: EC fine $3.5bn in G&A, fully Services; consolidated margin 30.5%, excluding
+    fine 33.9%; operating-income growth 9%, excluding fine 22%.
+  cash: Q3 FCF $24.5bn; trailing-12-month $73.6bn. Tax changes accelerated R&D expensing/asset
+    depreciation timing; higher capex offset benefit.
+  capex: "Q3 $24bn; technical-infrastructure investment approximately 60% servers/40%\
+    \ data-center/networking. 2025 $91\u201393bn versus prior $85bn; payment timing\
+    \ varies reported capex; significant 2026 increase."
+  depreciation: Q3 $5.6bn, +$1.6bn/+41%; growth accelerates slightly Q4. Infrastructure
+    investments pressure P&L through depreciation/energy.
+  capacity: Faster deployments/construction; tight supply Q4/2026.
+  cloud: Revenue $15.2bn/+34%; operating-income $3.6bn/+85%; margin 23.7% versus 17.1%.
+    Revenue/efficiencies offset infrastructure usage costs. Backlog $155bn end-Q3,
+    +46% sequential/+82% YoY, +$49bn sequential, primarily enterprise-AI demand.
+authorship: external_management_and_analysts
+instruction_flags: []
+reconstruction: 'skip: external work'

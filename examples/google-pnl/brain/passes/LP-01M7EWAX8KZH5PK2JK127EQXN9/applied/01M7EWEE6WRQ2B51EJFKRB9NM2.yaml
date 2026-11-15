@@ -1,0 +1,32 @@
+action: create
+target: DM-01M7EWEE6WTR7GBZEG0Q9YEB6Y
+payload:
+  id: DM-01M7EWEE6WTR7GBZEG0Q9YEB6Y
+  kind: impact_scope
+  version: 1
+  title: Cloud backlog impact
+  sensitivity: public
+  recorded_at: '2026-11-14'
+  valid_from: 2025-Q2
+  valid_to: null
+  last_supported: '2026-11-14'
+  review_window: 4q
+  provenance:
+  - SRC-01M7EW62YY201X08K9F6V72ZB0
+  - SRC-01M7EW62YYNJCS8D63NMZGYGWZ
+  trust: observation
+  sureness: inferred
+  owner: Gogul Kumar Mathi
+  events:
+  - EVT-2025-Q2-earnings
+  last_confirmed_by_owner: never
+  entry: KB-01M7EWAN41YGH162K70F0FD7DB
+  numbers_affected: []
+  deliverables_affected: []
+  reasoning_entries_affected: []
+  checked_not_affected: []
+  pass_id: LP-01M7EWAX8KZH5PK2JK127EQXN9
+evidence:
+- source_id: SRC-01M7EW62YYNJCS8D63NMZGYGWZ
+  event_id: EVT-2025-Q2-earnings
+needs_ratification: false

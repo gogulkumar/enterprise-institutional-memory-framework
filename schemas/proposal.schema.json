@@ -1,8 +1,9 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "proposal.schema.json",
-  "title": "Proposal, stored at brain/proposals/<ULID>.yaml (SPEC 4.8)",
+  "title": "Proposal, one file per change in brain/proposals/",
   "type": "object",
+  "additionalProperties": false,
   "required": [
     "action",
     "target",
@@ -10,7 +11,6 @@
     "evidence",
     "needs_ratification"
   ],
-  "additionalProperties": false,
   "properties": {
     "action": {
       "enum": [
@@ -19,21 +19,14 @@
         "contradict",
         "promote",
         "demote",
+        "replace",
         "retire",
         "redefine"
       ]
     },
     "target": {
-      "anyOf": [
-        {
-          "type": "string",
-          "pattern": "^(LENS|REC|BU|BEL|RP|ED)-[0-9A-HJKMNP-TV-Z]{26}$"
-        },
-        {
-          "type": "string",
-          "pattern": "^(LENS|REC|BU|BEL|RP|ED)-new$"
-        }
-      ]
+      "type": "string",
+      "pattern": "^(BV|TP|JD|RS|KB|DM|PR|SRC|TR|Q|CH|TS|RN)-([0-9A-HJKMNP-TV-Z]{26}|new)$"
     },
     "payload": {
       "type": "object"
@@ -42,19 +35,18 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": [
-          "record_id",
-          "event_id"
-        ],
         "additionalProperties": false,
+        "required": [
+          "source_id"
+        ],
         "properties": {
-          "record_id": {
+          "source_id": {
             "type": "string",
-            "pattern": "^(REC)-[0-9A-HJKMNP-TV-Z]{26}$"
+            "pattern": "^(SRC)-[0-9A-HJKMNP-TV-Z]{26}$"
           },
           "event_id": {
             "type": "string",
-            "minLength": 1
+            "pattern": "^EVT-\\d{4}(-Q[1-4]|-\\d{2}(-\\d{2})?)?-[A-Za-z0-9][A-Za-z0-9_-]*$"
           }
         }
       }

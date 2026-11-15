@@ -1,0 +1,24 @@
+id: KB-01M7EW6WDMC9B8E308V714BVPB
+kind: metric_definition
+version: 1
+title: Google Cloud revenue
+sensitivity: public
+recorded_at: '2026-11-15'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q1
+valid_to: '2026-11-14'
+last_supported: '2026-11-15'
+review_window: period
+provenance:
+- SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+name: Google Cloud revenue
+meaning: GCP and Workspace revenue; USD; GCP growth distinct from total Cloud.
+source_of_truth: SRC-01M7EW62YX9KRY7ZBWAST2G1FG; p10/Ashkenazi
+validated: no_access
+compare_to: Same period and accounting basis; transcript rounded values are not a
+  full reconciliation

@@ -1,50 +1,65 @@
 ---
-title: 'Schemas: Index and Usage'
-description: Index of the JSON Schemas that check each memory entry type, and how to run the brain validator and the Markdown checker.
-purpose: Tell readers which schema checks which entry and how to validate a brain or the documents.
-when_to_use: Open when writing or debugging an entry, or when running schemas/validate.py or schemas/check_markdown.py.
-last_modified: 2026-11-14
+name: schemas-and-validators
+description: Guide to the JSON Schemas that define every kind of brain entry, the validator that checks a brain against the rules and rebuilds its lookup index, and the checker for Markdown front matter. Use when writing or debugging a brain entry, explaining a validation error, or before running schemas/validate.py or schemas/check_markdown.py.
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Schemas
 
-JSON Schema (draft 2020-12) for every entry type in SPEC §4. Field definitions follow SPEC §4; where they disagree, SPEC wins and the schema is the bug.
+JSON Schema (draft 2020-12) for every entry kind.
 
-| Schema | Used for |
+## Header blocks
+
+| Schema | Block | Used by |
+|---|---|---|
+| `base` | id, kind, version, title, sensitivity, recorded_at | every entry |
+| `scope` | scope | reasoning entries, procedures, knowledge base |
+| `time` | valid_from, valid_to, last_supported, review_window | reasoning, procedures, dependency map, knowledge base |
+| `governed` | provenance, trust, sureness, owner, events, last_confirmed_by_owner, open_questions, related | reasoning, procedures, dependency map |
+| `provenance` | provenance only | knowledge base |
+
+## Entry schemas
+
+Each schema is named for one prefix and kind; every entry states its `kind`.
+
+| Prefix | Schemas |
 |---|---|
-| `base-header`, `governed-header` | Headers composed into every entry (SPEC §4.1) |
-| `lens-deliverable` | `lens/` (deliverable with nested procedure) |
-| `record-artifact`, `tool-contract`, `source-authority` | `record/` |
-| `concept`, `metric-definition`, `normality`, `dependency-link` | `business-understanding/` |
-| `belief`, `story-thread` | `beliefs/` |
-| `evidence-ledger` | `beliefs/ledger/<belief id>.yaml` |
-| `inquiry-chain`, `judgment-rule` | `reasoning-patterns/` |
-| `editorial-rule` | `editorial/` |
-| `proposal` | `proposals/`, `proposals/pending/`, `proposals/rejected/` |
-| `match-ledger-row` | each row of `match_ledger.yaml` |
+| `BV` `TP` `JD` `RS` | `business-view`, `thinking-pattern`, `judgment`, `response-style` |
+| `PR` | `procedure` |
+| `KB` | `kb-concept`, `kb-metric-definition`, `kb-table-structure`, `kb-source-of-truth`, `kb-business-event`, `kb-known-issue`, `kb-calendar-point`, `kb-deliverable-profile`, `kb-template` |
+| `DM` | `dm-link`, `dm-impact-scope` |
+| `SRC` | `src-artifact`, `src-approved-location`, `src-tool-contract`, `src-authority-rule` |
+| `TR` `Q` `TS` `RN` | `log-trace`, `log-question`, `log-scenario`, `log-test-run` |
+| governance | `proposal`, `match-ledger-row` |
 
-An entry's type is found from its id prefix and folder; it must match exactly one schema for that prefix.
+Change records are lines in `logs/changes.md`, not separate files; the validator checks each line's format.
 
-## Validate a brain
+## The validator
 
 ```bash
-pip install jsonschema pyyaml
-python schemas/validate.py path/to/brain
+python schemas/validate.py brain/ # validate and regenerate index.yaml
+python schemas/validate.py brain/ --check # validate only
+python schemas/validate.py brain/ --today 2026-12-31 # compute relevance as of a date
 ```
 
-The validator checks:
-- every entry against its schema
-- that referenced ids exist
-- ledger and proposal file names
-- that each entry's `sensitivity` is a configured level and never lower than its sources
+Beyond the schemas it checks:
+- each entry sits in its folder and its file is named by its id
+- every id it mentions exists, and every event id is registered by exactly one business event
+- two business events with the same period and the same affected metrics (a split event)
+- sensitivity is a configured level and never lower than its sources
+- trust rules: case counts from distinct events and periods, the owner's word, inference-only entries held below `established`, pattern-origin entries needing the owner, and other people's work capped at `observation`
+- proposals, match ledger rows and change-log lines
 
-If everything passes, it regenerates `index.yaml`, with relevance computed from `last_confirmed`, `review_window` and `valid_to`. Use `--check` to validate without writing, and `--today YYYY-MM-DD` to compute relevance as of a given date. It ignores `archive/`, `passes/` and `.applier.lock`.
+When everything passes it writes `index.yaml`: situations, deliverables and metrics maps, plus one row per entry with its trust, sureness, sensitivity and computed relevance. Logs and held-out tests are never indexed. It ignores `archive/`, `passes/` and `.applier.lock`.
+
+Requires `pyyaml`, `jsonschema` and `referencing`.
 
 ## Checking Markdown front matter
 
-`check_markdown.py` verifies that every Markdown file starts with the front matter defined in SPEC §10 (`title`, `description`, `purpose`, `when_to_use`, `last_modified`; `SKILL.md` also needs `name`). It rejects a missing block, an empty key, a description over 300 characters, and a `last_modified` that is malformed or in the future.
+`check_markdown.py` verifies that every Markdown file starts with the front matter in the Agent Skills format.
 
 ```bash
-python schemas/check_markdown.py .          # check every .md file
-python schemas/check_markdown.py --list .   # print only the front matter, which is what an agent reads at run time
+python schemas/check_markdown.py. # check every.md file
+python schemas/check_markdown.py --list. # print only the front matter, which is what an agent reads at run time
 ```

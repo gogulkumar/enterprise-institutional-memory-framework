@@ -1,0 +1,35 @@
+id: KB-01M7EW6WDJ2FMVC0PT71Z9S254
+kind: metric_definition
+version: 2
+title: Free cash flow
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q1
+valid_to: '2026-11-14'
+last_supported: '2026-11-14'
+review_window: period
+provenance:
+- SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+- SRC-01M7EW62YY201X08K9F6V72ZB0
+name: Free cash flow
+meaning: Operating cash inflows less capital expenditure cash outflows. A quarter
+  is a flow for three months; trailing twelve months aggregates four successive quarters,
+  not quarter annualization.
+source_of_truth: SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+validated: no_access
+compare_to: Same quarter prior year for growth; prior-quarter comparison only when
+  explicitly disclosed. GAAP and non-GAAP remain separate.
+filters: 'Alphabet consolidated unless segment explicitly named; fiscal quarter, USD.
+  Source lookup: p9/Ashkenazi; Q2 CFO p10-13. No YTD substitution.'
+join: Match entity, fiscal quarter, segment and accounting basis before comparing;
+  no cross-period joins.
+sign: Revenue/profit positive; expenses and cash outflows identified separately; margin
+  changes in percentage points.
+breaks_down_as: Use only disclosed constituent lines on the same accounting basis;
+  unreconciled transcript rounding is not a check.

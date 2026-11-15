@@ -1,0 +1,32 @@
+id: KB-01M7EW6WDSCFQZWC9AP7P4KCQD
+kind: business_event
+version: 2
+title: Q1 earnings event
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q1
+valid_to: null
+last_supported: '2026-11-14'
+review_window: period
+provenance:
+- SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+event_id: EVT-2025-Q1-earnings
+what_happened: Quarterly results discussed. [p8-11/Ashkenazi]
+periods:
+- 2025-Q1
+affected:
+- KB-01M7EW6WDGTSHQ3JQXFS752QWT
+- KB-01M7EW6WDHM7NQP6SSHHVPS8QP
+- KB-01M7EW6WDJ2FMVC0PT71Z9S254
+- KB-01M7EW6WDKP8Z254DASR2M9AT3
+- KB-01M7EW6WDKAWEWNK830VK77590
+- KB-01M7EW6WDMC9B8E308V714BVPB
+- KB-01M7EW6WDNXWZ5CG55F1E8R30D
+- KB-01M7EW6WDNCEMZEFPM68QJWMSX
+outcome: Public reported results; no owner reasoning evidence

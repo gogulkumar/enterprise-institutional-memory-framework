@@ -1,0 +1,21 @@
+id: KB-01M7EW6WDP1ST3ZVSYZ3RTZF17
+kind: concept
+version: 1
+title: Segment profitability bridge
+sensitivity: public
+recorded_at: '2026-11-15'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q1
+valid_to: '2026-11-14'
+last_supported: '2026-11-15'
+review_window: period
+provenance:
+- SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+name: Segment profitability bridge
+definition: Services and Cloud operating results coexist with Other Bets losses; consolidated
+  profit also includes corporate costs. [p9-10/Ashkenazi]

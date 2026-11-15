@@ -1,17 +1,10 @@
 ---
-title: Learn Passes Folder
-description: 'What lives in passes/: temporary working folders for each Learn run, such as the sealed prediction and the blind read output.'
-purpose: Explain what a pass folder holds and that the validator ignores it.
-when_to_use: Open when starting a Learn pass or cleaning up old passes.
-last_modified: 2026-11-14
+name: brain-learn-passes-folder
+description: 'Folder of temporary working files from each learning run: the sealed prediction made before reading a text, the blind read, the comparison and the proposals applied in that run. Use when running or auditing a learning run; a run''s folder can be pruned once it is applied.'
+metadata:
+  last_modified: "2026-11-14"
 ---
 
-# Learn Passes (`passes/`)
+# Learn Passes
 
-**What lives here:** Temporary working folders created during each `Learn` run (`LP-<ULID>/`), holding:
-- `prediction.yaml` and `prediction.sha256` (sealed before reading the document)
-- `read.yaml` (output of the clean sub-agent's blind read)
-- `questions_for_owner.md` / `gate_queue.md` (if any)
-
-Ignored by `schemas/validate.py`. Can be pruned once a pass is applied.
-
+See section 9, steps 2 and 5. Folders may be pruned once a run is applied.

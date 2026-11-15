@@ -1,0 +1,35 @@
+id: KB-01M7EW6WDGTSHQ3JQXFS752QWT
+kind: metric_definition
+version: 3
+title: Operating margin
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q1
+valid_to: null
+last_supported: '2026-11-14'
+review_window: period
+provenance:
+- SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+- SRC-01M7EW62YY201X08K9F6V72ZB0
+name: Operating margin
+meaning: 'Numerator: operating income. Denominator: revenue of the same segment and
+  quarter. Ratio multiplied by 100; change in ratios is percentage points, not percent
+  growth.'
+source_of_truth: SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+validated: no_access
+compare_to: Same quarter prior year for growth; prior-quarter comparison only when
+  explicitly disclosed. GAAP and non-GAAP remain separate.
+filters: Consolidated, Services or Cloud explicitly selected; USD numerator and denominator;
+  same fiscal quarter; GAAP unless explicitly adjusted.
+join: Pair profit and revenue by entity and quarter; compare ratios to same entity
+  in prior-year quarter.
+sign: Positive profit or negative loss divided by revenue; percent. Difference between
+  margins is percentage points.
+breaks_down_as: Use only disclosed constituent lines on the same accounting basis;
+  unreconciled transcript rounding is not a check.

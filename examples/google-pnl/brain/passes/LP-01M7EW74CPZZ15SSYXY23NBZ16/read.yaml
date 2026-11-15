@@ -1,0 +1,48 @@
+source: 2025-Q2-transcript.txt
+routing:
+  p1: opening_basis
+  p2: overview_infrastructure
+  p3: models_usage
+  p4: search_cloud
+  p5: cloud_customers_agents
+  p6: agents_youtube_waymo
+  p7: services_search
+  p8: search_ads
+  p9: youtube_partnerships
+  p10: CFO_consolidated_costs
+  p11: CFO_cash_services_cloud
+  p12: CFO_cloud_bets_capex_capital_FX
+  p13: CFO_outlook_capacity_depreciation_headcount_Pixel
+  p14: summary_QA
+  p15: monetization_subscriptions
+  p16: compute_lag_clicks
+  p17: click_caveat_agents
+  p18: agents_efficiency_devices
+  p19: devices_surfaces_talent
+  p20: talent_opex
+  p21: efficiency_AIO_OpenAI
+  p22: verticals_surfaces
+  p23: surfaces_capacity
+  p24: capacity_agents
+  p25: subscriptions_ROI
+  p26: close
+bases: 'p1,10: comparisons YoY unless stated. p2: Shorts revenue/watch-hour; p11:
+  Workspace revenue/seat and seats; p16: paid clicks +4%, affected by product/policy/spend/engagement;
+  no click/CPC targets.'
+mechanisms: "p10: other revenue costs led by YouTube content then depreciation; R&D\
+  \ compensation/depreciation. p11: FCF depressed by sequential capex and federal\
+  \ Q1+Q2 taxes. p12: Cloud margin revenue/efficiencies offset infrastructure usage/depreciation.\
+  \ p13: Financial Services/election comparables; supply tight into 2026; servers/delivery/construction\
+  \ drive capex; depreciation growth accelerates Q3; graduates/Pixel expenses. p16:\
+  \ investment-to-capacity lag. p23\u201324: quarterly capacity additions, larger\
+  \ late-year; delivery timing makes Cloud growth nonlinear. p20\u201321: AI talent\
+  \ opex offset with internal AI/discipline. TAC mix explanation absent."
+evidence:
+  p10: Revenue $96.4bn +14%, CC +13%; TAC $14.7bn +10%; legal $1.4bn; margin 32.4%
+  p11: FCF $5.3bn; TTM $66.7bn
+  p12: Cloud margin 20.7% vs 11.3%; backlog $106bn +18% QoQ/+38% YoY; capex $22.4bn;
+    servers ~2/3, centers/network ~1/3
+  p13: 2025 capex ~$85bn vs $75bn; 2026 further increase; depreciation $5bn +$1.3bn/+35%
+authorship: external_management_and_analysts
+instruction_flags: []
+reconstruction: 'skip: external work'

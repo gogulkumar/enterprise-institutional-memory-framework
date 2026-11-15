@@ -1,9 +1,8 @@
 ---
-title: Example Data Sources and Checks
-description: Where each number in the example dataset comes from (SEC earnings releases) and the arithmetic and SEC checks run on it.
-purpose: Let a reader trust and re-check the example data.
-when_to_use: Open when you need to cite or verify a figure in quarterly_pnl.csv.
-last_modified: 2026-11-14
+name: google-pnl-data-sources
+description: Where every number in the example's quarterly P&L dataset came from (Alphabet's SEC earnings releases, with links) and the arithmetic and SEC cross-checks that verified it. Use when citing, checking or extending a figure in quarterly_pnl.csv or one_offs.csv.
+metadata:
+  last_modified: "2026-11-14"
 ---
 
 # Data sources and checks
@@ -36,6 +35,10 @@ The segment and revenue-type lines are not in the SEC's structured data; they co
 
 ## Use in the example brain
 
-This folder is the **Record**: source data the brain points to and queries. No value from it is copied into a memory entry (SPEC Principle 2).
+This folder is an approved location registered in the brain's `sources/`: source data the brain points to and queries. No figure from it is copied into a brain entry.
 
 `one_offs.csv` lists the charges and below-the-line items that the releases call out, with amounts as printed.
+
+## Downloaded transcript inputs
+
+The fresh brain uses only the original transcript PDFs under `raw/`, with official URLs and hashes in `raw/manifest.json`. The faithful page-marked text under `extracted/` was used by clean readers. Prior historical CSV checks above describe the retained older data and were not reused as evidence for the fresh brain.

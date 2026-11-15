@@ -1,0 +1,12 @@
+action: confirm
+target: KB-01M7EW6WDNCEMZEFPM68QJWMSX
+payload:
+  pass_id: LP-01M7EW74CPZZ15SSYXY23NBZ16
+  filters: Alphabet consolidated non-operating results; fiscal quarter USD; includes
+    equity valuation effects outside segment operations.
+  sign: Income/gains positive; expense/losses negative; do not convert signed net
+    amount to cost magnitude.
+  join: Combine with operating income for pretax bridge over identical period; compare
+    same-quarter prior year without reclassifying into segment profit.
+evidence: []
+needs_ratification: false

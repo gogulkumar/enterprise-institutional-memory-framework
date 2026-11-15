@@ -1,0 +1,24 @@
+id: KB-01M7EW6WDQJ1MG1BTCWBKTD0Z5
+kind: concept
+version: 2
+title: TAC mix mechanism
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q1
+valid_to: null
+last_supported: '2026-11-14'
+review_window: period
+provenance:
+- SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+name: TAC mix mechanism
+definition: Management attributes slower traffic acquisition cost growth to the relative
+  performance of Search and Network. Network carries a higher TAC rate; a shift toward
+  Search can therefore reduce aggregate TAC intensity even while absolute TAC grows.
+  This is an attributed revenue-mix mechanism, not independent proof of changes in
+  individual distribution contracts. Q1 CFO p8 and Q&A p19-20.

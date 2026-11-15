@@ -1,0 +1,33 @@
+action: create
+target: DM-01M7EWEE79Q0TSPM3HHV79DJ2G
+payload:
+  id: DM-01M7EWEE79Q0TSPM3HHV79DJ2G
+  kind: impact_scope
+  version: 1
+  title: Other income and expense impact
+  sensitivity: public
+  recorded_at: '2026-11-14'
+  valid_from: 2025-Q1
+  valid_to: null
+  last_supported: '2026-11-14'
+  review_window: 4q
+  provenance:
+  - SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+  - SRC-01M7EW62YY201X08K9F6V72ZB0
+  trust: observation
+  sureness: inferred
+  owner: Gogul Kumar Mathi
+  events:
+  - EVT-2025-Q1-earnings
+  last_confirmed_by_owner: never
+  entry: KB-01M7EW6WDNCEMZEFPM68QJWMSX
+  numbers_affected:
+  - KB-01M7EW6WDNCEMZEFPM68QJWMSX
+  deliverables_affected: []
+  reasoning_entries_affected: []
+  checked_not_affected: []
+  pass_id: LP-01M7EWAX8KZH5PK2JK127EQXN9
+evidence:
+- source_id: SRC-01M7EW62YY201X08K9F6V72ZB0
+  event_id: EVT-2025-Q1-earnings
+needs_ratification: false

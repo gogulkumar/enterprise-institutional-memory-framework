@@ -1,0 +1,35 @@
+id: KB-01M7EW6WDNXWZ5CG55F1E8R30D
+kind: metric_definition
+version: 3
+title: Capital expenditure
+sensitivity: public
+recorded_at: '2026-11-14T00:00:00Z'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q1
+valid_to: null
+last_supported: '2026-11-14'
+review_window: period
+provenance:
+- SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+- SRC-01M7EW62YY201X08K9F6V72ZB0
+name: Capital expenditure
+meaning: USD investing cash outflow for assets; positive spend convention. Quarter
+  spend is a flow, annual guidance a forward-looking total. Depreciation is an expense
+  allocation after service commencement, not a second cash outflow.
+source_of_truth: SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+validated: no_access
+compare_to: Same quarter prior year for growth; prior-quarter comparison only when
+  explicitly disclosed. GAAP and non-GAAP remain separate.
+filters: Alphabet consolidated purchases of property/equipment; USD cash spending;
+  quarter actual distinct from annual management guidance.
+join: Match actual asset-purchase cash flows to reporting interval; annual guidance
+  comparison retains forecast-vs-actual distinction.
+sign: Positive cash-outflow magnitude deducted from operating cash flow; not a positive
+  contribution to cash generation.
+breaks_down_as: Use only disclosed constituent lines on the same accounting basis;
+  unreconciled transcript rounding is not a check.

@@ -1,0 +1,24 @@
+id: KB-01M7EWDXTEX58JKRKCQWK2DKZS
+kind: concept
+version: 1
+title: Tax expense versus cash timing
+sensitivity: public
+recorded_at: '2026-11-14'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q3
+valid_to: null
+last_supported: '2026-11-14'
+review_window: period
+provenance:
+- SRC-01M7EW62YYNJCS8D63NMZGYGWZ
+name: Tax expense versus cash timing
+definition: Accelerated R&D expensing and asset depreciation for tax purposes can
+  change cash tax timing without matching the financial-reporting depreciation schedule.
+  Management attributed cash-flow benefit to tax changes while higher infrastructure
+  investment offset part of that benefit. This does not establish recurring operating
+  cash improvement. Q3 CFO p10-13.

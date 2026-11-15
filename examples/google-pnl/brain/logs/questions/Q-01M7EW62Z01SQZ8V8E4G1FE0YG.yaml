@@ -1,0 +1,15 @@
+id: Q-01M7EW62Z01SQZ8V8E4G1FE0YG
+kind: question
+version: 1
+title: Owner evidence
+sensitivity: public
+recorded_at: '2026-11-14'
+raised_from: LP-01M7EW62YW349996VAVPF58WQS
+question: Which owner-authored P&L deliverable, working trace and interview can establish
+  purpose, materiality, attribution and audience style?
+why_it_matters: changes_reasoning
+research_done:
+- Fresh brain checked
+- Authorized scope contains external transcripts only
+proposed_answer: Missing; no inference applied
+status: open

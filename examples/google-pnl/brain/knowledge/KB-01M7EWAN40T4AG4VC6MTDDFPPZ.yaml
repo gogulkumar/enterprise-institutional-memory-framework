@@ -1,0 +1,23 @@
+id: KB-01M7EWAN40T4AG4VC6MTDDFPPZ
+kind: concept
+version: 1
+title: Cash tax timing
+sensitivity: public
+recorded_at: '2026-11-14'
+scope:
+  deliverables: []
+  audiences: []
+  situations:
+  - Alphabet financial performance
+  periods: []
+valid_from: 2025-Q2
+valid_to: null
+last_supported: '2026-11-14'
+review_window: period
+provenance:
+- SRC-01M7EW62YY201X08K9F6V72ZB0
+name: Cash tax timing
+definition: Free cash flow can diverge from operating performance when cash taxes
+  for multiple quarters fall in one quarter. Capital expenditure is another cash outflow;
+  neither timing effect alone establishes deterioration in operating profitability.
+  Management identified both effects in this quarter. CFO p11.

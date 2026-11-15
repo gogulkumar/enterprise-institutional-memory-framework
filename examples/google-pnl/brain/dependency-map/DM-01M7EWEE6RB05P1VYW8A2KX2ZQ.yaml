@@ -1,0 +1,23 @@
+id: DM-01M7EWEE6RB05P1VYW8A2KX2ZQ
+kind: impact_scope
+version: 1
+title: Segment profitability bridge impact
+sensitivity: public
+recorded_at: '2026-11-14'
+valid_from: 2025-Q1
+valid_to: null
+last_supported: '2026-11-14'
+review_window: 4q
+provenance:
+- SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+trust: observation
+sureness: inferred
+owner: Gogul Kumar Mathi
+events:
+- EVT-2025-Q1-earnings
+last_confirmed_by_owner: never
+entry: KB-01M7EW6WDP1ST3ZVSYZ3RTZF17
+numbers_affected: []
+deliverables_affected: []
+reasoning_entries_affected: []
+checked_not_affected: []

@@ -1,0 +1,23 @@
+id: DM-01M7EWEE721NQZDJ2Z02TCWHF0
+kind: impact_scope
+version: 1
+title: Subscriptions and Workspace drivers impact
+sensitivity: public
+recorded_at: '2026-11-14'
+valid_from: 2025-Q1
+valid_to: null
+last_supported: '2026-11-14'
+review_window: 4q
+provenance:
+- SRC-01M7EW62YX9KRY7ZBWAST2G1FG
+trust: observation
+sureness: inferred
+owner: Gogul Kumar Mathi
+events:
+- EVT-2025-Q1-earnings
+last_confirmed_by_owner: never
+entry: KB-01M7EW6WDSPZ8MVB4VAHN42ET5
+numbers_affected: []
+deliverables_affected: []
+reasoning_entries_affected: []
+checked_not_affected: []

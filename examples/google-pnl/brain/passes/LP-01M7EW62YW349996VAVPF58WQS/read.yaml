@@ -1,0 +1,106 @@
+source: 2025-Q1-transcript.txt
+authorship: external_management
+basis: {period: 2025Q1, comparison: YoY_unless_stated, currency: USD}
+units:
+  - loc: p1/Friedland
+    route: metric_definition
+    labels: [YoY_default, GAAP_nonGAAP_reconciliation_in_release, forward_looking_caveat]
+  - loc: p1/operator
+    route: skip
+    labels: [call_logistics, webcast_notice]
+  - loc: p1-3/Pichai/AI_stack
+    route: business_view
+    labels: [infrastructure_research_products, AI_growth]
+    metrics: {AIO_monthly_users: '>1.5bn', paid_subscriptions: '>270m', fiber_miles: '>2m', subsea_cables: 33, Ironwood_compute_vs_recent_TPU: '>10x', Ironwood_power_efficiency: '~2x', Studio_API_active_users_since_year_start: '>200%', Gemma_downloads: '>140m', AlphaFold_researchers: '>2.5m', Gemini_products_users_at_least_500m: 15}
+    events: [Gemini_2.5_Pro_Flash, Ironwood, Blackwell_availability, Gemma3, Robotics, CoScientist, Assistant_Gemini_migration, Pixel9a]
+  - loc: p3-4/Pichai/Search
+    route: business_view
+    mechanisms: [AIO_usefulness_query_expansion, AIMode_reasoning_multimodal]
+    metrics: {AIMode_query_length_vs_traditional: 2x, Circle_devices: '>250m', Circle_usage_this_quarter: '~+40%', Lens_monthly_queries_since_October: '+5bn'}
+    event: March_AIMode_Labs
+  - loc: p4-5/Pichai/Cloud
+    route: concept
+    labels: [DistributedCloud_sovereignty, Vertex_200plus_models, ADK_multiagent, AgentDesigner_100plus_apps, Agentspace_enterprise_search_action, Workspace_AI_assists_2bnplus_monthly, Gemini_security_detection]
+  - loc: p5/Pichai/Wiz
+    route: business_event
+    labels: [acquisition_intent, multicloud_security]
+  - loc: p5/Pichai/YouTube_Waymo
+    route: business_view
+    metrics: {podcast_MAU: '>1bn', Music_Premium_global_including_trials: '>125m', Waymo_paid_weekly_trips: '>250k', Waymo_trips_YoY: 5x}
+    events: [PremiumLite_US_pilot, SiliconValley_paid_service, Austin_Uber, Atlanta_summer_plan, DC_Miami_2026_plan]
+  - loc: p5-6/Schindler/performance_Search
+    route: business_view
+    metrics: {Services_revenue_rounded_bn: 77, Services_growth: 10%, Search_growth: 10%, YouTube_ads_growth: 10%, Search_daily_users: '>2bn', annual_searches: '>5tn', AIO_languages: '>15', AIO_countries: 140, Lens_shoppers_Q1_growth: '>10%'}
+    mechanisms: [Insurance_then_Retail_Search, direct_response_then_brand_YouTube, AIO_commercial_queries, Lens_incrementality, LLM_ad_matching]
+  - loc: p6,13/Schindler/AIO_monetization
+    route: metric_definition
+    labels: [approximately_same_rate_overall, comparator_unnamed, CTR_conversion_undisclosed, US_mobile_in_overview_ads_late2024, above_below_ads_preexisting]
+  - loc: p7/Schindler/Ads
+    route: business_view
+    metrics: {DemandGen_conversions_per_dollar_YoY: '+26%_average', product_feed_conversions_per_dollar_YoY: '>2x_average', RoyalCanin_conversion_rate: 2.7x, RoyalCanin_CPA: '-70%', RoyalCanin_value_per_user: '+8%'}
+    mechanisms: [audience_recommendations, generated_creatives, PMax_landing_images, channel_controls]
+  - loc: p7-8/Schindler/YouTube_partnerships
+    route: business_view
+    metrics: {daily_uploads_average: 20m, reservation_ads_growth_YoY: '>2x', Toyota_awareness_vs_control: '+25%', Toyota_awareness_vs_brand_ad: '+9%', Shorts_engaged_views_Q1: '>+20%'}
+    labels: [Shorts_monetization_vs_instream, US_improvement, Roblox_immersive_ads]
+  - loc: p8-9/Ashkenazi/consolidated
+    route: metric_definition
+    metrics:
+      revenue_bn: 90.2
+      revenue_growth_reported_constant_currency: [12%, 14%]
+      cost_revenue_bn_growth: [36.4, 8%]
+      TAC_bn_growth: [13.7, 6%]
+      other_cost_revenue_bn_growth: [22.6, 9%]
+      opex_bn_growth: [23.3, 9%]
+      RD_growth: 14%
+      SM_growth: '-4%'
+      GA_growth: 17%
+      operating_income_bn_growth_as_spoken: [31, 20%]
+      operating_margin_expansion: [33.9%, 2.3pp]
+      OIE_bn: 11.2
+      net_income_bn_growth: [34.5, 46%]
+      EPS_growth: [2.81, 49%]
+      FCF_Q1_TTM_bn: [19, 74.9]
+      cash_marketable_securities_bn: 95
+    mechanisms: [Search_Network_mix_lowers_TAC, YouTube_content_costs, depreciation_infrastructure, RD_compensation, SM_compensation_decline, GA_legal_charges, private_equity_unrealized_gain_OIE]
+  - loc: p9/Ashkenazi/Services
+    route: metric_definition
+    metrics: {revenue_bn_growth: [77.3, 10%], SearchOther_bn_growth: [50.7, 10%], YouTube_ads_bn_growth: [8.9, 10%], Network_bn_growth: [7.3, '-2%'], SPD_bn_growth: [10.4, 19%], operating_income_bn_growth: [32.7, 17%], margin_prior_current: [39.6%, 42.3%]}
+    mechanisms: [YouTube_then_One_subscriptions, subscriber_count_primary_driver]
+  - loc: p10/Ashkenazi/Cloud_OtherBets_capital
+    route: metric_definition
+    metrics: {Cloud_revenue_bn_growth: [12.3, 28%], Cloud_operating_income_bn: 2.2, Cloud_margin_prior_current: [9.4%, 17.8%], OtherBets_revenue_m: 450, OtherBets_operating_loss_bn: 1.2, capex_bn: 17.2, repurchases_bn: 15.1, dividends_bn: 2.4}
+    mechanisms: [GCP_core_AI_outgrow_Cloud, Workspace_revenue_per_seat, fleet_utilization, OtherBets_2024_milestone_comparison, servers_then_datacenters]
+  - loc: p10/Ashkenazi/board
+    route: business_event
+    metrics: {quarterly_dividend_increase: 5%, new_repurchase_authorization_bn: 70}
+  - loc: p10-11/Ashkenazi/outlook
+    route: business_view
+    metrics: {2025_capex_bn: '~75', Q1_depreciation_YoY: 31%, YouTube_Cloud_exit2024_combined_annual_runrate_bn: 110}
+    mechanisms: [2024_Finance_ad_comparison, capacity_timing_Cloud_revenue, higher_capacity_late2025, delivery_construction_capex_timing, placed_in_service_depreciation_acceleration, key_area_headcount, Q1_SBC_lower_award_timing_since2023]
+  - loc: p11-13/Nowak_Anmuth_QA
+    route: business_view
+    labels: [Q2_too_early, de_minimis_slight_2025_APAC_retailer_headwind, AIO_expansion_commercial_queries, efficiency_reinvestment, compute_demand_allocation_utilization, compensation_moderation, real_estate]
+  - loc: p14-16/Sheridan_Sandler_QA
+    route: business_view
+    labels: [GeminiLive_DeepResearch_Canvas, Cloud_demand_exceeds_capacity, team_consolidation_speed_cost, brand_cultural_moments, Shorts_LivingRoom_watchtime]
+    excluded_metric: {Gemini_DAU_35m: analyst_premise_unconfirmed}
+  - loc: p16-17/Shmulik_QA
+    route: metric_definition
+    metrics: {checked_in_code_involving_accepted_AI_suggestions: '>30%', prior_disclosed: '~25%'}
+    labels: [agentic_coding, customer_service_efficiency, finance_AI, AIMode_complex_queries_followups]
+  - loc: p17-19/Mahaney_QA
+    route: business_view
+    labels: [continuous_efficiency, depreciation_headwind_harder_offset, Waymo_business_model_optionality, Uber_distribution, Moove_fleet_operations, OEM_partners, personal_ownership_option]
+  - loc: p19-20/Gawrelski_QA
+    route: concept
+    labels: [Search_Gemini_distinct, AIMode_innovation_flows_to_AIO, user_feedback_selection, Network_high_TAC_mix, infrastructure_depreciation_other_COS_and_RD, compensation_efficiency_offset_Q1]
+    flag: capex_prior_year_oral_self_correction_55bn_to_just_over50bn
+  - loc: p20-21/Josey_QA
+    route: business_view
+    labels: [AI_ad_tools_direct_response, Shorts_monetization_gap_closing_US]
+    metrics: {YouTube_total_videos: '>20bn', daily_uploads: 20m}
+  - loc: p21/closing
+    route: skip
+    labels: [thanks, next_call, disconnect]
+instruction_flags: []

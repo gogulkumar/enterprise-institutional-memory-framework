@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "log-question.schema.json",
+  "title": "question (Q)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "base.schema.json"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(Q)-[0-9A-HJKMNP-TV-Z]{26}$"
+        },
+        "kind": {
+          "const": "question"
+        },
+        "raised_from": {
+          "type": "string",
+          "minLength": 1
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "why_it_matters": {
+          "enum": [
+            "changes_reasoning",
+            "changes_a_number",
+            "style",
+            "watch"
+          ]
+        },
+        "research_done": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          ]
+        },
+        "proposed_answer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "open",
+            "self_answered",
+            "answered"
+          ]
+        },
+        "answer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "answer_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "applied_to": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(BV|TP|JD|RS|KB|DM|PR|SRC|TR|Q|CH|TS|RN)-[0-9A-HJKMNP-TV-Z]{26}$"
+          }
+        },
+        "expectation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "what_would_resolve_it": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "raised_from",
+        "question",
+        "why_it_matters",
+        "status"
+      ],
+      "if": {
+        "properties": {
+          "status": {
+            "const": "answered"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "answer",
+          "answer_scope"
+        ]
+      }
+    }
+  ],
+  "unevaluatedProperties": false
+}

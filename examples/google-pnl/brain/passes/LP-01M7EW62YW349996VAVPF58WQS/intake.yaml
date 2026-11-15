@@ -1,0 +1,10 @@
+prediction: 'skip: fresh empty brain'
+reconstruction: 'skip: external authorship'
+capabilities:
+  pdf_text: page-marked extraction available
+  code: available
+  live_data: unavailable; public PDF snapshot
+  clean_reader: available
+  slides: no slides supplied
+  spreadsheets: no workbook supplied
+held_out: none; sources previously seen in wider session

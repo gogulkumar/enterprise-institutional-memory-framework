@@ -1,23 +1,29 @@
-# Deployment settings for this brain (SPEC 4.8). Fill in before running build.
-
-# Default review window for governed entries that do not set their own.
-# Format: <number><unit>, unit is d (days), w (weeks), m (months), q (quarters) or y (years).
-review_window: 1q
-
-# Observations unseen for this many periods expire (SPEC 5.1).
-observation_expiry_periods: 2
-
-# Proposals awaiting ratification longer than this go to the backup reviewer (SPEC 5.3).
+owner: Gogul Kumar Mathi
+backup_reviewer: ''
+deliverable_owners: {}
+candidate_events: 2
+established_events: 4
+established_periods: 2
+observation_expiry: 2
+observations_per_text: 20
+period_length: 1q
+review_windows:
+  metric_definition: period
+  known_issue: period
+  source_of_truth: period
+  calendar_point: period
+  judgment: 4q
+  thinking_pattern: 4q
+  response_style: 4q
+  business_view: 4q
+  link: 4q
+  impact_scope: 4q
+  business_event: none
+  default: 4q
 queue_expiry: 2w
-
-# Named expert who ratifies changes, and the backup reviewer.
-owner: "example-owner"
-backup_reviewer: ""
-
-# Sensitivity levels, least to most restricted. An entry's sensitivity must be one of these
-# and never lower than the most restricted source in its provenance (SPEC 4.1).
+max_pending: 25
 sensitivity_levels:
-  - public
-  - internal
-  - confidential
-  - restricted
+- public
+- internal
+- confidential
+- restricted
