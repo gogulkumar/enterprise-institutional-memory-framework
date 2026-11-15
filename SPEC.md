@@ -255,7 +255,7 @@ An entry whose support is entirely `inferred` and that cannot be checked stays a
 - A new period, deliverable or audience counts only if the event behind it is also different.
 - All entries extracted from one trace count as one case in total.
 - A correct prediction counts as a case only when it was sealed before the text was read, the text describes an event not already counted, and the entry used to predict it did not come from that same text. A wrong prediction counts against the entry.
-- Event ids are minted by the applier from the artifact's `event_ids` and registered as business event entries. Before minting, the applier checks existing events by period, affected metrics and description; two events with the same period and the same affected metrics are flagged as a possible duplicate. Ids that cannot be settled this way are and sent to the owner as a question if they cannot be settled. An agent may not split one event into several ids.
+- Event ids are minted by the applier from the artifact's `event_ids` and registered as business event entries. Before minting, the applier checks existing events by period, affected metrics and description; two events with the same period and the same affected metrics are flagged as a possible duplicate. Ids that cannot be settled this way are sent to the owner as a question. An agent may not split one event into several ids.
 - Work by other people can support an entry up to `observation`. It never promotes it.
 - A link confirmed by a calculation is trusted immediately, for the model version it was validated on.
 
