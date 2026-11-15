@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "time.schema.json",
+  "title": "Time block (SPEC 6.1, 7.3)",
+  "type": "object",
+  "required": [
+    "valid_from",
+    "valid_to",
+    "last_supported"
+  ],
+  "properties": {
+    "valid_from": {
+      "type": "string",
+      "pattern": "^\\d{4}(-Q[1-4]|-\\d{2}(-\\d{2})?)?$"
+    },
+    "valid_to": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^\\d{4}(-Q[1-4]|-\\d{2}(-\\d{2})?)?$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "last_supported": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "review_window": {
+      "type": "string",
+      "pattern": "^(\\d+[dwmqy]|period|none)$"
+    }
+  }
+}

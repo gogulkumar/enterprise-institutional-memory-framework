@@ -1,19 +1,19 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "match-ledger-row.schema.json",
-  "title": "One row of brain/match_ledger.yaml (SPEC 4.8)",
+  "title": "Match ledger row: how one Learn signal was routed (SPEC 9, step 6)",
   "type": "object",
+  "additionalProperties": false,
   "required": [
     "pass_id",
     "signal",
     "matched_entry",
     "action"
   ],
-  "additionalProperties": false,
   "properties": {
     "pass_id": {
       "type": "string",
-      "minLength": 1
+      "pattern": "^LP-[0-9A-HJKMNP-TV-Z]{26}$"
     },
     "signal": {
       "type": "string",
@@ -23,7 +23,7 @@
       "anyOf": [
         {
           "type": "string",
-          "pattern": "^(LENS|REC|BU|BEL|RP|ED)-[0-9A-HJKMNP-TV-Z]{26}$"
+          "pattern": "^(BV|TP|JD|RS|KB|DM|PR|SRC|TR|Q|CH|TS|RN)-[0-9A-HJKMNP-TV-Z]{26}$"
         },
         {
           "type": "null"

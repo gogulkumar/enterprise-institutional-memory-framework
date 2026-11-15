@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "log-test-run.schema.json",
+  "title": "test_run (RN)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "base.schema.json"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(RN)-[0-9A-HJKMNP-TV-Z]{26}$"
+        },
+        "kind": {
+          "const": "test_run"
+        },
+        "test": {
+          "enum": [
+            "reasoning",
+            "reproduction",
+            "behavioural"
+          ]
+        },
+        "scenario": {
+          "type": "string",
+          "pattern": "^(TS)-[0-9A-HJKMNP-TV-Z]{26}$"
+        },
+        "result": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "object"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "differences": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "traced_to": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(BV|TP|JD|RS|KB|DM|PR|SRC|TR|Q|CH|TS|RN)-[0-9A-HJKMNP-TV-Z]{26}$"
+          }
+        },
+        "fixed": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(BV|TP|JD|RS|KB|DM|PR|SRC|TR|Q|CH|TS|RN)-[0-9A-HJKMNP-TV-Z]{26}$"
+          }
+        },
+        "open": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(Q)-[0-9A-HJKMNP-TV-Z]{26}$"
+          }
+        }
+      },
+      "required": [
+        "test",
+        "scenario",
+        "result"
+      ]
+    }
+  ],
+  "unevaluatedProperties": false
+}

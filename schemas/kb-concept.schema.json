@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kb-concept.schema.json",
+  "title": "concept (KB)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "base.schema.json"
+    },
+    {
+      "$ref": "scope.schema.json"
+    },
+    {
+      "$ref": "time.schema.json"
+    },
+    {
+      "$ref": "provenance.schema.json"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(KB)-[0-9A-HJKMNP-TV-Z]{26}$"
+        },
+        "kind": {
+          "const": "concept"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "definition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sign_convention": {
+          "type": "string",
+          "minLength": 1
+        },
+        "synonyms": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "name",
+        "definition"
+      ]
+    }
+  ],
+  "unevaluatedProperties": false
+}

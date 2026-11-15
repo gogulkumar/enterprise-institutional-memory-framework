@@ -1,5 +1,5 @@
 ---
-title: Enterprise Institutional Memory Framework: Specification
+title: 'Enterprise Institutional Memory Framework: Specification'
 description: The framework's rulebook. The brain is centred on the owner's reasoning (business view, thinking patterns, judgments, response style), learns from any text, and is governed by proposals, trust levels and owner approval.
 purpose: Single source of truth for every rule; the skills, schemas and validator carry these rules out.
 when_to_use: Open when you need the exact rule, store, field or process step, then cite the section instead of copying it.
@@ -160,7 +160,7 @@ Relevance (section 7.3) is computed, never hand-edited. The case count is derive
 
 | Entry | Fields beyond the headers |
 |---|---|
-| **Business view** (`BV`) | `subject`, `what_normal_looks_like`, `what_usually_drives_it`, `what_is_fragile`, `what_i_watch_first`, `checked_against_data`, `origin` (`stated` or `pattern`) |
+| **Business view** (`BV`) | `subject`, `what_normal_looks_like`, `what_usually_drives_it`, `what_is_fragile`, `what_i_watch_first`, `checked_against_data`, `origin` (`stated` or `pattern`); pattern-origin entries also carry `source_concepts` (at least two knowledge base ids) and `watch_condition` |
 | **Thinking pattern** (`TP`) | `situation`, `first_questions` (ordered), `suspicion_triggers`, `hypotheses_in_order`, `why_this_order`, `checks` (each: hypothesis, what to look at, confirms if, rules out if), `stop_when`, `traps_i_avoid`, `judgments_applied`, `conditions` |
 | **Judgment** (`JD`) | `area` (materiality, driver_classification, cause_attribution, framing, inclusion_exclusion, escalation, investigation_priority, presentation), `rule` (written so it can only be applied one way), `applies_to`, `conditions` (thresholds as shares, with effective dates), `exceptions`, `alternatives_considered`, `reason`, `counter_examples`, `used_by` |
 | **Response style** (`RS`) | `audience`, `situation`, `lead_with`, `always_include`, `never_say`, `length_and_format`, `how_i_express_uncertainty`, `what_i_push_back_on` |
@@ -181,20 +181,20 @@ A business view entry with `origin: pattern` is a pattern found across events th
 | **Template** (`KB`) | `name`, `deliverable`, `location` (where the template file lives), `elements` (its fixed sections, slides or layout) |
 | **Deliverable profile** (`KB`) | `name`, `purpose`, `components`, `cadence_and_due`, `data_cutoff`, `audience`, `comparison_basis`, `inputs`, `structure`, `fed_by`, `feeds`, `review`, `done_when`, `procedures` |
 | **Procedure** (`PR`) | `purpose`, `inputs` (metric definitions, never figures), `steps` (each an action someone else could follow without guessing; at a decision it says "apply judgment X" or "follow thinking pattern Y" and never restates them), `output_pattern` (sentences or slide structure with blanks), `format_rules`, `example_with_blanks`, `self_checks` (what code verifies before handover) |
-| **Dependency link** (`DM`) | `from`, `to`, `type`, `path`, `direction`, `lag`, `evidence` (section 8) |
+| **Dependency link** (`DM`) | `from`, `to`, `type`, `path`, `direction` (`same`, `opposite`, `none`), `lag` (`same_period`, `next_period`, `unknown`), `evidence` (section 8) |
 | **Impact scope** (`DM`) | `entry`, `numbers_affected`, `deliverables_affected`, `reasoning_entries_affected`, `checked_not_affected` |
 
 ### 6.4 Sources and logs
 
 | Entry | Fields beyond the base block |
 |---|---|
-| **Artifact** (`SRC`) | `type` (commentary, slides, model, email, query_history, draft, note, chat, transcript, correction, other), `business_area`, `period`, `author`, `event_ids`, `version`, `location`, `approved_location`, `authority_rank`, `deliverable` (if any), `can_teach` (which stores), `cannot_teach`, `serves` (aim A, B, C or none) |
+| **Artifact** (`SRC`) | `type` (commentary, slides, model, email, query_history, draft, note, chat, transcript, correction, other), `business_area`, `period`, `author`, `event_ids`, `doc_version` (the document's own version; `version` is the entry's), `location`, `approved_location`, `authority_rank`, `deliverable` (if any), `can_teach` (store names), `cannot_teach`, `serves` (a list of `A`, `B`, `C`, or `none`) |
 | **Approved location** (`SRC`) | `location`, `what_it_holds`, `approved_by`, `approved_on` |
 | **Tool contract** (`SRC`) | `tool`, `capability`, `inputs`, `outputs`, `can_establish`, `cannot_establish`, `access_boundary` |
-| **Source authority rule** (`SRC`) | `question_type`, `preferred_source`, `fallback_order`, `reason`. Default rank: the owner's own statement; the owner's working traces (drafts, edits, query histories); the owner's finished work; other people's work; inference |
+| **Source authority rule** (`SRC`) | `question_type`, `preferred_source`, `fallback_order`, `reason`. Ranks, highest first: `owner_statement`, `owner_working_trace` (drafts, edits, query histories), `owner_finished_work`, `other_people`, `inference` |
 | **Trace** (`TR`) | `source`, `trace_id`, `date`, `task_or_question`, `steps` (looked at, because, noticed, thought, did next, predicted, match), `conclusion` (no figures), `response`, `extracted_into` |
 | **Question** (`Q`) | `raised_from`, `question`, `why_it_matters` (changes_reasoning, changes_a_number, style, or watch), `research_done`, `proposed_answer`, `status` (open, self_answered, answered), `answer` (the owner's words), `answer_scope`, `applied_to` |
-| **Change** (`CH`) | `date`, `entry`, `before`, `after`, `reason`, `caused_by` (session, file and location, answer or test) |
+| **Change** (`CH`) | `date`, `entry`, `before`, `after`, `reason`, `caused_by` (session, file and location, answer or test). Not a file: each change is one line in `logs/changes.md`, `CH-<ULID> \| date \| entry \| before \| after \| reason \| caused_by` |
 | **Scenario** (`TS`) | `situation`, `question`, `owner_trace` (hidden until scoring). Held out and never learned from |
 | **Test run** (`RN`) | `test`, `scenario`, `result` (per step), `differences`, `traced_to`, `fixed`, `open` |
 
@@ -217,7 +217,7 @@ Every entry states its `kind`. The prefix and the kind together name exactly one
 | `TR`, `Q`, `CH`, `TS`, `RN` | `trace`, `question`, `change`, `scenario`, `test_run` |
 
 - **Ids:** `<prefix>-<ULID>`, where the ULID is 26 characters of Crockford base32. A proposal file is named by a bare ULID.
-- **Files:** one entry per file, named `<id>.yaml`. An older version moves to `archive/` as `<id>.v<n>.yaml`.
+- **Files:** one entry per file, named `<id>.yaml`, except change records, which are lines in `logs/changes.md`. An older version moves to `archive/` as `<id>.v<n>.yaml`.
 - **Dates:** `YYYY-MM-DD`; `recorded_at` is an ISO date and time.
 - **Periods:** `YYYY`, `YYYY-Qn`, `YYYY-MM` or `YYYY-MM-DD`.
 - **Durations** (review windows, expiries): `<n><d|w|m|q|y>`, or `period` for "every period".
@@ -283,7 +283,7 @@ A contested entry must be resolved within one review window. It is listed at the
 ### 7.2 How sure an entry is
 
 `sureness` is separate from trust:
-- **stated:** the owner, or a text the owner authored, said it.
+- **stated:** the owner, or a text the owner authored, said it. A `stated` entry must have the owner in its provenance (`owner:<name>` or an artifact the owner authored).
 - **checked:** confirmed against the data or by a calculation.
 - **inferred:** the agent's own reasoning.
 
@@ -315,7 +315,7 @@ Default review windows, set in config:
 | Dependency links | Four quarters, or when either end changes |
 | Business events | None; they become historical when they end |
 
-New support or an owner confirmation resets the window. A changed entry is never edited in place: the old version gets a `valid_to` and moves to `archive/`, and a new version starts. For a question about a past period the agent uses the versions valid then. An entry learned recently is not more relevant than an older one.
+Kinds not listed use `review_windows.default` in config. New support or an owner confirmation resets the window. A changed entry is never edited in place: the old version gets a `valid_to` and moves to `archive/`, and a new version starts. For a question about a past period the agent uses the versions valid then. An entry learned recently is not more relevant than an older one.
 
 ---
 
@@ -449,7 +449,7 @@ A wrong guess about how the owner thinks costs far more than a question. But the
 
 ### 12.1 Proposals and the applier
 
-Neither Build nor Think edits memory directly. Every change is one proposal file. The applier takes a lock (`brain/.applier.lock`), processes proposals oldest first, validates each against the schemas, applies the automatic ones, parks the ones that need the owner, appends to the change log and regenerates the index. A proposal has `action`, `target`, `payload`, `evidence` (source and event ids) and `needs_ratification`.
+Neither Build nor Think edits memory directly. *Memory* means every store in section 5 except the logs. Every change to memory is one proposal file. Traces, questions, reports, test runs, working files in `passes/` and proposals themselves are written directly by the skill that produces them; the change log is written only by the applier. The applier takes a lock (`brain/.applier.lock`), processes proposals oldest first, validates each against the schemas, applies the automatic ones, parks the ones that need the owner, appends to the change log and regenerates the index. A proposal has `action`, `target`, `payload`, `evidence` (source and event ids) and `needs_ratification`.
 
 | Action | Effect | Needs the owner |
 |---|---|---|

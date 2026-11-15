@@ -19,6 +19,12 @@ SKIP_DIRS = {".git", "node_modules", "__pycache__", ".venv", "venv"}
 
 def markdown_files(roots):
     for root in roots:
+        if os.path.isfile(root):
+            if root.endswith(".md"):
+                yield root
+            continue
+        if not os.path.isdir(root):
+            raise SystemExit(f"no such file or folder: {root}")
         for folder, dirs, files in os.walk(root):
             dirs[:] = sorted(d for d in dirs if d not in SKIP_DIRS)
             for name in sorted(files):

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kb-calendar-point.schema.json",
+  "title": "calendar_point (KB)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "base.schema.json"
+    },
+    {
+      "$ref": "scope.schema.json"
+    },
+    {
+      "$ref": "time.schema.json"
+    },
+    {
+      "$ref": "provenance.schema.json"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(KB)-[0-9A-HJKMNP-TV-Z]{26}$"
+        },
+        "kind": {
+          "const": "calendar_point"
+        },
+        "date": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "what": {
+          "type": "string",
+          "minLength": 1
+        },
+        "effect": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "date",
+        "what",
+        "effect"
+      ]
+    }
+  ],
+  "unevaluatedProperties": false
+}

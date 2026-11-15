@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "src-authority-rule.schema.json",
+  "title": "authority_rule (SRC)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "base.schema.json"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(SRC)-[0-9A-HJKMNP-TV-Z]{26}$"
+        },
+        "kind": {
+          "const": "authority_rule"
+        },
+        "question_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "preferred_source": {
+          "enum": [
+            "owner_statement",
+            "owner_working_trace",
+            "owner_finished_work",
+            "other_people",
+            "inference"
+          ]
+        },
+        "fallback_order": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "owner_statement",
+              "owner_working_trace",
+              "owner_finished_work",
+              "other_people",
+              "inference"
+            ]
+          }
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "question_type",
+        "preferred_source",
+        "fallback_order",
+        "reason"
+      ]
+    }
+  ],
+  "unevaluatedProperties": false
+}

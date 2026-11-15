@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "log-scenario.schema.json",
+  "title": "scenario (TS)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "base.schema.json"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(TS)-[0-9A-HJKMNP-TV-Z]{26}$"
+        },
+        "kind": {
+          "const": "scenario"
+        },
+        "situation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner_trace": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^(TR)-[0-9A-HJKMNP-TV-Z]{26}$"
+            },
+            {
+              "type": "string",
+              "minLength": 1
+            }
+          ]
+        }
+      },
+      "required": [
+        "situation",
+        "question"
+      ]
+    }
+  ],
+  "unevaluatedProperties": false
+}

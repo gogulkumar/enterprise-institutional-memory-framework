@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kb-source-of-truth.schema.json",
+  "title": "source_of_truth (KB)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "base.schema.json"
+    },
+    {
+      "$ref": "scope.schema.json"
+    },
+    {
+      "$ref": "time.schema.json"
+    },
+    {
+      "$ref": "provenance.schema.json"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(KB)-[0-9A-HJKMNP-TV-Z]{26}$"
+        },
+        "kind": {
+          "const": "source_of_truth"
+        },
+        "number": {
+          "type": "string",
+          "minLength": 1
+        },
+        "final_source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "copies": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "how_copies_differ": {
+          "type": "string",
+          "minLength": 1
+        },
+        "final_when": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "number",
+        "final_source",
+        "final_when"
+      ]
+    }
+  ],
+  "unevaluatedProperties": false
+}

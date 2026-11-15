@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "business-view.schema.json",
+  "title": "business_view (BV)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "base.schema.json"
+    },
+    {
+      "$ref": "scope.schema.json"
+    },
+    {
+      "$ref": "time.schema.json"
+    },
+    {
+      "$ref": "governed.schema.json"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(BV)-[0-9A-HJKMNP-TV-Z]{26}$"
+        },
+        "kind": {
+          "const": "business_view"
+        },
+        "subject": {
+          "type": "string",
+          "minLength": 1
+        },
+        "what_normal_looks_like": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          ]
+        },
+        "what_usually_drives_it": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          ]
+        },
+        "what_is_fragile": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          ]
+        },
+        "what_i_watch_first": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          ]
+        },
+        "checked_against_data": {
+          "enum": [
+            "yes",
+            "no",
+            "partly"
+          ]
+        },
+        "origin": {
+          "enum": [
+            "stated",
+            "pattern"
+          ]
+        },
+        "watch_condition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_concepts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(KB)-[0-9A-HJKMNP-TV-Z]{26}$"
+          }
+        }
+      },
+      "required": [
+        "subject",
+        "what_normal_looks_like",
+        "what_usually_drives_it",
+        "what_is_fragile",
+        "what_i_watch_first",
+        "checked_against_data",
+        "origin"
+      ],
+      "if": {
+        "properties": {
+          "origin": {
+            "const": "pattern"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "then": {
+        "required": [
+          "watch_condition",
+          "source_concepts"
+        ],
+        "properties": {
+          "source_concepts": {
+            "minItems": 2
+          }
+        }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
+}

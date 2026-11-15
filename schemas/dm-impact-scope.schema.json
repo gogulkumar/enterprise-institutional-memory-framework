@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dm-impact-scope.schema.json",
+  "title": "impact_scope (DM)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "base.schema.json"
+    },
+    {
+      "$ref": "time.schema.json"
+    },
+    {
+      "$ref": "governed.schema.json"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(DM)-[0-9A-HJKMNP-TV-Z]{26}$"
+        },
+        "kind": {
+          "const": "impact_scope"
+        },
+        "entry": {
+          "type": "string",
+          "pattern": "^(BV|TP|JD|RS|KB|DM|PR|SRC|TR|Q|CH|TS|RN)-[0-9A-HJKMNP-TV-Z]{26}$"
+        },
+        "numbers_affected": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(KB)-[0-9A-HJKMNP-TV-Z]{26}$"
+          }
+        },
+        "deliverables_affected": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            {
+              "type": "object"
+            }
+          ]
+        },
+        "reasoning_entries_affected": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(BV|TP|JD|RS|KB|DM|PR|SRC|TR|Q|CH|TS|RN)-[0-9A-HJKMNP-TV-Z]{26}$"
+          }
+        },
+        "checked_not_affected": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(BV|TP|JD|RS|KB|DM|PR|SRC|TR|Q|CH|TS|RN)-[0-9A-HJKMNP-TV-Z]{26}$"
+          }
+        }
+      },
+      "required": [
+        "entry",
+        "numbers_affected",
+        "deliverables_affected",
+        "reasoning_entries_affected",
+        "checked_not_affected"
+      ]
+    }
+  ],
+  "unevaluatedProperties": false
+}

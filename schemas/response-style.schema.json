@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "response-style.schema.json",
+  "title": "response_style (RS)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "base.schema.json"
+    },
+    {
+      "$ref": "scope.schema.json"
+    },
+    {
+      "$ref": "time.schema.json"
+    },
+    {
+      "$ref": "governed.schema.json"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(RS)-[0-9A-HJKMNP-TV-Z]{26}$"
+        },
+        "kind": {
+          "const": "response_style"
+        },
+        "audience": {
+          "type": "string",
+          "minLength": 1
+        },
+        "situation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead_with": {
+          "type": "string",
+          "minLength": 1
+        },
+        "always_include": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "never_say": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "length_and_format": {
+          "type": "string",
+          "minLength": 1
+        },
+        "how_i_express_uncertainty": {
+          "type": "string",
+          "minLength": 1
+        },
+        "what_i_push_back_on": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "audience",
+        "situation",
+        "lead_with",
+        "always_include",
+        "never_say",
+        "length_and_format",
+        "how_i_express_uncertainty",
+        "what_i_push_back_on"
+      ]
+    }
+  ],
+  "unevaluatedProperties": false
+}

@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "judgment.schema.json",
+  "title": "judgment (JD)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "base.schema.json"
+    },
+    {
+      "$ref": "scope.schema.json"
+    },
+    {
+      "$ref": "time.schema.json"
+    },
+    {
+      "$ref": "governed.schema.json"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(JD)-[0-9A-HJKMNP-TV-Z]{26}$"
+        },
+        "kind": {
+          "const": "judgment"
+        },
+        "area": {
+          "enum": [
+            "materiality",
+            "driver_classification",
+            "cause_attribution",
+            "framing",
+            "inclusion_exclusion",
+            "escalation",
+            "investigation_priority",
+            "presentation"
+          ]
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "applies_to": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          ]
+        },
+        "conditions": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          ]
+        },
+        "exceptions": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          ]
+        },
+        "alternatives_considered": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "counter_examples": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "used_by": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(BV|TP|JD|RS|KB|DM|PR|SRC|TR|Q|CH|TS|RN)-[0-9A-HJKMNP-TV-Z]{26}$"
+          }
+        }
+      },
+      "required": [
+        "area",
+        "rule",
+        "applies_to",
+        "conditions",
+        "exceptions",
+        "alternatives_considered",
+        "reason",
+        "counter_examples",
+        "used_by"
+      ]
+    }
+  ],
+  "unevaluatedProperties": false
+}
